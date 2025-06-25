@@ -14,7 +14,7 @@ import Footer from "./components/Footer";
 const NewsAndActivities = React.lazy(() => import("./pages/NewsAndActivities"));
 const ActivityDetail = React.lazy(() => import("./pages/ActivityDetail"));
 const TeamDetail = React.lazy(() => import("./pages/TeamDetail"));
-const PatientResources = React.lazy(() => import("./pages/PatientResources"));
+const PatientInformation = React.lazy(() => import("./pages/PatientInformation"));
 const Home = React.lazy(() => import("./pages/Home"));
 const ContactPage = React.lazy(() => import("./routes/ContactPage"));
 const TeamAll = React.lazy(() => import("./pages/TeamAll"));
@@ -28,7 +28,7 @@ function App() {
           <React.Suspense
             fallback={
               <div className="min-h-screen flex items-center justify-center">
-                Loading ...
+                <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-orange-500"></div>
               </div>
             }
           >
@@ -38,7 +38,7 @@ function App() {
               <Route path="/activities/:id" element={<ActivityDetail />} />
               <Route path="/team" element={<TeamAll />} />
               <Route path="/team/:id" element={<TeamDetail />} />
-              <Route path="/resources" element={<PatientResources />} />
+              <Route path="/patient-information" element={<PatientInformation />} />
               <Route path="/contact" element={<ContactPage />} />
               <Route path="*" element={<Navigate to="/" replace />} />
             </Routes>
