@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Patient Guardian Gap Assessment</title>
+    <!-- Font Awesome -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- MDB -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.0/mdb.min.css"
+      rel="stylesheet"
+    />
+    <link href="style.css" rel="stylesheet" />
+    <style>
+      .sub-question {
+        display: none;
+        margin-left: 20px;
+      }
+      .overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 9999;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .spinner-grow {
+        color: #fff;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="mx-0 mx-sm-auto">
+        <div class="card">
+          <div class="card-header" style="background-color: #ed7133">
+            <h5 class="card-title text-white mt-2 text-center" >
+              Patient Guardian Gap Assessment Form
+            </h5>
+          </div>
+          <div class="modal-body">
+           
+
+            <hr />
+
+            <form class="px-4" id="dynamicForm">
+              <!-- question 1 -->
+              <p id="sub_title">1. DUE DILIGENCE & CARE</p>
+              <p id="sub_title">i. Family-centred approach to care</p>
+              <p>Are you routinely offered counselling upon diagnosis and treatment of your  child with a paediatric rheumatology disease?</p>
+
+              <div class="form-check mb-2">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="q1"
+                  value="yes"
+                />
+                <label class="form-check-label"> Yes </label>
+              </div>
+              <div class="form-check mb-2">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="q1"
+                  value="no"
+                />
+                <label class="form-check-label"> No </label>
+              </div>
+
+              <p>Do you have counselling services available at your health facility?</p>
+
+              <div class="form-check mb-2">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="q2"
+                  value="yes"
+                />
+                <label class="form-check-label"> Yes </label>
+              </div>
+              <div class="form-check mb-2">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="q2"
+                  value="no"
+                />
+                <label class="form-check-label"> No </label>
+              </div>
+
+              <p>Do you have Paediatric Rheumatology Support Groups at you health facility ? </p>
+
+              <div class="form-check mb-2">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="q3"
+                  value="yes"
+                />
+                <label class="form-check-label"> Yes </label>
+              </div>
+              <div class="form-check mb-2">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="q3"
+                  value="no"
+                />
+                <label class="form-check-label"> No </label>
+              </div>
+
+              <p id="sub_title">2. RESPECT AND DIGNITY OF THE PATIENT AND GUARDIAN</p>
+              <p>
+                At your health facility, do you have private confidential rooms available for your child's paediatric rheumatology clinical visits?
+              </p>
+
+              <div class="form-check mb-2">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="q4"
+                  value="yes"
+                />
+                <label class="form-check-label"> Yes </label>
+              </div>
+              <div class="form-check mb-2">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="q4"
+                  value="no"
+                />
+                <label class="form-check-label"> No </label>
+              </div>
+
+              <p id="sub_title">3.  OPEN AND EFFECTIVE COMMUNICATION </p>
+              <p>Do you routinely receive explanation and literature on paediatric rheumatology diagnosis, treatment plan and medication monitoring ?</p>
+
+              <div class="form-check mb-2">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="q5"
+                  value="yes"
+                />
+                <label class="form-check-label"> Yes </label>
+              </div>
+              <div class="form-check mb-2">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="q5"
+                  value="no"
+                />
+                <label class="form-check-label"> No </label>
+              </div>
+
+              <p>Do you receive alert reminders for clinical appointments and investigations?</p>
+
+              <div class="form-check mb-2">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="q6"
+                  value="yes"
+                />
+                <label class="form-check-label"> Yes </label>
+              </div>
+              <div class="form-check mb-2">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="q6"
+                  value="no"
+                />
+                <label class="form-check-label"> No </label>
+              </div>
+
+
+
+              <br /><br />
+            </form>
+          </div>
+          
+          <div id="overlay" class="overlay">
+            <div class="spinner-grow spinner-grow-xl" role="status">
+              <span class="visually-hidden">Loading...</span>
+            </div>
+          </div>
+                    <!-- SuggestionModal -->
+                    <div
+                    class="modal fade"
+                    id="suggestionModal"
+                    tabindex="-1"
+                    aria-labelledby="suggestionModalLabel"
+                    aria-hidden="true"
+                  >
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <img class="modal-title" width="31%" src="hopelogo 1.png" />
+        
+                          <button
+                            type="button"
+                            class="btn-close"
+                            data-mdb-dismiss="modal"
+                            aria-label="Close"
+                          ></button>
+                        </div>
+                        <div class="modal-body">
+                          <h5 id="suggestionModalLabel">Suggestions</h5>
+                          <p style="font-weight: lighter">
+                            Based on your assesment results, here are some suggestions
+                            that we offer to you.
+                          </p>
+        
+                          <hr />
+        
+                          <div class="row suggestions_row" style="margin-bottom: 20px">
+                            <div class="col-md-6">Virtual Consults</div>
+                            <div class="col-md-6" style="text-align: right">
+                              <a href="https://app.hopearthritisfoundation.com/" target="_blank"><button
+                                type="button"
+                                class="btn btn-success"
+                                style="background-color: #58934c"
+                              >
+                                Get Access
+                              </button></a>
+                            </div>
+                          </div>
+                          <div class="row suggestions_row" style="margin-bottom: 20px">
+                            <div class="col-md-6">Educational Programs</div>
+                            <div class="col-md-6" style="text-align: right">
+                                <a href="https://app.hopearthritisfoundation.com/" target="_blank"><button
+                                type="button"
+                                class="btn btn-success"
+                                style="background-color: #58934c"
+                              >
+                                Get Access
+                              </button></a>
+                            </div>
+                          </div>
+                          <div class="row suggestions_row" style="margin-bottom: 20px">
+                            <div class="col-md-8">
+                              Structured Clinical Paediatric Rheumatology Forms
+                            </div>
+                            <div class="col-md-4" style="text-align: right">
+                                <a href="https://app.hopearthritisfoundation.com/" target="_blank"> <button
+                                type="button"
+                                class="btn btn-success"
+                                style="background-color: #58934c"
+                              >
+                                Get Access
+                              </button></a>
+                            </div>
+                          </div>
+                          <div class="row suggestions_row" style="margin-bottom: 20px">
+                            <div class="col-md-6">Access to Resource List</div>
+                            <div class="col-md-6" style="text-align: right">
+                                <a href="https://app.hopearthritisfoundation.com/" target="_blank"> <button
+                                type="button"
+                                class="btn btn-success"
+                                style="background-color: #58934c"
+                              >
+                                Get Access
+                              </button></a>
+                            </div>
+                          </div>
+                          <div id="suggestions_row"></div>
+                        </div>
+                        <div class="modal-footer">
+                          <button
+                            type="button"
+                            class="btn btn-secondary"
+                            data-mdb-dismiss="modal"
+                            style="background-color: #068c96; color: white"
+                          >
+                            Close
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- alrightModal -->
+                  <div
+                  class="modal fade"
+                  id="alrightModal"
+                  tabindex="-1"
+                  aria-labelledby="alrightModalLabel"
+                  aria-hidden="true"
+                >
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <img class="modal-title" width="31%" src="hopelogo 1.png" />
+      
+                        <button
+                          type="button"
+                          class="btn-close"
+                          data-mdb-dismiss="modal"
+                          aria-label="Close"
+                        ></button>
+                      </div>
+                      <div class="modal-body">
+                        <div class="text-center">
+                          <i class="far fa-circle-check fa-2x" style="color: green;"></i><h5 style="padding-left: 10px;">Congratulations!!</h5>
+                        </div>
+        
+                         <p style="font-weight: lighter">
+                           Based on your assesment results, we have found you compliant.
+                         </p>
+        
+                         <hr />
+                       </div>
+                      <div class="modal-footer">
+                        <button
+                          type="button"
+                          class="btn btn-secondary"
+                          data-mdb-dismiss="modal"
+                          style="background-color: #068c96; color: white"
+                        >
+                          Close
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+          <div class="card-footer text-end">
+            <input
+              type="button"
+              class="btn btn-primary"
+              value="Submit"
+              style="background-color: #068c96"
+              onclick="submitForm()"
+            />
+            <a href="https://hopearthritisfoundation.com"><button class="btn btn-primary">Go to Home</button></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+  <!-- MDB -->
+  <script
+    type="text/javascript"
+    src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.0/mdb.min.js"
+  ></script>
+  <script>
+    function showSubQuestions(questionId) {
+      console.log(questionId.slice(1));
+      const subQuestions = document.getElementById(
+        `subQuestions${questionId.slice(1)}`
+      );
+      subQuestions.style.display = "block";
+    }
+
+    function hideSubQuestions(questionId) {
+      const subQuestions = document.getElementById(
+        `subQuestions${questionId.slice(1)}`
+      );
+      subQuestions.style.display = "none";
+    }
+
+    function submitForm() {
+      const overlay = document.getElementById("overlay");
+      overlay.style.display = "flex";
+      // Simulate form submission delay (2 seconds)
+      setTimeout(function () {
+        overlay.style.display = "none";
+        const form = document.getElementById("dynamicForm");
+        const formData = new FormData(form);
+        let hasNoResponse = false;
+
+        for (const [key, value] of formData.entries()) {
+          if (value === "no") {
+            hasNoResponse = true;
+            break;
+          }
+        }
+
+        if (hasNoResponse) {
+          var myModal = new mdb.Modal(document.getElementById("suggestionModal"));
+          myModal.show();
+        } else {
+          var myModal = new mdb.Modal(document.getElementById("alrightModal"));
+          myModal.show();
+          
+        }
+      }, 2000);
+
+    }
+
+        // Get all the rows
+        const rows = Array.from(document.getElementsByClassName("suggestions_row"));
+
+// Shuffle the rows randomly
+rows.sort(() => Math.random() - 0.5);
+
+// Create a modal element
+const modal = document.getElementById("suggestions_row");
+
+// Append the randomized rows to the modal
+rows.forEach(row => {
+  modal.appendChild(row);
+});
+  </script>
+</html>

@@ -1,0 +1,1877 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Health Worker Gap Assessment</title>
+    <!-- Font Awesome -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- MDB -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.0/mdb.min.css"
+      rel="stylesheet"
+    />
+    <link href="style.css" rel="stylesheet" />
+    <style>
+      .sub-question {
+        /* display: none; */
+        margin-left: 20px;
+      }
+      .overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 9999;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .spinner-grow {
+        color: #fff;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="mx-0 mx-sm-auto">
+        <div class="card">
+          <div class="card-header" style="background-color: #ed7133">
+            <h5 class="card-title text-white mt-2 text-center" >
+              Health Worker Gap Assessment Form
+            </h5>
+          </div>
+          <div class="modal-body">
+            <div id="title_header">
+              <p>
+                <strong>QUALITY OF LIFE OF PAEDIATRIC RHEUMATOLOGY PATIENTS</strong>
+              </p>
+            </div>
+
+            <hr />
+
+            <form class="px-4" id="dynamicForm">
+              <!-- question 1 -->
+              <p id="sub_title">1. PAIN ASSESSMENT</p>
+              <p>Do you routinely assess the Child's pain in clinical follow up of paediatric rheumatology patients?</p>
+
+              <div class="form-check mb-2">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="q1"
+                  value="yes"
+                />
+                <label class="form-check-label"> Yes </label>
+              </div>
+              <div class="form-check mb-2">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="q1"
+                  value="no"
+                />
+                <label class="form-check-label"> No </label>
+              </div>
+
+              <p>Do you routinely inquire about the Parent/Guardians Assessment of Pain for their paediatric rheumatology patients?</p>
+
+              <div class="form-check mb-2">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="q2"
+                  value="yes"
+                />
+                <label class="form-check-label"> Yes </label>
+              </div>
+              <div class="form-check mb-2">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="q2"
+                  value="no"
+                />
+                <label class="form-check-label"> No </label>
+              </div>
+
+              <!-- <div id="subQuestions1" class="sub-question">
+                <div id="sub_container">
+                  <label for="q1a"
+                    >a) Check if Child's pain score is captured in clinical
+                    visits?</label
+                  >
+                  <br />
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="q1a"
+                    value="no"
+                  />
+                  <label class="form-check-label"> No </label><br />
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="q1a"
+                    value="no"
+                  />
+                  <label class="form-check-label"> Yes </label>
+                </div>
+              </div> -->
+
+              <!-- question 2 -->
+              <!-- <p>Is there Parent/Guardians Assessment of Pain?</p>
+
+              <div class="form-check mb-2">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="q2"
+                  value="yes"
+                  onchange="showSubQuestions('q2')"
+                />
+                <label class="form-check-label"> Yes </label>
+              </div>
+              <div class="form-check mb-2">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="q2"
+                  value="no"
+                  onchange="hideSubQuestions('q2')"
+                />
+                <label class="form-check-label"> No </label>
+              </div>
+
+              <div id="subQuestions2" class="sub-question">
+                <div id="sub_container">
+                  <label for="q2a"
+                    >a) Check if Guardians pain score is captured in clinical
+                    visits?</label
+                  >
+                  <br />
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="q2a"
+                    value="no"
+                  />
+                  <label class="form-check-label"> No </label><br />
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="q2a"
+                    value="no"
+                  />
+                  <label class="form-check-label"> Yes </label>
+                </div>
+              </div> -->
+
+              <!-- question 3 -->
+              <!-- <p>Is there Healthworkers Assessment of Pain?</p>
+
+              <div class="form-check mb-2">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="q3"
+                  value="yes"
+                  onchange="showSubQuestions('q3')"
+                />
+                <label class="form-check-label"> Yes </label>
+              </div>
+              <div class="form-check mb-2">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="q3"
+                  value="no"
+                  onchange="hideSubQuestions('q3')"
+                />
+                <label class="form-check-label"> No </label>
+              </div>
+
+              <div id="subQuestions3" class="sub-question">
+                <div id="sub_container">
+                  <label for="q3a"
+                    >a) Check if healthworkers pain score is captured in
+                    clinical visits?</label
+                  >
+                  <br />
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="q3a"
+                    value="no"
+                  />
+                  <label class="form-check-label"> No </label><br />
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="q3a"
+                    value="no"
+                  />
+                  <label class="form-check-label"> Yes </label>
+                </div>
+              </div> -->
+
+              <!-- question 3-->
+              <p id="sub_title">2. FUNCTIONAL ASSESSMENT</p>
+              <p>Do you routinely inquire about the  Child's Self Functional Assessment during clinical follow up?</p>
+
+              <div class="form-check mb-2">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="q3"
+                  value="yes"
+                />
+                <label class="form-check-label"> Yes </label>
+              </div>
+              <div class="form-check mb-2">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="q3"
+                  value="no"
+                />
+                <label class="form-check-label"> No </label>
+              </div>
+
+              <!-- <div id="subQuestions4" class="sub-question">
+                <div id="sub_container">
+                  <label for="q4a"
+                    >a) Does it Check if self care activities are
+                    reported?</label
+                  >
+                  <br />
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="q4a"
+                    value="no"
+                  />
+                  <label class="form-check-label"> No </label><br />
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="q4a"
+                    value="no"
+                  />
+                  <label class="form-check-label"> Yes </label>
+                </div>
+
+                <div id="sub_container">
+                  <label for="q4b"
+                    >b) Does it Check if there is an inquiry on day to day
+                    limitations on activities of daily living?
+                  </label>
+                  <br />
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="q4b"
+                    value="no"
+                  />
+                  <label class="form-check-label"> No </label><br />
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="q4b"
+                    value="no"
+                  />
+                  <label class="form-check-label"> Yes </label>
+                </div>
+
+                <div id="sub_container">
+                  <label for="q4c"
+                    >c) Does it Check if they seek feedback from patients on
+                    service offered?
+                  </label>
+                  <br />
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="q4c"
+                    value="no"
+                  />
+                  <label class="form-check-label"> No </label><br />
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="q4c"
+                    value="no"
+                  />
+                  <label class="form-check-label"> Yes </label>
+                </div>
+              </div> -->
+
+              <!-- question 4-->
+              <p>
+                Do you routinely inquire about the Child's self-care activities during clinical follow up?
+              </p>
+
+              <div class="form-check mb-2">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="q4"
+                  value="yes"
+                />
+                <label class="form-check-label"> Yes </label>
+              </div>
+              <div class="form-check mb-2">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="q4"
+                  value="no"
+                />
+                <label class="form-check-label"> No </label>
+              </div>
+
+              <!-- <div id="subQuestions5" class="sub-question">
+                <div id="sub_container">
+                  <label for="q5a"
+                    >a) Check if self care activities are reported?
+                  </label>
+                  <br />
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="q5a"
+                    value="no"
+                  />
+                  <label class="form-check-label"> No </label><br />
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="q5a"
+                    value="no"
+                  />
+                  <label class="form-check-label"> Yes </label>
+                </div>
+
+                <div id="sub_container">
+                  <label for="q5b"
+                    >b) Check if there is an inquiry on day to day limitations
+                    on activities of daily living?
+                  </label>
+                  <br />
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="q5b"
+                    value="no"
+                  />
+                  <label class="form-check-label"> No </label><br />
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="q5b"
+                    value="no"
+                  />
+                  <label class="form-check-label"> Yes </label>
+                </div>
+              </div> -->
+
+              <!-- question 5-->
+              <p>Do you routinely inquire about the Child's limitations on activities of daily living?</p>
+
+              <div class="form-check mb-2">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="q5"
+                  value="yes"
+                />
+                <label class="form-check-label"> Yes </label>
+              </div>
+              <div class="form-check mb-2">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="q5"
+                  value="no"
+                />
+                <label class="form-check-label"> No </label>
+              </div>
+
+              <p>Do you routinely inquire about Parent/Guardian(s) Functional Assessment of the Child?</p>
+
+              <div class="form-check mb-2">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="q6"
+                  value="yes"
+                />
+                <label class="form-check-label"> Yes </label>
+              </div>
+              <div class="form-check mb-2">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="q6"
+                  value="no"
+                />
+                <label class="form-check-label"> No </label>
+              </div>
+
+
+              <p>Do you seek feedback from patients on clinical services offered?</p>
+
+              <div class="form-check mb-2">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="q7"
+                  value="yes"
+                />
+                <label class="form-check-label"> Yes </label>
+              </div>
+              <div class="form-check mb-2">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="q7"
+                  value="no"
+                />
+                <label class="form-check-label"> No </label>
+              </div>
+              <!-- <div id="subQuestions6" class="sub-question">
+                <div id="sub_container">
+                  <label for="q6a"
+                    >a) Check if self care activities are reported?
+                  </label>
+                  <br />
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="q6a"
+                    value="no"
+                  />
+                  <label class="form-check-label"> No </label><br />
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="q6a"
+                    value="no"
+                  />
+                  <label class="form-check-label"> Yes </label>
+                </div>
+
+                <div id="sub_container">
+                  <label for="q6b"
+                    >b) Check if there is an inquiry on day to day limitations
+                    on activities of daily living?
+                  </label>
+                  <br />
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="q6b"
+                    value="no"
+                  />
+                  <label class="form-check-label"> No </label><br />
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="q6b"
+                    value="no"
+                  />
+                  <label class="form-check-label"> Yes </label>
+                </div>
+              </div> -->
+
+              <!-- question 8-->
+              <p id="sub_title">3. FOLLOW-UP CARE</p>
+              <p>Are the subsequent clinical appointments captured in clinical forms?</p>
+
+              <div class="form-check mb-2">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="q8"
+                  value="yes"
+                />
+                <label class="form-check-label"> Yes </label>
+              </div>
+              <div class="form-check mb-2">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="q8"
+                  value="no"
+                />
+                <label class="form-check-label"> No </label>
+              </div>
+
+              <!-- <div id="subQuestions7" class="sub-question">
+                <div id="sub_container">
+                  <label for="q7a"
+                    >a) Check if next appointments captured in clinical forms?
+                  </label>
+                  <br />
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="q7a"
+                    value="no"
+                  />
+                  <label class="form-check-label"> No </label><br />
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="q7a"
+                    value="no"
+                  />
+                  <label class="form-check-label"> Yes </label>
+                </div>
+
+                <div id="sub_container">
+                  <label for="q7b"
+                    >b) Do you Check if reminders are sent to patients?
+                  </label>
+                  <br />
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="q7b"
+                    value="no"
+                  />
+                  <label class="form-check-label"> No </label><br />
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="q7b"
+                    value="no"
+                  />
+                  <label class="form-check-label"> Yes </label>
+                </div>
+              </div> -->
+
+              <!-- question 9 -->
+              <p>Does your health facility send alerts as reminders to patients to attend their clinical appointments?</p>
+
+              <div class="form-check mb-2">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="q9"
+                  value="yes"
+                />
+                <label class="form-check-label"> Yes </label>
+              </div>
+              <div class="form-check mb-2">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="q9"
+                  value="no"
+                />
+                <label class="form-check-label"> No </label>
+              </div>
+
+              <!-- <div id="subQuestions8" class="sub-question">
+                <div id="sub_container">
+                  <label for="q8a"
+                    >a) Check if next investigations are captured in clinical
+                    forms?</label
+                  >
+                  <br />
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="q8a"
+                    value="no"
+                  />
+                  <label class="form-check-label"> No </label><br />
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="q8a"
+                    value="no"
+                  />
+                  <label class="form-check-label"> Yes </label>
+                </div>
+
+                <div id="sub_container">
+                  <label for="q8b"
+                    >b) Check if reminders are sent to patients ?<br />
+                  </label>
+                  <br />
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="q8b"
+                    value="no"
+                  />
+                  <label class="form-check-label"> No </label><br />
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="q8b"
+                    value="no"
+                  />
+                  <label class="form-check-label"> Yes </label>
+                </div>
+              </div> -->
+
+              <!-- question 10 -->
+              <p>Do the clinical forms capture subsequent scheduled investigations?</p>
+
+              <div class="form-check mb-2">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="q10"
+                  value="yes"
+                />
+                <label class="form-check-label"> Yes </label>
+              </div>
+              <div class="form-check mb-2">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="q10"
+                  value="no"
+                />
+                <label class="form-check-label"> No </label>
+              </div>
+
+              <!-- <div id="subQuestions9" class="sub-question">
+                <div id="sub_container">
+                  <label for="q9a"
+                    >a) Check if medications prescribed last until next
+                    visit?</label
+                  >
+                  <br />
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="q9a"
+                    value="no"
+                  />
+                  <label class="form-check-label"> No </label><br />
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="q9a"
+                    value="no"
+                  />
+                  <label class="form-check-label"> Yes </label>
+                </div>
+
+                <div id="sub_container">
+                  <label for="q9b"
+                    >b) Check if reminders are sent to patients for medication
+                    refills ?<br />
+                  </label>
+                  <br />
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="q9b"
+                    value="no"
+                  />
+                  <label class="form-check-label"> No </label><br />
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="q9b"
+                    value="no"
+                  />
+                  <label class="form-check-label"> Yes </label>
+                </div>
+              </div> -->
+
+              <!-- question 11 -->
+              <p id="sub_title">4. SAFETY ASSESSMENT</p>
+              <p>
+                Do you routinely screen for  HIV, TB,Hepatitis B and Hepatitis C  before intitating longterm immunosuppressive therapy?
+              </p>
+
+              <div class="form-check mb-2">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="q11"
+                  value="yes"
+                />
+                <label class="form-check-label"> Yes </label>
+              </div>
+              <div class="form-check mb-2">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="q11"
+                  value="no"
+                />
+                <label class="form-check-label"> No </label>
+              </div>
+
+              <!-- <div id="subQuestions10" class="sub-question">
+                <div id="sub_container">
+                  <label for="q10a"
+                    >a) Check if HIV, TB,Hepatitis B and Hepatitis C are
+                    routinely screened before intitating longterm
+                    therapy?</label
+                  >
+                  <br />
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="q10a"
+                    value="no"
+                  />
+                  <label class="form-check-label"> No </label><br />
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="q10a"
+                    value="no"
+                  />
+                  <label class="form-check-label"> Yes </label>
+                </div>
+              </div> -->
+
+              <!-- question 12 -->
+
+              <p>Do you routinely carry out complete blood count, liver function and kidney function tests  to assess for medication side effects?</p>
+
+              <div class="form-check mb-2">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="q12"
+                  value="yes"
+                />
+                <label class="form-check-label"> Yes </label>
+              </div>
+              <div class="form-check mb-2">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="q12"
+                  value="no"
+                />
+                <label class="form-check-label"> No </label>
+              </div>
+
+              <!-- <div id="subQuestions11" class="sub-question">
+                <div id="sub_container">
+                  <label for="q11a"
+                    >a) Check if there are regular blood, liver and kidney tests
+                    to assess for medication side effects?</label
+                  >
+                  <br />
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="q11a"
+                    value="no"
+                  />
+                  <label class="form-check-label"> No </label><br />
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="q11a"
+                    value="no"
+                  />
+                  <label class="form-check-label"> Yes </label>
+                </div>
+              </div> -->
+
+              <!-- question 13 -->
+
+              <p>Does your health facility have an adverse event reporting framework?</p>
+
+              <div class="form-check mb-2">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="q13"
+                  value="yes"
+                />
+                <label class="form-check-label"> Yes </label>
+              </div>
+              <div class="form-check mb-2">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="q13"
+                  value="no"
+                />
+                <label class="form-check-label"> No </label>
+              </div>
+
+              <!-- <div id="subQuestions12" class="sub-question">
+                <div id="sub_container">
+                  <label for="q12a"
+                    >a) Check if they have an adverse reporting
+                    framework?</label
+                  >
+                  <br />
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="q12a"
+                    value="no"
+                  />
+                  <label class="form-check-label"> No </label><br />
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="q12a"
+                    value="no"
+                  />
+                  <label class="form-check-label"> Yes </label>
+                </div>
+              </div> -->
+
+              <br />
+        
+            
+         
+              <p id="sub_title">5. DUE DILIGENCE & CARE</p>
+
+              <!-- question 14 -->
+              <p id="sub_title">i. Family-centred approach to care</p>
+              <p> Do you routinely offer counselling on diagnosis and treatment to your paediatric rheumatology patient(s) and their guardian(s) ? </p>
+
+              <div class="form-check mb-2">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="q14"
+                  value="yes"
+                />
+                <label class="form-check-label"> Yes </label>
+              </div>
+              <div class="form-check mb-2">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="q14"
+                  value="no"
+                />
+                <label class="form-check-label"> No </label>
+              </div>
+
+              <!-- <div id="subQuestions13" class="sub-question">
+                <div id="sub_container">
+                  <label for="q13a"
+                    >a) Check if captured in clinical progress form?</label
+                  >
+                  <br />
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="q13a"
+                    value="no"
+                  />
+                  <label class="form-check-label"> No </label><br />
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="q13a"
+                    value="no"
+                  />
+                  <label class="form-check-label"> Yes </label>
+                </div>
+
+                <div id="sub_container">
+                  <label for="q13b"
+                    >b) Check if have counselling services available ?<br />
+                  </label>
+                  <br />
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="q13b"
+                    value="no"
+                  />
+                  <label class="form-check-label"> No </label><br />
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="q13b"
+                    value="no"
+                  />
+                  <label class="form-check-label"> Yes </label>
+                </div>
+              </div> -->
+
+              <!-- question 15 -->
+              <p>Do you have counselling services available at your health facility?</p>
+
+              <div class="form-check mb-2">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="q15"
+                  value="yes"
+                />
+                <label class="form-check-label"> Yes </label>
+              </div>
+              <div class="form-check mb-2">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="q15"
+                  value="no"
+                />
+                <label class="form-check-label"> No </label>
+              </div>
+
+              <p>Do you have Paediatric Rheumatology Support Groups at you health facility ? </p>
+
+              <div class="form-check mb-2">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="q16"
+                  value="yes"
+                />
+                <label class="form-check-label"> Yes </label>
+              </div>
+              <div class="form-check mb-2">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="q16"
+                  value="no"
+                />
+                <label class="form-check-label"> No </label>
+              </div>
+
+              <!-- <div id="subQuestions14" class="sub-question">
+                <div id="sub_container">
+                  <label for="q14a"
+                    >a) Check if Patient support groups exist?</label
+                  >
+                  <br />
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="q14a"
+                    value="no"
+                  />
+                  <label class="form-check-label"> No </label><br />
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="q14a"
+                    value="no"
+                  />
+                  <label class="form-check-label"> Yes </label>
+                </div>
+              </div> -->
+
+              <!-- question 17 -->
+              <p id="sub_title">ii. RESPECT AND DIGNITY OF THE PATIENT AND GUARDIAN</p>
+
+              <p>
+                Do you have private confidential rooms available for your paediatric rheumatology clinical consults?
+              </p>
+
+              <div class="form-check mb-2">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="q17"
+                  value="yes"
+                />
+                <label class="form-check-label"> Yes </label>
+              </div>
+              <div class="form-check mb-2">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="q17"
+                  value="no"
+                />
+                <label class="form-check-label"> No </label>
+              </div>
+
+              <!-- <div id="subQuestions15" class="sub-question">
+                <div id="sub_container">
+                  <label for="q15a"
+                    >a) Check if private confidential rooms exist?</label
+                  >
+                  <br />
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="q15a"
+                    value="no"
+                    
+                  />
+                  <label class="form-check-label"> No </label><br />
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="q15a"
+                    value="no"
+                  />
+                  <label class="form-check-label"> Yes </label>
+                </div>
+              </div> -->
+
+              <!-- question 18 -->
+              <p id="sub_title">iii. OPEN AND EFFECTIVE COMMUNICATION </p>
+              <p>
+                Do you routinely explain and document the  of explanation of diagnosis, treatment plan and monitoring of paediatric rheumatology diagnosis?
+              </p>
+
+              <div class="form-check mb-2">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="q18"
+                  value="yes"
+                />
+                <label class="form-check-label"> Yes </label>
+              </div>
+              <div class="form-check mb-2">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="q18"
+                  value="no"
+                />
+                <label class="form-check-label"> No </label>
+              </div>
+              <!-- <div id="subQuestions16" class="sub-question">
+                <div id="sub_container">
+                  <label for="q16a"
+                    >a) Check availability of patient educational
+                    material</label
+                  >
+                  <br />
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="q16a"
+                    value="no"
+                  />
+                  <label class="form-check-label"> No </label><br />
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="q16a"
+                    value="no"
+                  />
+                  <label class="form-check-label"> Yes </label>
+                </div>
+
+                <div id="sub_container">
+                  <label for="q16b"
+                    >b) Check if clinical form captures patient education,
+                    treatment plan and plan for follow up investigations?<br />
+                  </label>
+                  <br />
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="q16b"
+                    value="no"
+                  />
+                  <label class="form-check-label"> No </label><br />
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="q16b"
+                    value="no"
+                  />
+                  <label class="form-check-label"> Yes </label>
+                </div>
+              </div> -->
+
+              <!-- question 19 -->
+              <p>
+                Do you routinely offer patient educational material?
+              </p>
+
+              <div class="form-check mb-2">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="q19"
+                  value="yes"
+                />
+                <label class="form-check-label"> Yes </label>
+              </div>
+              <div class="form-check mb-2">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="q19"
+                  value="no"
+                />
+                <label class="form-check-label"> No </label>
+              </div>
+
+               <!-- question 20 -->
+               <p>
+                Do your clinical forms capture patient education, treatment and  follow up plans?
+              </p>
+
+              <div class="form-check mb-2">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="q20"
+                  value="yes"
+                />
+                <label class="form-check-label"> Yes </label>
+              </div>
+              <div class="form-check mb-2">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="q20"
+                  value="no"
+                />
+                <label class="form-check-label"> No </label>
+              </div>
+
+
+               <!-- question 21 -->
+               <p>
+                Is there documentation of consult discussions amongst healthcare workers in your facility?
+              </p>
+
+              <div class="form-check mb-2">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="q21"
+                  value="yes"
+                />
+                <label class="form-check-label"> Yes </label>
+              </div>
+              <div class="form-check mb-2">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="q21"
+                  value="no"
+                />
+                <label class="form-check-label"> No </label>
+              </div>
+
+              <!-- question 22 -->
+              <p>
+                Does the documentation capture the participants present during discussions?
+              </p>
+
+              <div class="form-check mb-2">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="q22"
+                  value="yes"
+                />
+                <label class="form-check-label"> Yes </label>
+              </div>
+              <div class="form-check mb-2">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="q22"
+                  value="no"
+                />
+                <label class="form-check-label"> No </label>
+              </div>
+
+               <!-- question 23 -->
+               <p>
+                Does the documentation routinely capture the patient's biodata?
+              </p>
+
+              <div class="form-check mb-2">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="q23"
+                  value="yes"
+                />
+                <label class="form-check-label"> Yes </label>
+              </div>
+              <div class="form-check mb-2">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="q23"
+                  value="no"
+                />
+                <label class="form-check-label"> No </label>
+              </div>
+
+               <!-- question 24 -->
+               <p>
+                Does the documentation capture the management challenges?
+              </p>
+
+              <div class="form-check mb-2">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="q24"
+                  value="yes"
+                />
+                <label class="form-check-label"> Yes </label>
+              </div>
+              <div class="form-check mb-2">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="q24"
+                  value="no"
+                />
+                <label class="form-check-label"> No </label>
+              </div>
+
+               <!-- question 25 -->
+               <p>
+                Does the documentation capture the propositions and resolutions made after deliberations?
+              </p>
+
+              <div class="form-check mb-2">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="q25"
+                  value="yes"
+                />
+                <label class="form-check-label"> Yes </label>
+              </div>
+              <div class="form-check mb-2">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="q25"
+                  value="no"
+                />
+                <label class="form-check-label"> No </label>
+              </div>
+
+              <!-- <div id="subQuestions17" class="sub-question">
+                <div id="sub_container">
+                  <label for="q17a"
+                    >a) Check if participants are captured?</label
+                  >
+                  <br />
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="q17a"
+                    value="no"
+                  />
+                  <label class="form-check-label"> No </label><br />
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="q17a"
+                    value="no"
+                  />
+                  <label class="form-check-label"> Yes </label>
+                </div>
+
+                <div id="sub_container">
+                  <label for="q17b"
+                    >b) Check if patients biodata is captured with diagnosis?
+                  </label>
+                  <br />
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="q17b"
+                    value="no"
+                  />
+                  <label class="form-check-label"> No </label><br />
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="q17b"
+                    value="no"
+                  />
+                  <label class="form-check-label"> Yes </label>
+                </div>
+
+                <div id="sub_container">
+                  <label for="q17c"
+                    >c) Check if key management challenges are captured?
+                  </label>
+                  <br />
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="q17c"
+                    value="no"
+                  />
+                  <label class="form-check-label"> No </label><br />
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="q17c"
+                    value="no"
+                  />
+                  <label class="form-check-label"> Yes </label>
+                </div>
+
+                <div id="sub_container">
+                  <label for="q17d"
+                    >d) Check if propositions made are captured?
+                  </label>
+                  <br />
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="q17d"
+                    value="no"
+                  />
+                  <label class="form-check-label"> No </label><br />
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="q17d"
+                    value="no"
+                  />
+                  <label class="form-check-label"> Yes </label>
+                </div>
+
+                <div id="sub_container">
+                  <label for="q17e"
+                    >e) Check if conclusions by the team are captured?
+                  </label>
+                  <br />
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="q17e"
+                    value="no"
+                  />
+                  <label class="form-check-label"> No </label><br />
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="q17e"
+                    value="no"
+                  />
+                  <label class="form-check-label"> Yes </label>
+                </div>
+              </div> -->
+
+              <!-- question 26 -->
+              <p id="sub_title">
+                iv. EVIDENCE BASED CARE
+              </p>
+              <p>Do you routinely use Juvenile Idiopathic Arthritis (JIA) Management Guidelines ?</p>
+
+              <div class="form-check mb-2">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="q26"
+                  value="yes"
+                />
+                <label class="form-check-label"> Yes </label>
+              </div>
+              <div class="form-check mb-2">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="q26"
+                  value="no"
+                />
+                <label class="form-check-label"> No </label>
+              </div>
+<!-- 
+              <div id="subQuestions18" class="sub-question">
+                <div id="sub_container">
+                  <label for="q18a"
+                    >a) Check if correct diagnosis is made?</label
+                  >
+                  <br />
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="q18a"
+                    value="no"
+                  />
+                  <label class="form-check-label"> No </label><br />
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="q18a"
+                    value="no"
+                  />
+                  <label class="form-check-label"> Yes </label>
+                </div>
+
+                <div id="sub_container">
+                  <label for="q18b"
+                    >b) Check if treatment guidelines correspond to ACR/EULAR
+                    guideline ?<br />
+                  </label>
+                  <br />
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="q18b"
+                    value="no"
+                  />
+                  <label class="form-check-label"> No </label><br />
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="q18b"
+                    value="no"
+                  />
+                  <label class="form-check-label"> Yes </label>
+                </div>
+              </div> -->
+
+              <!-- question 27 -->
+              <p>Do you routinely use Sytemic Lupus Erythematosus (SLE) Management Guidelines?</p>
+
+              <div class="form-check mb-2">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="q27"
+                  value="yes"
+                />
+                <label class="form-check-label"> Yes </label>
+              </div>
+              <div class="form-check mb-2">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="q27"
+                  value="no"
+                />
+                <label class="form-check-label"> No </label>
+              </div>
+
+              <!-- <div id="subQuestions19" class="sub-question">
+                <div id="sub_container">
+                  <label for="q19a"
+                    >a) Check if correct diagnosis is made?</label
+                  >
+                  <br />
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="q19a"
+                    value="no"
+                  />
+                  <label class="form-check-label"> No </label><br />
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="q19a"
+                    value="no"
+                  />
+                  <label class="form-check-label"> Yes </label>
+                </div>
+
+                <div id="sub_container">
+                  <label for="q19b"
+                    >b) Check if treatment guidelines correspond to ACR/EULAR
+                    guideline ?<br />
+                  </label>
+                  <br />
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="q19b"
+                    value="no"
+                  />
+                  <label class="form-check-label"> No </label><br />
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="q19b"
+                    value="no"
+                  />
+                  <label class="form-check-label"> Yes </label>
+                </div>
+              </div> -->
+
+              <!-- question 28 -->
+              <p>Do you routinely use Dermatomyositis Management Guidelines?</p>
+
+              <div class="form-check mb-2">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="q28"
+                  value="yes"
+                />
+                <label class="form-check-label"> Yes </label>
+              </div>
+              <div class="form-check mb-2">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="q28"
+                  value="no"
+                />
+                <label class="form-check-label"> No </label>
+              </div>
+
+              <!-- <div id="subQuestions20" class="sub-question">
+                <div id="sub_container">
+                  <label for="q20a"
+                    >a) Check if correct diagnosis is made?</label
+                  >
+                  <br />
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="q20a"
+                    value="no"
+                  />
+                  <label class="form-check-label"> No </label><br />
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="q20a"
+                    value="no"
+                  />
+                  <label class="form-check-label"> Yes </label>
+                </div>
+
+                <div id="sub_container">
+                  <label for="q20b"
+                    >b) Check if treatment guidelines correspond to ACR/EULAR
+                    guideline ?<br />
+                  </label>
+                  <br />
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="q20b"
+                    value="no"
+                  />
+                  <label class="form-check-label"> No </label><br />
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="q20b"
+                    value="no"
+                  />
+                  <label class="form-check-label"> Yes </label>
+                </div>
+              </div> -->
+
+              <!-- question 29 -->
+              <p>Do you routinely use  Vasculitis Management guidelines?</p>
+
+              <div class="form-check mb-2">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="q29"
+                  value="yes"
+                />
+                <label class="form-check-label"> Yes </label>
+              </div>
+              <div class="form-check mb-2">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="q29"
+                  value="no"
+                />
+                <label class="form-check-label"> No </label>
+              </div>
+              <!-- <div id="subQuestions21" class="sub-question">
+                <div id="sub_container">
+                  <label for="q21a"
+                    >a) Check if correct diagnosis is made?</label
+                  >
+                  <br />
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="q21a"
+                    value="no"
+                  />
+                  <label class="form-check-label"> No </label><br />
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="q21a"
+                    value="no"
+                  />
+                  <label class="form-check-label"> Yes </label>
+                </div>
+
+                <div id="sub_container">
+                  <label for="q21a"
+                    >b) Check if treatment guidelines correspond to ACR/EULAR
+                    guideline ?<br />
+                  </label>
+                  <br />
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="q21a"
+                    value="no"
+                  />
+                  <label class="form-check-label"> No </label><br />
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="q21a"
+                    value="no"
+                  />
+                  <label class="form-check-label"> Yes </label>
+                </div>
+              </div> -->
+
+              <br /><br />
+            </form>
+          </div>
+          
+          <div id="overlay" class="overlay">
+            <div class="spinner-grow spinner-grow-xl" role="status">
+              <span class="visually-hidden">Loading...</span>
+            </div>
+          </div>
+                    <!-- SuggestionModal -->
+                    <div
+                    class="modal fade"
+                    id="suggestionModal"
+                    tabindex="-1"
+                    aria-labelledby="suggestionModalLabel"
+                    aria-hidden="true"
+                  >
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <img class="modal-title" width="31%" src="hopelogo 1.png" />
+        
+                          <button
+                            type="button"
+                            class="btn-close"
+                            data-mdb-dismiss="modal"
+                            aria-label="Close"
+                          ></button>
+                        </div>
+                        <div class="modal-body">
+                          <h5 id="suggestionModalLabel">Suggestions</h5>
+                          <p style="font-weight: lighter">
+                            Based on your assesment results, here are some suggestions
+                            that we offer to you.
+                          </p>
+        
+                          <hr />
+        
+                          <div class="row suggestions_row" style="margin-bottom: 20px">
+                            <div class="col-md-6">Virtual Consults</div>
+                            <div class="col-md-6" style="text-align: right">
+                              <a href="https://app.hopearthritisfoundation.com/" target="_blank"><button
+                                type="button"
+                                class="btn btn-success"
+                                style="background-color: #58934c"
+                              >
+                                Get Access
+                              </button></a>
+                            </div>
+                          </div>
+                          <div class="row suggestions_row" style="margin-bottom: 20px">
+                            <div class="col-md-6">Educational Programs</div>
+                            <div class="col-md-6" style="text-align: right">
+                              <a href="https://app.hopearthritisfoundation.com/" target="_blank"> <button
+                                type="button"
+                                class="btn btn-success"
+                                style="background-color: #58934c"
+                              >
+                                Get Access
+                              </button></a>
+                            </div>
+                          </div>
+                          <div class="row suggestions_row" style="margin-bottom: 20px">
+                            <div class="col-md-8">
+                              Structured Clinical Paediatric Rheumatology Forms
+                            </div>
+                            <div class="col-md-4" style="text-align: right">
+                              <a href="https://app.hopearthritisfoundation.com/" target="_blank"><button
+                                type="button"
+                                class="btn btn-success"
+                                style="background-color: #58934c"
+                              >
+                                Get Access
+                              </button></a>
+                            </div>
+                          </div>
+                          <div class="row suggestions_row" style="margin-bottom: 20px">
+                            <div class="col-md-6">Access to Resource List</div>
+                            <div class="col-md-6" style="text-align: right">
+                              <a href="https://app.hopearthritisfoundation.com/" target="_blank"> <button
+                                type="button"
+                                class="btn btn-success"
+                                style="background-color: #58934c"
+                              >
+                                Get Access
+                              </button></a>
+                            </div>
+                          </div>
+                          <div id="suggestions_row"></div>
+                        </div>
+                        <div class="modal-footer">
+                          <button
+                            type="button"
+                            class="btn btn-secondary"
+                            data-mdb-dismiss="modal"
+                            style="background-color: #068c96; color: white"
+                          >
+                            Close
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- alrightModal -->
+                  <div
+                  class="modal fade"
+                  id="alrightModal"
+                  tabindex="-1"
+                  aria-labelledby="alrightModalLabel"
+                  aria-hidden="true"
+                >
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <img class="modal-title" width="31%" src="hopelogo 1.png" />
+      
+                        <button
+                          type="button"
+                          class="btn-close"
+                          data-mdb-dismiss="modal"
+                          aria-label="Close"
+                        ></button>
+                      </div>
+                      <div class="modal-body">
+                        <div class="text-center">
+                          <i class="far fa-circle-check fa-2x" style="color: green;"></i><h5 style="padding-left: 10px;">Congratulations!!</h5>
+                        </div>
+        
+                         <p style="font-weight: lighter">
+                           Based on your assesment results, we have found you compliant.
+                         </p>
+        
+                         <hr />
+                       </div>
+                      <div class="modal-footer">
+                        <button
+                          type="button"
+                          class="btn btn-secondary"
+                          data-mdb-dismiss="modal"
+                          style="background-color: #068c96; color: white"
+                        >
+                          Close
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+          <div class="card-footer text-end">
+            <input
+              type="button"
+              class="btn btn-primary"
+              value="Submit"
+              style="background-color: #068c96"
+              onclick="submitForm()"
+            />
+            <a href="https://hopearthritisfoundation.com"><button class="btn btn-primary">Go to Home</button></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+  <!-- MDB -->
+  <script
+    type="text/javascript"
+    src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.0/mdb.min.js"
+  ></script>
+  <script>
+    function showSubQuestions(questionId) {
+      console.log(questionId.slice(1));
+      const subQuestions = document.getElementById(
+        `subQuestions${questionId.slice(1)}`
+      );
+      subQuestions.style.display = "block";
+    }
+
+    function hideSubQuestions(questionId) {
+      const subQuestions = document.getElementById(
+        `subQuestions${questionId.slice(1)}`
+      );
+      subQuestions.style.display = "none";
+    }
+
+    function submitForm() {
+      const overlay = document.getElementById("overlay");
+      overlay.style.display = "flex";
+      // Simulate form submission delay (2 seconds)
+      setTimeout(function () {
+        overlay.style.display = "none";
+        const form = document.getElementById("dynamicForm");
+        const formData = new FormData(form);
+        let hasNoResponse = false;
+
+        for (const [key, value] of formData.entries()) {
+          if (value === "no") {
+            hasNoResponse = true;
+            break;
+          }
+        }
+
+        if (hasNoResponse) {
+          var myModal = new mdb.Modal(document.getElementById("suggestionModal"));
+          myModal.show();
+        } else {
+          var myModal = new mdb.Modal(document.getElementById("alrightModal"));
+          myModal.show();
+          
+        }
+      }, 2000);
+
+    }
+
+        // Get all the rows
+        const rows = Array.from(document.getElementsByClassName("suggestions_row"));
+
+// Shuffle the rows randomly
+rows.sort(() => Math.random() - 0.5);
+
+// Create a modal element
+const modal = document.getElementById("suggestions_row");
+
+// Append the randomized rows to the modal
+rows.forEach(row => {
+  modal.appendChild(row);
+});
+  </script>
+</html>
