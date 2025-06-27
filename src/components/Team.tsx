@@ -1,14 +1,14 @@
-import React from 'react';
+import React from "react";
 
 // Team Member Card Component
 const TeamMember = ({
   name,
   role,
-  image
+  image,
 }: {
-  name: string,
-  role: string,
-  image: string
+  name: string;
+  role: string;
+  image: string;
 }) => (
   <div className="bg-white rounded-lg shadow-sm overflow-hidden hover:shadow-md transition-shadow">
     <div className="h-64 overflow-hidden">
@@ -30,45 +30,45 @@ const Team = () => {
       id: 1,
       name: "Dr Angela Migowa",
       role: "Paediatric Rheumatologist",
-      image: "https://ext.same-assets.com/1778183887/1499519112.jpeg"
+      image: "https://ext.same-assets.com/1778183887/1499519112.jpeg",
     },
     {
       id: 2,
       name: "Ms Christine Mutena",
       role: "Parent Representative, Co-Founder of Rare Disorders Kenya",
-      image: "https://ext.same-assets.com/1778183887/689297721.jpeg"
+      image: "https://ext.same-assets.com/1778183887/689297721.jpeg",
     },
     {
       id: 3,
       name: "Dr Jeanette Dawa",
       role: "Public Health Expert",
-      image: "https://ext.same-assets.com/1778183887/297103549.jpeg"
+      image: "https://ext.same-assets.com/1778183887/297103549.jpeg",
     },
     {
       id: 4,
       name: "Mr Martin Ongwen",
       role: "Physiotherapist",
-      image: "https://ext.same-assets.com/1778183887/3784568976.jpeg"
+      image: "https://ext.same-assets.com/1778183887/3784568976.jpeg",
     },
     {
       id: 5,
       name: "Mr Albert Yara",
       role: "Counsellor Psychologist",
-      image: "https://ext.same-assets.com/1778183887/3850379101.jpeg"
+      image: "https://ext.same-assets.com/1778183887/3850379101.jpeg",
     },
     {
       id: 6,
       name: "Ms Joan Chebii",
       role: "Nutritionist",
-      image: "https://ext.same-assets.com/1778183887/3270737236.jpeg"
-    }
+      image: "https://ext.same-assets.com/1778183887/3270737236.jpeg",
+    },
   ];
 
   return (
     <section id="team" className="section bg-gray-50">
       <div className="container mx-auto">
         <div className="text-center mb-12">
-          <h2 className="section-title">The Team</h2>
+          <h2 className="section-title gradient-title">The Team</h2>
           <div className="w-24 h-1 bg-orange-500 mx-auto mt-4 mb-6" />
           <p className="text-gray-600">Panel of Experts</p>
         </div>

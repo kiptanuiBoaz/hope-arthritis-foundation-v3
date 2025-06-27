@@ -152,6 +152,15 @@
     -webkit-box-orient: vertical;
     overflow: hidden;
   }
+
+  .gradient-title {
+    background: linear-gradient(90deg, #f97316 0%, #8d9e6f 50%, #4bb3b3 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+    display: inline-block;
+  }
 }
 
 @keyframes fadeIn {

@@ -68,6 +68,21 @@ module.exports = {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
+        brandgreen: {
+          50: '#f3f9f4',
+          100: '#e0f5e6',
+          200: '#b8e1c2',
+          300: '#8dcb9c',
+          400: '#65b47a',
+          500: '#59924b', // main brand color
+          600: '#4b7c3f', // dark shade
+          700: '#38602e',
+          800: '#25441e',
+          900: '#14290f',
+          DEFAULT: '#59924b',
+          light: '#e0f5e6',
+          dark: '#4b7c3f',
+        },
       },
       keyframes: {
         "accordion-down": {

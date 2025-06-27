@@ -146,7 +146,7 @@ const CoreValues = () => {
     <section id="core-values" className="section bg-white">
       <div className="container mx-auto">
         <div className="text-center mb-12">
-          <h2 className="section-title">Core Values</h2>
+          <h2 className="section-title gradient-title">Core Values</h2>
           <div className="w-24 h-1 bg-orange-500 mx-auto mt-4" />
         </div>
 
