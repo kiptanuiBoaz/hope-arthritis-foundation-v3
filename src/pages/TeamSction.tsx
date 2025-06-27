@@ -7,7 +7,7 @@ export const TeamSction: React.FC = () => {
   const previewMembers = teamMembers.slice(0, 3);
 
   return (
-    <section id="team" className="py-16 bg-gray-50">
+    <section id="team" className="section bg-white">
       <div className="container mx-auto px-4">
         <h1 className="text-4xl font-bold text-gray-800 mb-2">Our Team</h1>
         <div className="w-24 h-1 bg-orange-500 mb-8" />

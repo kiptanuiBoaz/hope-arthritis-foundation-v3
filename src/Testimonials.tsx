@@ -56,12 +56,12 @@ const Testimonials = () => {
   };
 
   return (
-    <section className="section bg-gradient-to-br from-gray-50 to-blue-50/30">
+    <section className="section bg-gradient-to-br from-gray-800 to-gray-900">
       <div className="container mx-auto">
         <div className="text-center mb-16">
-          <h2 className="section-title">What Our Community Says</h2>
+          <h2 className="section-title text-white">What Our Community Says</h2>
           <div className="w-24 h-1 bg-orange-500 mx-auto mt-4 mb-6" />
-          <p className="text-gray-600 text-lg max-w-2xl mx-auto">
+          <p className="text-gray-300 text-lg max-w-2xl mx-auto">
             Hear from the healthcare professionals, parents, and guardians whose lives we've touched
           </p>
         </div>

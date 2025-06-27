@@ -1,37 +1,21 @@
 import React from "react";
 
-const mainGreen = "rgb(89,146,75)";
-const lightGreen = "#e0f5e6";
-const accentGreen = "#b6e2c2";
-
 const About = () => {
   return (
     <section
       id="about"
-      className="section"
-      style={{
-        background: mainGreen,
-      }}
+      className="section bg-gradient-to-br from-gray-800 to-gray-900 text-white"
     >
       <div className="container mx-auto">
-        <div className="text-center mb-12">
-          <h2 className="section-title" style={{ color: "#fff" }}>
+        <div className="text-center mb-16">
+          <h2 className="section-title text-white">
             About Us
           </h2>
-          <div
-            className="w-24 h-1 mx-auto mt-4 mb-8"
-            style={{ background: mainGreen }}
-          />
-        </div>
-
-        <div className="mb-16">
-          <h3
-            className="text-2xl text-center md:text-3xl font-bold mb-6"
-            style={{ color: "#fff" }}
-          >
+          <div className="w-24 h-1 bg-orange-500 mx-auto mt-4 mb-8" />
+          <h3 className="text-2xl md:text-3xl font-bold mb-6">
             Beat Childhood Arthritis Through Empowerment
           </h3>
-          <p className="mb-6 text-center" style={{ color: "#fff" }}>
+          <p className="text-lg text-gray-300 max-w-4xl mx-auto leading-relaxed">
             We are committed to ensuring every child diagnosed or living with
             arthritis and other rheumatic diseases thrives. That is why we offer
             training to professional healthcare workers and parents of children
@@ -40,78 +24,41 @@ const About = () => {
           </p>
         </div>
 
-        <div className="flex flex-col lg:flex-row gap-8 items-stretch">
+        {/* Mission, Vision, and Core Values Grid */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
           {/* Mission */}
-          <div className="relative flex-1 max-w-full lg:max-w-[50%]">
-            {/* Overlay shifted shadow */}
-            <div
-              className="absolute bottom-2 left-2 w-full h-full rounded-xl z-0 pointer-events-none"
-              style={{
-                boxShadow: `0 0 16px 16px ${accentGreen}`,
-                opacity: 0.18,
-              }}
-            />
-            <div
-              className="relative rounded-xl shadow-lg p-8 min-h-[220px] flex flex-col justify-start z-10 border"
-              style={{ background: lightGreen, borderColor: accentGreen }}
-            >
-              <h3
-                className="font-bold text-2xl mb-2 flex items-center"
-                style={{ color: mainGreen }}
-              >
-                Mission
-              </h3>
-              <div
-                className="w-12 h-1 mb-4"
-                style={{ background: mainGreen }}
-              />
-              <p className="text-base" style={{ color: mainGreen }}>
-                To promote awareness, prevention, early detection and effective
-                management of childhood arthritis and rheumatic disease through
-                innovation, research, education and collaboration with
-                healthcare professionals and stakeholders
-              </p>
+          <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20 hover:bg-white/15 transition-all duration-300">
+            <div className="flex items-center mb-6">
+              <div className="w-12 h-12 bg-orange-500 rounded-xl flex items-center justify-center text-white mr-4">
+                <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                </svg>
+              </div>
+              <h3 className="text-2xl font-bold text-white">Mission</h3>
             </div>
-            {/* Dot top left */}
-            <span
-              className="absolute -top-2 -left-2 w-2 h-2 rounded-full"
-              style={{ background: mainGreen }}
-            ></span>
+            <p className="text-gray-300 leading-relaxed">
+              To promote awareness, prevention, early detection, and effective
+              management of childhood arthritis and rheumatic disease through
+              innovation, research, education and collaboration with healthcare
+              professionals and stakeholders.
+            </p>
           </div>
+
           {/* Vision */}
-          <div className="relative flex-1 max-w-full lg:max-w-[50%] mt-8 lg:mt-0">
-            {/* Overlay shifted shadow */}
-            <div
-              className="absolute bottom-2 left-2 w-full h-full rounded-xl z-0 pointer-events-none"
-              style={{
-                boxShadow: `0 0 16px 16px ${accentGreen}`,
-                opacity: 0.18,
-              }}
-            />
-            <div
-              className="relative rounded-xl shadow-lg p-8 min-h-[220px] flex flex-col justify-start z-10 border"
-              style={{ background: lightGreen, borderColor: accentGreen }}
-            >
-              <h3
-                className="font-bold text-2xl mb-2 flex items-center"
-                style={{ color: mainGreen }}
-              >
-                Vision
-              </h3>
-              <div
-                className="w-12 h-1 mb-4"
-                style={{ background: accentGreen }}
-              />
-              <p className="text-base" style={{ color: mainGreen }}>
-                To be the leading advocate and resource for childhood arthritis,
-                rheumatic diseases and bone health
-              </p>
+          <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20 hover:bg-white/15 transition-all duration-300">
+            <div className="flex items-center mb-6">
+              <div className="w-12 h-12 bg-blue-500 rounded-xl flex items-center justify-center text-white mr-4">
+                <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                </svg>
+              </div>
+              <h3 className="text-2xl font-bold text-white">Vision</h3>
             </div>
-            {/* Dot bottom right */}
-            <span
-              className="absolute -bottom-2 -right-2 w-2 h-2 rounded-full"
-              style={{ background: accentGreen }}
-            ></span>
+            <p className="text-gray-300 leading-relaxed">
+              To be the leading advocate and resource for childhood arthritis,
+              rheumatic diseases and bone health.
+            </p>
           </div>
         </div>
       </div>

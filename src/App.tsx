@@ -18,6 +18,8 @@ const PatientInformation = React.lazy(() => import("./pages/PatientInformation")
 const Home = React.lazy(() => import("./pages/Home"));
 const ContactPage = React.lazy(() => import("./routes/ContactPage"));
 const TeamAll = React.lazy(() => import("./pages/TeamAll"));
+const Founder = React.lazy(() => import("./pages/Founder"));
+const Gallery = React.lazy(() => import("./pages/Gallery"));
 
 function App() {
   return (
@@ -38,6 +40,8 @@ function App() {
               <Route path="/activities/:id" element={<ActivityDetail />} />
               <Route path="/team" element={<TeamAll />} />
               <Route path="/team/:id" element={<TeamDetail />} />
+              <Route path="/founder" element={<Founder />} />
+              <Route path="/gallery" element={<Gallery />} />
               <Route path="/patient-information" element={<PatientInformation />} />
               <Route path="/contact" element={<ContactPage />} />
               <Route path="*" element={<Navigate to="/" replace />} />

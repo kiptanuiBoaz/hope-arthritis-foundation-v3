@@ -143,7 +143,7 @@ const CoreValues = () => {
   ];
 
   return (
-    <section className="section bg-orange-50">
+    <section id="core-values" className="section bg-white">
       <div className="container mx-auto">
         <div className="text-center mb-12">
           <h2 className="section-title">Core Values</h2>
