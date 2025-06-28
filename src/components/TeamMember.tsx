@@ -27,7 +27,7 @@ export const TeamMemberCard: React.FC<TeamMemberProps> = ({
       <p className="text-gray-600 text-sm mb-4 line-clamp-3">{title}</p>
       <Link
         to={`/team/${id}`}
-        className="bg-orange-500 hover:bg-orange-600 text-white font-medium py-3 px-6 rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 inline-flex items-center justify-center w-full"
+        className="border-2 border-orange-500 text-orange-500 hover:bg-orange-50 hover:text-orange-600 font-medium py-2 px-4 rounded-xl transition-all duration-300 shadow-md hover:shadow-lg inline-flex items-center w-fit"
       >
         View Profile
         <svg
