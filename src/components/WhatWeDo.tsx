@@ -103,7 +103,7 @@ const WhatWeDo = () => {
               </svg>
             }
             title="Self Assessment"
-            description="Empower yourself with knowledge and insight through our comprehensive self-assessment tools."
+            description="Comprehensive assessment tools to evaluate current practices and identify areas for improvement in pediatric rheumatology care."
             links={[
               {
                 text: "Health Institution Form",
@@ -139,8 +139,8 @@ const WhatWeDo = () => {
                 />
               </svg>
             }
-            title="Boot Camps For Professional Healthcare Workers"
-            description="We offer comprehensive online boot camps designed for professional healthcare workers. These virtual training sessions focus on the proper diagnosis and treatment of pediatric rheumatological diseases, including: Childhood Arthritis (Juvenile Idiopathic Arthritis - JIA), Systemic Lupus Erythematosus (SLE), Juvenile Dermatomyositis (JDM) and Vasculitis"
+            title="Healthcare Worker Bootcamps"
+            description="Intensive online training programs for healthcare professionals focusing on diagnosis and treatment of pediatric rheumatic diseases including JIA, SLE, JDM, and Vasculitis."
             ctaText="Access Platform"
             ctaLink="https://app.hopearthritisfoundation.com/"
             isExternal={true}
@@ -162,8 +162,8 @@ const WhatWeDo = () => {
                 />
               </svg>
             }
-            title="Master Classes for Parents / Guardians / Caregivers"
-            description="We conduct master classes tailored for parents/caregivers/guardians. These sessions provide essential training on how to care for children living with rheumatic diseases, ensuring they receive the best possible support and management."
+            title="Guardian Masterclasses"
+            description="Educational sessions designed for parents, caregivers, and guardians providing essential training on caring for children with rheumatic diseases."
             ctaText="Join Classes"
             ctaLink="https://app.hopearthritisfoundation.com/"
             isExternal={true}
@@ -185,8 +185,8 @@ const WhatWeDo = () => {
                 />
               </svg>
             }
-            title="Our Online Academy"
-            description="Our online academy offers a wealth of resources for both healthcare professionals and families. Access expert articles, video tutorials, and up-to-date research on pediatric rheumatological diseases. Our academy ensures that everyone involved in the care of children with these conditions has the knowledge and tools they need."
+            title="Online Academy"
+            description="Comprehensive digital platform offering expert articles, video tutorials, and up-to-date research on pediatric rheumatological diseases for healthcare professionals and families."
             ctaText="Visit Academy"
             ctaLink="https://app.hopearthritisfoundation.com/"
             isExternal={true}

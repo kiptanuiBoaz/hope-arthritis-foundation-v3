@@ -99,12 +99,7 @@ const Navbar = () => {
           </Link>
 
           {/* About Us Dropdown */}
-          <div 
-            className="relative" 
-            ref={aboutRef}
-            onMouseEnter={() => setIsAboutOpen(true)}
-            onMouseLeave={() => setIsAboutOpen(false)}
-          >
+          <div className="relative" ref={aboutRef}>
             <button
               className={`transition-colors font-medium flex items-center ${
                 location.pathname === "/founder" ||
@@ -112,6 +107,7 @@ const Navbar = () => {
                   ? "text-orange-500"
                   : "text-gray-700 hover:text-orange-500"
               }`}
+              onClick={() => setIsAboutOpen((open) => !open)}
               aria-expanded={isAboutOpen}
               aria-controls="about-dropdown"
             >
@@ -279,12 +275,7 @@ const Navbar = () => {
           </Link>
 
           {/* Resources Dropdown */}
-          <div 
-            className="relative" 
-            ref={resourcesRef}
-            onMouseEnter={() => setIsResourcesOpen(true)}
-            onMouseLeave={() => setIsResourcesOpen(false)}
-          >
+          <div className="relative" ref={resourcesRef}>
             <button
               className={`transition-colors font-medium flex items-center ${
                 location.pathname === "/resources" ||
@@ -292,6 +283,7 @@ const Navbar = () => {
                   ? "text-orange-500"
                   : "text-gray-700 hover:text-orange-500"
               }`}
+              onClick={() => setIsResourcesOpen((open) => !open)}
               aria-expanded={isResourcesOpen}
               aria-controls="resources-dropdown"
             >
