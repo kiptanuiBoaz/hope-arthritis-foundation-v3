@@ -69,7 +69,7 @@ const Testimonials = () => {
 
         <div className="max-w-5xl mx-auto">
           {/* Main Testimonial Card */}
-          <div className="bg-white rounded-3xl shadow-xl p-8 md:p-12 border border-brandgreen-100 relative overflow-hidden">
+          <div className="bg-white rounded-3xl shadow-2xl p-8 md:p-12 border border-brandgreen-100 relative overflow-hidden">
             {/* Background Pattern */}
             <div className="absolute top-0 right-0 w-32 h-32 opacity-5">
               <svg
@@ -89,7 +89,7 @@ const Testimonials = () => {
                     <img
                       src={testimonialsData[currentIndex].image}
                       alt={testimonialsData[currentIndex].name}
-                      className="w-32 h-32 rounded-full object-cover border-4 border-brandgreen-100 shadow-lg"
+                      className="w-32 h-32 rounded-full object-cover border-4 border-brandgreen-100 shadow-xl"
                     />
                     <div className="absolute -bottom-2 -right-2 w-10 h-10 bg-brandgreen-500 rounded-full flex items-center justify-center shadow-lg">
                       <svg
@@ -126,7 +126,7 @@ const Testimonials = () => {
           <div className="flex justify-center items-center mt-8 gap-6">
             <button
               onClick={handlePrev}
-              className="w-12 h-12 bg-white hover:bg-brandgreen-50 border-2 border-brandgreen-200 hover:border-brandgreen-300 rounded-full flex items-center justify-center text-brandgreen-500 hover:text-brandgreen-600 transition-all duration-300 shadow-md hover:shadow-lg"
+              className="w-12 h-12 bg-white hover:bg-brandgreen-50 border-2 border-brandgreen-200 hover:border-brandgreen-300 rounded-full flex items-center justify-center text-brandgreen-500 hover:text-brandgreen-600 transition-all duration-300 shadow-lg hover:shadow-xl"
               aria-label="Previous testimonial"
             >
               <svg
@@ -162,7 +162,7 @@ const Testimonials = () => {
 
             <button
               onClick={handleNext}
-              className="w-12 h-12 bg-white hover:bg-brandgreen-50 border-2 border-brandgreen-200 hover:border-brandgreen-300 rounded-full flex items-center justify-center text-brandgreen-500 hover:text-brandgreen-600 transition-all duration-300 shadow-md hover:shadow-lg"
+              className="w-12 h-12 bg-white hover:bg-brandgreen-50 border-2 border-brandgreen-200 hover:border-brandgreen-300 rounded-full flex items-center justify-center text-brandgreen-500 hover:text-brandgreen-600 transition-all duration-300 shadow-lg hover:shadow-xl"
               aria-label="Next testimonial"
             >
               <svg
@@ -183,19 +183,19 @@ const Testimonials = () => {
 
           {/* Additional Stats */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-16">
-            <div className="text-center p-6 bg-white rounded-2xl shadow-md border border-brandgreen-100">
+            <div className="text-center p-6 bg-white rounded-2xl shadow-xl border border-brandgreen-100">
               <div className="text-3xl font-bold text-brandgreen-500 mb-2">
                 98%
               </div>
               <div className="text-brandgreen-700">Satisfaction Rate</div>
             </div>
-            <div className="text-center p-6 bg-white rounded-2xl shadow-md border border-brandgreen-100">
+            <div className="text-center p-6 bg-white rounded-2xl shadow-xl border border-brandgreen-100">
               <div className="text-3xl font-bold text-brandgreen-400 mb-2">
                 50+
               </div>
               <div className="text-brandgreen-700">Expert Testimonials</div>
             </div>
-            <div className="text-center p-6 bg-white rounded-2xl shadow-md border border-brandgreen-100">
+            <div className="text-center p-6 bg-white rounded-2xl shadow-xl border border-brandgreen-100">
               <div className="text-3xl font-bold text-brandgreen-600 mb-2">
                 24/7
               </div>

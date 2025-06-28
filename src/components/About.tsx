@@ -25,9 +25,9 @@ const About = () => {
         {/* Mission, Vision, and Core Values Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
           {/* Mission */}
-          <div className="bg-brandgreen-900/60 backdrop-blur-sm rounded-2xl p-8 border border-brandgreen-700 hover:bg-brandgreen-900/80 transition-all duration-300">
+          <div className="bg-brandgreen-900/60 backdrop-blur-sm rounded-2xl p-8 border border-brandgreen-700 hover:bg-brandgreen-900/80 transition-all duration-300 shadow-xl hover:shadow-2xl">
             <div className="flex items-center mb-6">
-              <div className="w-12 h-12 bg-brandgreen-500 rounded-xl flex items-center justify-center text-white mr-4">
+              <div className="w-12 h-12 bg-brandgreen-500 rounded-xl flex items-center justify-center text-white mr-4 shadow-lg">
                 <svg
                   className="w-6 h-6"
                   fill="none"
@@ -53,9 +53,9 @@ const About = () => {
           </div>
 
           {/* Vision */}
-          <div className="bg-brandgreen-900/60 backdrop-blur-sm rounded-2xl p-8 border border-brandgreen-700 hover:bg-brandgreen-900/80 transition-all duration-300">
+          <div className="bg-brandgreen-900/60 backdrop-blur-sm rounded-2xl p-8 border border-brandgreen-700 hover:bg-brandgreen-900/80 transition-all duration-300 shadow-xl hover:shadow-2xl">
             <div className="flex items-center mb-6">
-              <div className="w-12 h-12 bg-brandgreen-400 rounded-xl flex items-center justify-center text-white mr-4">
+              <div className="w-12 h-12 bg-brandgreen-400 rounded-xl flex items-center justify-center text-white mr-4 shadow-lg">
                 <svg
                   className="w-6 h-6"
                   fill="none"

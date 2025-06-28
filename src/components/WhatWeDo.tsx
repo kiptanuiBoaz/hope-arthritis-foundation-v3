@@ -18,7 +18,7 @@ const ServiceCard = ({
   ctaLink?: string;
   isExternal?: boolean;
 }) => (
-  <div className="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 p-8 border border-gray-100 group h-full flex flex-col">
+  <div className="bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 p-8 border border-gray-100 group h-full flex flex-col transform hover:-translate-y-1">
     <div className="flex items-center mb-6">
       <div className="w-16 h-16 bg-gradient-to-br from-orange-500 to-orange-600 rounded-2xl flex items-center justify-center text-white shadow-lg group-hover:scale-110 transition-transform duration-300">
         {icon}
@@ -41,7 +41,7 @@ const ServiceCard = ({
             href={link.url}
             target={link.external ? "_blank" : "_self"}
             rel={link.external ? "noopener noreferrer" : ""}
-            className="block w-full py-3 px-4 bg-orange-50 hover:bg-orange-100 text-orange-700 font-medium text-center rounded-xl transition-all duration-300 border border-orange-200 hover:border-orange-300"
+            className="block w-full py-3 px-4 bg-orange-50 hover:bg-orange-100 text-orange-700 font-medium text-center rounded-xl transition-all duration-300 border border-orange-200 hover:border-orange-300 shadow-md hover:shadow-lg"
           >
             {link.text}
           </a>
@@ -53,7 +53,7 @@ const ServiceCard = ({
       href={ctaLink}
       target={isExternal ? "_blank" : "_self"}
       rel={isExternal ? "noopener noreferrer" : ""}
-      className="btn-primary text-center shadow-md hover:shadow-lg mt-auto"
+      className="btn-primary text-center mt-auto"
     >
       {ctaText}
     </a>
@@ -73,7 +73,7 @@ const WhatWeDo = () => {
       id="services"
       className="section bg-gradient-to-br from-gray-50 to-orange-50/30"
     >
-      <div className="container mx-auto">
+      <div className="max-w-7xl mx-auto px-4">
         {/* What We Do Section */}
         <div className="text-center mb-16">
           <h2 className="section-title gradient-title">What We Do</h2>
@@ -199,7 +199,7 @@ const WhatWeDo = () => {
           className="bg-white rounded-3xl shadow-xl p-8 md:p-12 border border-gray-100"
         >
           <div className="text-center mb-12">
-            <h3 className="text-3xl font-bold text-gray-800 mb-4">
+            <h3 className="text-3xl font-bold text-gray-800 mb-4 gradient-title">
               Get Started Today
             </h3>
             <p className="text-gray-600 text-lg max-w-2xl mx-auto">
@@ -213,9 +213,9 @@ const WhatWeDo = () => {
               href="https://docs.google.com/forms/d/e/1FAIpQLSe-xNHL50YF6RvSyICDThRjVYj6_ddgixm8nVp_gL7rl_P9LA/viewform?usp=send_form"
               target="_blank"
               rel="noopener noreferrer"
-              className="group bg-gradient-to-br from-orange-50 to-orange-100 hover:from-orange-100 hover:to-orange-200 rounded-2xl p-6 text-center transition-all duration-300 border border-orange-200 hover:border-orange-300 shadow-md hover:shadow-lg"
+              className="group bg-gradient-to-br from-orange-50 to-orange-100 hover:from-orange-100 hover:to-orange-200 rounded-2xl p-6 text-center transition-all duration-300 border border-orange-200 hover:border-orange-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
             >
-              <div className="w-16 h-16 bg-orange-500 rounded-2xl flex items-center justify-center text-white mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
+              <div className="w-16 h-16 bg-orange-500 rounded-2xl flex items-center justify-center text-white mx-auto mb-4 group-hover:scale-110 transition-transform duration-300 shadow-lg">
                 <svg
                   className="w-8 h-8"
                   fill="none"
@@ -242,9 +242,9 @@ const WhatWeDo = () => {
               href="https://docs.google.com/forms/d/e/1FAIpQLSdnSXTUHPDP2oq-LBb_7Fo2oGRh78udnH3G2sgmTgighijsYQ/viewform"
               target="_blank"
               rel="noopener noreferrer"
-              className="group bg-gradient-to-br from-blue-50 to-blue-100 hover:from-blue-100 hover:to-blue-200 rounded-2xl p-6 text-center transition-all duration-300 border border-blue-200 hover:border-blue-300 shadow-md hover:shadow-lg"
+              className="group bg-gradient-to-br from-blue-50 to-blue-100 hover:from-blue-100 hover:to-blue-200 rounded-2xl p-6 text-center transition-all duration-300 border border-blue-200 hover:border-blue-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
             >
-              <div className="w-16 h-16 bg-blue-500 rounded-2xl flex items-center justify-center text-white mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
+              <div className="w-16 h-16 bg-blue-500 rounded-2xl flex items-center justify-center text-white mx-auto mb-4 group-hover:scale-110 transition-transform duration-300 shadow-lg">
                 <svg
                   className="w-8 h-8"
                   fill="none"
@@ -271,9 +271,9 @@ const WhatWeDo = () => {
               href="https://docs.google.com/forms/d/e/1FAIpQLSfCpxbRdXueU2U0x1Rus-zw-_f4zizytAwrjvBCSRgr0x0OjQ/viewform"
               target="_blank"
               rel="noopener noreferrer"
-              className="group bg-gradient-to-br from-green-50 to-green-100 hover:from-green-100 hover:to-green-200 rounded-2xl p-6 text-center transition-all duration-300 border border-green-200 hover:border-green-300 shadow-md hover:shadow-lg"
+              className="group bg-gradient-to-br from-green-50 to-green-100 hover:from-green-100 hover:to-green-200 rounded-2xl p-6 text-center transition-all duration-300 border border-green-200 hover:border-green-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
             >
-              <div className="w-16 h-16 bg-green-500 rounded-2xl flex items-center justify-center text-white mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
+              <div className="w-16 h-16 bg-green-500 rounded-2xl flex items-center justify-center text-white mx-auto mb-4 group-hover:scale-110 transition-transform duration-300 shadow-lg">
                 <svg
                   className="w-8 h-8"
                   fill="none"

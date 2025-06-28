@@ -26,11 +26,11 @@
   }
 
   .btn-primary {
-    @apply bg-orange-500 hover:bg-orange-600 text-white font-medium py-2 px-4 rounded-[6px] transition-colors duration-300;
+    @apply bg-orange-500 hover:bg-orange-600 text-white font-medium py-3 px-6 rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105;
   }
 
   .btn-secondary {
-    @apply bg-transparent border border-gray-300 hover:border-orange-500 text-gray-700 hover:text-orange-500 font-medium py-2 px-4 rounded-[6px] transition-colors duration-300;
+    @apply bg-transparent border-2 border-orange-500 hover:bg-orange-50 text-orange-500 hover:text-orange-600 font-medium py-3 px-6 rounded-xl transition-all duration-300 shadow-md hover:shadow-lg;
   }
 
   .section-title {
@@ -154,7 +154,7 @@
   }
 
   .gradient-title {
-    background: linear-gradient(90deg, #f97316 0%, #8d9e6f 50%, #4bb3b3 100%);
+    background: linear-gradient(90deg, #f97316 0%, #59924b 50%, #1e9eb0 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;

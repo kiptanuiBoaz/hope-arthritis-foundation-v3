@@ -96,7 +96,7 @@ const ValueCard = ({
   title: string;
   description: string;
 }) => (
-  <div className="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow text-center">
+  <div className="bg-white p-6 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 text-center transform hover:-translate-y-2 border border-gray-100">
     <div className="inline-flex justify-center items-center mb-4">{icon}</div>
     <h3 className="text-xl font-bold mb-3">{title}</h3>
     <p className="text-gray-600">{description}</p>
@@ -150,7 +150,7 @@ const CoreValues = () => {
           <div className="w-24 h-1 bg-orange-500 mx-auto mt-4" />
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
           {values.map((value) => (
             <ValueCard
               key={value.id}

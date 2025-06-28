@@ -99,7 +99,12 @@ const Navbar = () => {
           </Link>
 
           {/* About Us Dropdown */}
-          <div className="relative" ref={aboutRef}>
+          <div 
+            className="relative" 
+            ref={aboutRef}
+            onMouseEnter={() => setIsAboutOpen(true)}
+            onMouseLeave={() => setIsAboutOpen(false)}
+          >
             <button
               className={`transition-colors font-medium flex items-center ${
                 location.pathname === "/founder" ||
@@ -107,7 +112,6 @@ const Navbar = () => {
                   ? "text-orange-500"
                   : "text-gray-700 hover:text-orange-500"
               }`}
-              onClick={() => setIsAboutOpen((open) => !open)}
               aria-expanded={isAboutOpen}
               aria-controls="about-dropdown"
             >
@@ -130,7 +134,7 @@ const Navbar = () => {
             {isAboutOpen && (
               <div
                 id="about-dropdown"
-                className="absolute top-full left-0 mt-2 w-56 bg-white rounded-lg shadow-lg border border-gray-100 py-2 z-50"
+                className="absolute top-full left-0 mt-2 w-56 bg-white rounded-xl shadow-xl border border-gray-100 py-2 z-50"
               >
                 <Link
                   to="/founder"
@@ -275,7 +279,12 @@ const Navbar = () => {
           </Link>
 
           {/* Resources Dropdown */}
-          <div className="relative" ref={resourcesRef}>
+          <div 
+            className="relative" 
+            ref={resourcesRef}
+            onMouseEnter={() => setIsResourcesOpen(true)}
+            onMouseLeave={() => setIsResourcesOpen(false)}
+          >
             <button
               className={`transition-colors font-medium flex items-center ${
                 location.pathname === "/resources" ||
@@ -283,7 +292,6 @@ const Navbar = () => {
                   ? "text-orange-500"
                   : "text-gray-700 hover:text-orange-500"
               }`}
-              onClick={() => setIsResourcesOpen((open) => !open)}
               aria-expanded={isResourcesOpen}
               aria-controls="resources-dropdown"
             >
@@ -306,7 +314,7 @@ const Navbar = () => {
             {isResourcesOpen && (
               <div
                 id="resources-dropdown"
-                className="absolute top-full left-0 mt-2 w-56 bg-white rounded-lg shadow-lg border border-gray-100 py-2 z-50"
+                className="absolute top-full left-0 mt-2 w-56 bg-white rounded-xl shadow-xl border border-gray-100 py-2 z-50"
               >
                 <a
                   href="https://hopearthritisfoundation.com/blog/"
@@ -371,7 +379,7 @@ const Navbar = () => {
         {/* Call to Action Button */}
         <Link
           to="/contact"
-          className="hidden md:block btn-primary shadow-md hover:shadow-lg"
+          className="hidden md:block bg-orange-500 hover:bg-orange-600 text-white font-medium py-3 px-6 rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105"
         >
           Get Started
         </Link>
@@ -503,7 +511,7 @@ const Navbar = () => {
             >
               Contact
             </Link>
-            <Link to="/contact" className="btn-primary text-center shadow-md">
+            <Link to="/contact" className="btn-primary text-center">
               Get Started
             </Link>
           </div>
