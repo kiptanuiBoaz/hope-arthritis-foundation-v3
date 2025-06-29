@@ -469,7 +469,7 @@ const Navbar = () => {
                     </svg>
                     Patient Information
                   </div>
-                </a>
+                </Link>
               </div>
             )}
           </div>
