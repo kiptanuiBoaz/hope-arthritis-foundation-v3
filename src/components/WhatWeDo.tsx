@@ -66,76 +66,123 @@ const WhatWeDo = () => {
           </p>
         </div>
 
-        {/* Services Grid - Now 3 Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20 max-w-6xl mx-auto">
-          <ServiceCard
-            icon={
-              <svg
-                className="w-8 h-8"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
+        {/* Hero Section - Our Online Academy */}
+        <div className="bg-gradient-to-br from-orange-50 to-blue-50/50 rounded-3xl p-8 md:p-12 mb-16 shadow-xl border border-gray-100">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+            <div>
+              <h3 className="text-3xl md:text-4xl font-bold text-gray-800 mb-6">
+                Our Online Academy
+              </h3>
+              <p className="text-gray-600 text-lg mb-6 leading-relaxed">
+                Our online academy offers a wealth of resources for both healthcare
+                professionals and families. Access expert articles, video tutorials, and up-to-
+                date research on pediatric rheumatological diseases. Our academy ensures
+                that everyone involved in the care of children with these conditions has the
+                knowledge and tools they need.
+              </p>
+              <div className="mb-8">
+                <h4 className="text-xl font-bold text-gray-800 mb-4">
+                  Leading The Way in Childhood Arthritis
+                </h4>
+                <p className="text-gray-600 leading-relaxed">
+                  Promoting holistic healthcare to children with rheumatic diseases
+                  across Africa and the globe through mentorship, academic leadership,
+                  and offering psychosocial support to their families.
+                </p>
+              </div>
+              <a
+                href="https://app.hopearthritisfoundation.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-orange-500 hover:bg-orange-600 text-white font-semibold py-3 px-8 rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 inline-flex items-center"
               >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
-                />
-              </svg>
-            }
-            title="Healthcare Worker Bootcamps"
-            description="Intensive online training programs for healthcare professionals focusing on diagnosis and treatment of pediatric rheumatic diseases including JIA, SLE, JDM, and Vasculitis."
-            ctaText="Access Platform"
-            ctaLink="https://app.hopearthritisfoundation.com/"
-            isExternal={true}
-          />
+                Get Started
+                <svg className="w-4 h-4 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
+              </a>
+            </div>
+            <div className="relative">
+              <img
+                src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
+                alt="Mountain landscape representing our academy"
+                className="w-full h-80 object-cover rounded-2xl shadow-lg"
+              />
+            </div>
+          </div>
+        </div>
 
-          <ServiceCard
-            icon={
-              <svg
-                className="w-8 h-8"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
-                />
+        {/* Two Column Services */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-20">
+          {/* Boot Camps */}
+          <div className="bg-white rounded-2xl p-8 shadow-xl border border-gray-100">
+            <h3 className="text-2xl font-bold text-orange-500 mb-6">
+              Boot Camps For Healthcare Workers
+            </h3>
+            <p className="text-gray-600 mb-6 leading-relaxed">
+              We offer comprehensive online boot camps designed for professional
+              healthcare workers. These virtual training sessions focus on the proper
+              diagnosis and treatment of pediatric rheumatological diseases, including:
+            </p>
+            <ul className="text-gray-600 mb-8 space-y-2">
+              <li className="flex items-start">
+                <span className="w-2 h-2 bg-orange-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                Childhood Arthritis (Juvenile Idiopathic Arthritis - JIA)
+              </li>
+              <li className="flex items-start">
+                <span className="w-2 h-2 bg-orange-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                Systemic Lupus Erythematosus (SLE)
+              </li>
+              <li className="flex items-start">
+                <span className="w-2 h-2 bg-orange-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                Juvenile Dermatomyositis (JDM)
+              </li>
+              <li className="flex items-start">
+                <span className="w-2 h-2 bg-orange-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                Vasculitis
+              </li>
+            </ul>
+            <a
+              href="https://app.hopearthritisfoundation.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-orange-500 hover:bg-orange-600 text-white font-semibold py-3 px-6 rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl inline-flex items-center"
+            >
+              Learn More
+              <svg className="w-4 h-4 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
               </svg>
-            }
-            title="Guardian Masterclasses"
-            description="Educational sessions designed for parents, caregivers, and guardians providing essential training on caring for children with rheumatic diseases."
-            ctaText="Join Classes"
-            ctaLink="https://app.hopearthritisfoundation.com/"
-            isExternal={true}
-          />
+            </a>
+          </div>
 
-          <ServiceCard
-            icon={
-              <svg
-                className="w-8 h-8"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"
-                />
+          {/* Master Classes */}
+          <div className="bg-white rounded-2xl p-8 shadow-xl border border-gray-100">
+            <h3 className="text-2xl font-bold text-blue-500 mb-6">
+              Master Classes For Parents/Guardians
+            </h3>
+            <p className="text-gray-600 mb-6 leading-relaxed">
+              We conduct master classes tailored for parents/caregivers/guardians.
+              These sessions provide essential training on how to care for children living
+              with rheumatic diseases, ensuring they receive the best possible support
+              and management.
+            </p>
+            <p className="text-gray-600 mb-8 leading-relaxed">
+              Our classes cover daily care routines, medication management, physical
+              therapy exercises, and emotional support strategies to help families
+              navigate the challenges of childhood arthritis.
+            </p>
+            <a
+              href="https://app.hopearthritisfoundation.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-3 px-6 rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl inline-flex items-center"
+            >
+              Learn More
+              <svg className="w-4 h-4 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
               </svg>
-            }
-            title="Online Academy"
-            description="Comprehensive digital platform offering expert articles, video tutorials, and up-to-date research on pediatric rheumatological diseases for healthcare professionals and families."
-            ctaText="Visit Academy"
-            ctaLink="https://app.hopearthritisfoundation.com/"
-            isExternal={true}
-          />
+            </a>
+          </div>
         </div>
 
         {/* Get Started Today Section - Enhanced with Self-Assessment */}
@@ -181,9 +228,9 @@ const WhatWeDo = () => {
                 href="/assesment_forms/health_institution_gap_analysis.html"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group bg-gradient-to-br from-purple-50 to-purple-100 hover:from-purple-100 hover:to-purple-200 rounded-2xl p-6 text-center transition-all duration-300 border border-purple-200 hover:border-purple-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+                className="group bg-gradient-to-br from-orange-50 to-orange-100 hover:from-orange-100 hover:to-orange-200 rounded-2xl p-6 text-center transition-all duration-300 border border-orange-200 hover:border-orange-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
               >
-                <div className="w-16 h-16 bg-purple-500 rounded-2xl flex items-center justify-center text-white mx-auto mb-4 group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                <div className="w-16 h-16 bg-orange-500 rounded-2xl flex items-center justify-center text-white mx-auto mb-4 group-hover:scale-110 transition-transform duration-300 shadow-lg">
                   <svg
                     className="w-8 h-8"
                     fill="none"
@@ -198,7 +245,7 @@ const WhatWeDo = () => {
                     />
                   </svg>
                 </div>
-                <h5 className="font-bold text-lg text-gray-800 mb-2 group-hover:text-purple-600 transition-colors">
+                <h5 className="font-bold text-lg text-gray-800 mb-2 group-hover:text-orange-600 transition-colors">
                   Institution Assessment
                 </h5>
                 <p className="text-gray-600 text-sm">
@@ -210,9 +257,9 @@ const WhatWeDo = () => {
                 href="/assesment_forms/health_worker_gap_analysis.html"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group bg-gradient-to-br from-teal-50 to-teal-100 hover:from-teal-100 hover:to-teal-200 rounded-2xl p-6 text-center transition-all duration-300 border border-teal-200 hover:border-teal-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+                className="group bg-gradient-to-br from-blue-50 to-blue-100 hover:from-blue-100 hover:to-blue-200 rounded-2xl p-6 text-center transition-all duration-300 border border-blue-200 hover:border-blue-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
               >
-                <div className="w-16 h-16 bg-teal-500 rounded-2xl flex items-center justify-center text-white mx-auto mb-4 group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                <div className="w-16 h-16 bg-blue-500 rounded-2xl flex items-center justify-center text-white mx-auto mb-4 group-hover:scale-110 transition-transform duration-300 shadow-lg">
                   <svg
                     className="w-8 h-8"
                     fill="none"
@@ -227,7 +274,7 @@ const WhatWeDo = () => {
                     />
                   </svg>
                 </div>
-                <h5 className="font-bold text-lg text-gray-800 mb-2 group-hover:text-teal-600 transition-colors">
+                <h5 className="font-bold text-lg text-gray-800 mb-2 group-hover:text-blue-600 transition-colors">
                   Healthcare Worker Assessment
                 </h5>
                 <p className="text-gray-600 text-sm">
@@ -239,9 +286,9 @@ const WhatWeDo = () => {
                 href="/assesment_forms/patient_gap_analysis.html"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group bg-gradient-to-br from-pink-50 to-pink-100 hover:from-pink-100 hover:to-pink-200 rounded-2xl p-6 text-center transition-all duration-300 border border-pink-200 hover:border-pink-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+                className="group bg-gradient-to-br from-green-50 to-green-100 hover:from-green-100 hover:to-green-200 rounded-2xl p-6 text-center transition-all duration-300 border border-green-200 hover:border-green-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
               >
-                <div className="w-16 h-16 bg-pink-500 rounded-2xl flex items-center justify-center text-white mx-auto mb-4 group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                <div className="w-16 h-16 bg-green-500 rounded-2xl flex items-center justify-center text-white mx-auto mb-4 group-hover:scale-110 transition-transform duration-300 shadow-lg">
                   <svg
                     className="w-8 h-8"
                     fill="none"
@@ -256,7 +303,7 @@ const WhatWeDo = () => {
                     />
                   </svg>
                 </div>
-                <h5 className="font-bold text-lg text-gray-800 mb-2 group-hover:text-pink-600 transition-colors">
+                <h5 className="font-bold text-lg text-gray-800 mb-2 group-hover:text-green-600 transition-colors">
                   Guardian Assessment
                 </h5>
                 <p className="text-gray-600 text-sm">
