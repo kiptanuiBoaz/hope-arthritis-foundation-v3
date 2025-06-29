@@ -67,7 +67,7 @@ const WhatWeDo = () => {
         </div>
 
         {/* Hero Section - Our Online Academy */}
-        <div className="bg-gradient-to-br from-orange-50 to-blue-50/50 rounded-3xl p-8 md:p-12 mb-16 shadow-xl border border-gray-100">
+        <div className="bg-gradient-to-br from-orange-100/80 to-blue-100/80 rounded-3xl p-8 md:p-12 mb-16 shadow-xl border border-gray-100">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
             <div>
               <h3 className="text-3xl md:text-4xl font-bold text-gray-800 mb-6">
@@ -286,9 +286,9 @@ const WhatWeDo = () => {
                 href="/assesment_forms/patient_gap_analysis.html"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group bg-gradient-to-br from-green-50 to-green-100 hover:from-green-100 hover:to-green-200 rounded-2xl p-6 text-center transition-all duration-300 border border-green-200 hover:border-green-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+                className="group bg-gradient-to-br from-brandgreen-50 to-brandgreen-100 hover:from-brandgreen-100 hover:to-brandgreen-200 rounded-2xl p-6 text-center transition-all duration-300 border border-brandgreen-200 hover:border-brandgreen-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
               >
-                <div className="w-16 h-16 bg-green-500 rounded-2xl flex items-center justify-center text-white mx-auto mb-4 group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                <div className="w-16 h-16 bg-brandgreen-500 rounded-2xl flex items-center justify-center text-white mx-auto mb-4 group-hover:scale-110 transition-transform duration-300 shadow-lg">
                   <svg
                     className="w-8 h-8"
                     fill="none"
@@ -303,7 +303,7 @@ const WhatWeDo = () => {
                     />
                   </svg>
                 </div>
-                <h5 className="font-bold text-lg text-gray-800 mb-2 group-hover:text-green-600 transition-colors">
+                <h5 className="font-bold text-lg text-gray-800 mb-2 group-hover:text-brandgreen-600 transition-colors">
                   Guardian Assessment
                 </h5>
                 <p className="text-gray-600 text-sm">
@@ -407,9 +407,9 @@ const WhatWeDo = () => {
                 href="https://docs.google.com/forms/d/e/1FAIpQLSfCpxbRdXueU2U0x1Rus-zw-_f4zizytAwrjvBCSRgr0x0OjQ/viewform"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group bg-gradient-to-br from-green-50 to-green-100 hover:from-green-100 hover:to-green-200 rounded-2xl p-6 text-center transition-all duration-300 border border-green-200 hover:border-green-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+                className="group bg-gradient-to-br from-brandgreen-50 to-brandgreen-100 hover:from-brandgreen-100 hover:to-brandgreen-200 rounded-2xl p-6 text-center transition-all duration-300 border border-brandgreen-200 hover:border-brandgreen-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
               >
-                <div className="w-16 h-16 bg-green-500 rounded-2xl flex items-center justify-center text-white mx-auto mb-4 group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                <div className="w-16 h-16 bg-brandgreen-500 rounded-2xl flex items-center justify-center text-white mx-auto mb-4 group-hover:scale-110 transition-transform duration-300 shadow-lg">
                   <svg
                     className="w-8 h-8"
                     fill="none"
@@ -424,7 +424,7 @@ const WhatWeDo = () => {
                     />
                   </svg>
                 </div>
-                <h5 className="font-bold text-lg text-gray-800 mb-2 group-hover:text-green-600 transition-colors">
+                <h5 className="font-bold text-lg text-gray-800 mb-2 group-hover:text-brandgreen-600 transition-colors">
                   Parent/Guardian Registration
                 </h5>
                 <p className="text-gray-600 text-sm">

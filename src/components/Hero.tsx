@@ -87,7 +87,7 @@ const Hero = () => {
     <section
       className="relative min-h-[600px] md:min-h-[700px] flex flex-col"
       style={{
-        background: "linear-gradient(135deg, rgba(246, 133, 33, 0.1) 0%, rgba(30, 158, 176, 0.1) 100%)",
+        background: "linear-gradient(135deg, rgba(246, 133, 33, 0.15) 0%, rgba(30, 158, 176, 0.15) 100%)",
       }}
     >
       {/* Animation styles */}
