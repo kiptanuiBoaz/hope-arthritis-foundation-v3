@@ -115,7 +115,7 @@ const WhatWeDo = () => {
         {/* Two Column Services */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-20">
           {/* Boot Camps */}
-          <div className="bg-white rounded-2xl p-8 shadow-xl border border-gray-100">
+          <div className="bg-gradient-to-br from-orange-50 to-blue-50/50 rounded-2xl p-8 shadow-xl border border-gray-100">
             <h3 className="text-2xl font-bold text-orange-500 mb-6">
               Boot Camps For Healthcare Workers
             </h3>
@@ -156,8 +156,8 @@ const WhatWeDo = () => {
           </div>
 
           {/* Master Classes */}
-          <div className="bg-white rounded-2xl p-8 shadow-xl border border-gray-100">
-            <h3 className="text-2xl font-bold text-blue-500 mb-6">
+          <div className="bg-cyan-500/10 rounded-2xl p-8 shadow-xl border border-gray-100">
+            <h3 className="text-2xl font-bold text-cyan-500 mb-6">
               Master Classes For Parents/Guardians
             </h3>
             <p className="text-gray-600 mb-6 leading-relaxed">
@@ -175,7 +175,7 @@ const WhatWeDo = () => {
               href="https://app.hopearthritisfoundation.com/"
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-3 px-6 rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl inline-flex items-center"
+              className="bg-cyan-500 hover:bg-cyan-600 text-white font-semibold py-3 px-6 rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl inline-flex items-center"
             >
               Learn More
               <svg className="w-4 h-4 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -257,9 +257,9 @@ const WhatWeDo = () => {
                 href="/assesment_forms/health_worker_gap_analysis.html"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group bg-gradient-to-br from-blue-50 to-blue-100 hover:from-blue-100 hover:to-blue-200 rounded-2xl p-6 text-center transition-all duration-300 border border-blue-200 hover:border-blue-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+                className="group bg-gradient-to-br from-cyan-50 to-cyan-100 hover:from-cyan-100 hover:to-cyan-200 rounded-2xl p-6 text-center transition-all duration-300 border border-cyan-200 hover:border-cyan-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
               >
-                <div className="w-16 h-16 bg-blue-500 rounded-2xl flex items-center justify-center text-white mx-auto mb-4 group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                <div className="w-16 h-16 bg-cyan-500 rounded-2xl flex items-center justify-center text-white mx-auto mb-4 group-hover:scale-110 transition-transform duration-300 shadow-lg">
                   <svg
                     className="w-8 h-8"
                     fill="none"
@@ -274,7 +274,7 @@ const WhatWeDo = () => {
                     />
                   </svg>
                 </div>
-                <h5 className="font-bold text-lg text-gray-800 mb-2 group-hover:text-blue-600 transition-colors">
+                <h5 className="font-bold text-lg text-gray-800 mb-2 group-hover:text-cyan-600 transition-colors">
                   Healthcare Worker Assessment
                 </h5>
                 <p className="text-gray-600 text-sm">
@@ -378,9 +378,9 @@ const WhatWeDo = () => {
                 href="https://docs.google.com/forms/d/e/1FAIpQLSdnSXTUHPDP2oq-LBb_7Fo2oGRh78udnH3G2sgmTgighijsYQ/viewform"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group bg-gradient-to-br from-blue-50 to-blue-100 hover:from-blue-100 hover:to-blue-200 rounded-2xl p-6 text-center transition-all duration-300 border border-blue-200 hover:border-blue-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+                className="group bg-gradient-to-br from-cyan-50 to-cyan-100 hover:from-cyan-100 hover:to-cyan-200 rounded-2xl p-6 text-center transition-all duration-300 border border-cyan-200 hover:border-cyan-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
               >
-                <div className="w-16 h-16 bg-blue-500 rounded-2xl flex items-center justify-center text-white mx-auto mb-4 group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                <div className="w-16 h-16 bg-cyan-500 rounded-2xl flex items-center justify-center text-white mx-auto mb-4 group-hover:scale-110 transition-transform duration-300 shadow-lg">
                   <svg
                     className="w-8 h-8"
                     fill="none"
@@ -395,7 +395,7 @@ const WhatWeDo = () => {
                     />
                   </svg>
                 </div>
-                <h5 className="font-bold text-lg text-gray-800 mb-2 group-hover:text-blue-600 transition-colors">
+                <h5 className="font-bold text-lg text-gray-800 mb-2 group-hover:text-cyan-600 transition-colors">
                   Health Worker Registration
                 </h5>
                 <p className="text-gray-600 text-sm">

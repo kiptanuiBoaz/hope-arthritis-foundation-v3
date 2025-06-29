@@ -23,7 +23,7 @@ const CallToAction = () => {
 
   return (
     <>
-      <section className="section bg-gradient-to-r from-orange-500 to-blue-500 relative overflow-hidden">
+      <section className="section bg-gradient-to-r from-orange-500 to-cyan-500 relative overflow-hidden">
         {/* Decorative elements */}
         <div className="absolute top-0 left-0 w-full h-full opacity-10">
           <div className="absolute top-10 left-10 w-32 h-32 bg-white rounded-full"></div>
