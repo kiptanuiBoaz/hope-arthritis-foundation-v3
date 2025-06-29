@@ -7,9 +7,11 @@ const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isResourcesOpen, setIsResourcesOpen] = useState(false);
   const [isAboutOpen, setIsAboutOpen] = useState(false);
+  const [isWhatWeOfferOpen, setIsWhatWeOfferOpen] = useState(false);
   const location = useLocation();
   const aboutRef = useRef<HTMLDivElement>(null);
   const resourcesRef = useRef<HTMLDivElement>(null);
+  const whatWeOfferRef = useRef<HTMLDivElement>(null);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -36,6 +38,7 @@ const Navbar = () => {
     setIsMenuOpen(false);
     setIsResourcesOpen(false);
     setIsAboutOpen(false);
+    setIsWhatWeOfferOpen(false);
   }, [location.pathname]);
 
   // Click away to close dropdowns
@@ -53,6 +56,12 @@ const Navbar = () => {
       ) {
         setIsResourcesOpen(false);
       }
+      if (
+        whatWeOfferRef.current &&
+        !whatWeOfferRef.current.contains(event.target as Node)
+      ) {
+        setIsWhatWeOfferOpen(false);
+      }
     }
     document.addEventListener("mousedown", handleClickOutside);
     return () => {
@@ -67,6 +76,40 @@ const Navbar = () => {
       const element = document.getElementById(sectionId);
       if (element) {
         element.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+  };
+
+  const scrollToSelfAssessment = () => {
+    if (location.pathname !== "/") {
+      window.location.href = "/#intro-forms";
+    } else {
+      const element = document.getElementById("intro-forms");
+      if (element) {
+        // Scroll to the self-assessment tools section specifically
+        const selfAssessmentSection = element.querySelector('h4:contains("Self-Assessment Tools")');
+        if (selfAssessmentSection) {
+          selfAssessmentSection.scrollIntoView({ behavior: "smooth" });
+        } else {
+          element.scrollIntoView({ behavior: "smooth" });
+        }
+      }
+    }
+  };
+
+  const scrollToJoinCommunity = () => {
+    if (location.pathname !== "/") {
+      window.location.href = "/#intro-forms";
+    } else {
+      const element = document.getElementById("intro-forms");
+      if (element) {
+        // Scroll to the join our community section specifically
+        const joinCommunitySection = element.querySelector('h4:contains("Join Our Community")');
+        if (joinCommunitySection) {
+          joinCommunitySection.scrollIntoView({ behavior: "smooth" });
+        } else {
+          element.scrollIntoView({ behavior: "smooth" });
+        }
       }
     }
   };
@@ -274,6 +317,81 @@ const Navbar = () => {
             News & Activities
           </Link>
 
+          {/* What We Offer Dropdown */}
+          <div className="relative" ref={whatWeOfferRef}>
+            <button
+              className="transition-colors font-medium flex items-center text-gray-700 hover:text-orange-500"
+              onClick={() => setIsWhatWeOfferOpen((open) => !open)}
+              aria-expanded={isWhatWeOfferOpen}
+              aria-controls="what-we-offer-dropdown"
+            >
+              What We Offer
+              <svg
+                className={`ml-1 h-4 w-4 transition-transform ${isWhatWeOfferOpen ? "rotate-180" : ""}`}
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M19 9l-7 7-7-7"
+                />
+              </svg>
+            </button>
+
+            {isWhatWeOfferOpen && (
+              <div
+                id="what-we-offer-dropdown"
+                className="absolute top-full left-0 mt-2 w-56 bg-white rounded-xl shadow-xl border border-gray-100 py-2 z-50"
+              >
+                <button
+                  onClick={scrollToJoinCommunity}
+                  className="block w-full text-left px-4 py-3 text-gray-700 hover:bg-orange-50 hover:text-orange-500 transition-colors"
+                >
+                  <div className="flex items-center">
+                    <svg
+                      className="h-4 w-4 mr-3"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z"
+                      />
+                    </svg>
+                    Registration Forms
+                  </div>
+                </button>
+                <button
+                  onClick={scrollToSelfAssessment}
+                  className="block w-full text-left px-4 py-3 text-gray-700 hover:bg-orange-50 hover:text-orange-500 transition-colors"
+                >
+                  <div className="flex items-center">
+                    <svg
+                      className="h-4 w-4 mr-3"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+                      />
+                    </svg>
+                    Assessment Forms
+                  </div>
+                </button>
+              </div>
+            )}
+          </div>
+
           {/* Resources Dropdown */}
           <div className="relative" ref={resourcesRef}>
             <button
@@ -351,30 +469,21 @@ const Navbar = () => {
                     </svg>
                     Patient Information
                   </div>
-                </Link>
+                </a>
               </div>
             )}
           </div>
-
-          <Link
-            to="/contact"
-            className={`transition-colors font-medium ${
-              location.pathname === "/contact"
-                ? "text-orange-500"
-                : "text-gray-700 hover:text-orange-500"
-            }`}
-          >
-            Contact
-          </Link>
         </div>
 
         {/* Call to Action Button */}
-        <Link
-          to="/contact"
+        <a
+          href="https://app.hopearthritisfoundation.com/"
+          target="_blank"
+          rel="noopener noreferrer"
           className="hidden md:block bg-orange-500 hover:bg-orange-600 text-white font-medium py-3 px-6 rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105"
         >
           Get Started
-        </Link>
+        </a>
 
         {/* Mobile Menu Button */}
         <button
@@ -472,6 +581,25 @@ const Navbar = () => {
               News & Activities
             </Link>
 
+            {/* Mobile What We Offer */}
+            <div className="pl-4 border-l-2 border-gray-100">
+              <p className="text-sm font-semibold text-gray-500 mb-2">
+                What We Offer
+              </p>
+              <button
+                onClick={scrollToJoinCommunity}
+                className="block py-2 text-gray-700 hover:text-orange-500 transition-colors text-left"
+              >
+                Registration Forms
+              </button>
+              <button
+                onClick={scrollToSelfAssessment}
+                className="block py-2 text-gray-700 hover:text-orange-500 transition-colors text-left"
+              >
+                Assessment Forms
+              </button>
+            </div>
+
             {/* Mobile Resources */}
             <div className="pl-4 border-l-2 border-gray-100">
               <p className="text-sm font-semibold text-gray-500 mb-2">
@@ -493,19 +621,14 @@ const Navbar = () => {
               </Link>
             </div>
 
-            <Link
-              to="/contact"
-              className={`transition-colors font-medium ${
-                location.pathname === "/contact"
-                  ? "text-orange-500"
-                  : "text-gray-700 hover:text-orange-500"
-              }`}
+            <a 
+              href="https://app.hopearthritisfoundation.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-primary text-center"
             >
-              Contact
-            </Link>
-            <Link to="/contact" className="btn-primary text-center">
               Get Started
-            </Link>
+            </a>
           </div>
         </div>
       )}
