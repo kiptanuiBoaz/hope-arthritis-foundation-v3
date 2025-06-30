@@ -131,7 +131,7 @@ const Hero = () => {
           </div>
 
           {/* Carousel */}
-          <div className="relative">
+          <div className="relative ">
             {/* Decorative graphics - top left */}
             <div className="absolute -top-8 -left-8 z-0 pointer-events-none">
               <svg width="120" height="120" viewBox="0 0 120 120" fill="none">
@@ -158,7 +158,7 @@ const Hero = () => {
               </svg>
             </div>
             {/* Carousel */}
-            <div className="rounded-2xl overflow-hidden shadow-xl relative bg-white">
+            <div className="rounded-2xl overflow-hidden shadow-xl relative bg-white mb-10 md:mb-0">
               <div className="relative w-full h-[340px] md:h-[400px]">
                 {slides.map((slide, idx) => (
                   <img
@@ -180,7 +180,7 @@ const Hero = () => {
                 </div>
               </div>
               {/* Dots */}
-              <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-30">
+              {/* <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-30">
                 {slides.map((_, idx) => (
                   <button
                     key={idx}
@@ -193,7 +193,7 @@ const Hero = () => {
                     aria-label={`Go to slide ${idx + 1}`}
                   />
                 ))}
-              </div>
+              </div> */}
             </div>
           </div>
         </div>
