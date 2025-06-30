@@ -87,7 +87,8 @@ const Hero = () => {
     <section
       className="relative min-h-[600px] md:min-h-[700px] flex flex-col"
       style={{
-        background: "linear-gradient(135deg, rgba(246, 133, 33, 0.15) 0%, rgba(30, 158, 176, 0.15) 100%)",
+        background:
+          "linear-gradient(135deg, rgba(246, 133, 33, 0.15) 0%, rgba(30, 158, 176, 0.15) 100%)",
       }}
     >
       {/* Animation styles */}
@@ -96,7 +97,7 @@ const Hero = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center w-full">
           {/* Text content */}
           <div className="space-y-6">
-            <h1 className="text-4xl md:text-5xl font-extrabold leading-tight text-gray-800">
+            <h1 className="text-4xl md:text-5xl font-extrabold leading-tight text-gray-800 mt-[80px] md:mt-[40px]">
               <span className="text-gray-900"> Beat </span>
               <span className=" bg-gradient-to-r from-orange-500 via-[#8d9e6f] to-[#4bb3b3] bg-clip-text text-transparent">
                 Childhood
@@ -144,7 +145,7 @@ const Hero = () => {
               </svg>
             </div>
             {/* Decorative graphics - bottom right */}
-            <div className="absolute -bottom-8 -right-8 z-0 pointer-events-none">
+            <div className="absolute -bottom-8 -right-8 z-0 pointer-events-none hidden md:block">
               <svg width="100" height="100" viewBox="0 0 100 100" fill="none">
                 <ellipse
                   cx="50"

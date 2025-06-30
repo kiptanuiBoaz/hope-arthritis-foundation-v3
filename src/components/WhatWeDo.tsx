@@ -1,50 +1,16 @@
 import React from "react";
+import poster from "../../public/img/2024bootcamp.webp";
 
 // Service Card component with improved design
-const ServiceCard = ({
-  icon,
-  title,
-  description,
-  ctaText = "Learn More",
-  ctaLink = "#",
-  isExternal = false,
-}: {
-  icon: React.ReactNode;
-  title: string;
-  description: string;
-  ctaText?: string;
-  ctaLink?: string;
-  isExternal?: boolean;
-}) => (
-  <div className="bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 p-8 border border-gray-100 group h-full flex flex-col transform hover:-translate-y-1">
-    <div className="flex items-center mb-6">
-      <div className="w-16 h-16 bg-gradient-to-br from-orange-500 to-orange-600 rounded-2xl flex items-center justify-center text-white shadow-lg group-hover:scale-110 transition-transform duration-300">
-        {icon}
-      </div>
-    </div>
-
-    <h3 className="text-xl font-bold mb-4 text-gray-800 group-hover:text-orange-600 transition-colors">
-      {title}
-    </h3>
-
-    <p className="text-gray-600 mb-6 leading-relaxed flex-grow">
-      {description}
-    </p>
-
-    <a
-      href={ctaLink}
-      target={isExternal ? "_blank" : "_self"}
-      rel={isExternal ? "noopener noreferrer" : ""}
-      className="btn-primary text-center mt-auto"
-    >
-      {ctaText}
-    </a>
-  </div>
-);
 
 const WhatWeDo = () => {
-  const scrollToIntroForms = () => {
-    const element = document.getElementById("intro-forms");
+  // Add these refs for scrolling
+  const whatWeDoRef = React.useRef<HTMLDivElement>(null);
+  const getStartedRef = React.useRef<HTMLDivElement>(null);
+
+  // Helper for smooth scroll to a section by id
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });
     }
@@ -57,7 +23,7 @@ const WhatWeDo = () => {
     >
       <div className="max-w-7xl mx-auto px-4">
         {/* What We Do Section */}
-        <div className="text-center mb-16">
+        <div id="what-we-do" className="text-center mb-16">
           <h2 className="section-title gradient-title">What We Do</h2>
           <div className="w-24 h-1 bg-orange-500 mx-auto mt-4 mb-8" />
           <p className="text-gray-600 max-w-3xl mx-auto text-lg">
@@ -74,10 +40,11 @@ const WhatWeDo = () => {
                 Our Online Academy
               </h3>
               <p className="text-gray-600 text-lg mb-6 leading-relaxed">
-                Our online academy offers a wealth of resources for both healthcare
-                professionals and families. Access expert articles, video tutorials, and up-to-
-                date research on pediatric rheumatological diseases. Our academy ensures
-                that everyone involved in the care of children with these conditions has the
+                Our online academy offers a wealth of resources for both
+                healthcare professionals and families. Access expert articles,
+                video tutorials, and up-to- date research on pediatric
+                rheumatological diseases. Our academy ensures that everyone
+                involved in the care of children with these conditions has the
                 knowledge and tools they need.
               </p>
               <div className="mb-8">
@@ -85,9 +52,10 @@ const WhatWeDo = () => {
                   Leading The Way in Childhood Arthritis
                 </h4>
                 <p className="text-gray-600 leading-relaxed">
-                  Promoting holistic healthcare to children with rheumatic diseases
-                  across Africa and the globe through mentorship, academic leadership,
-                  and offering psychosocial support to their families.
+                  Promoting holistic healthcare to children with rheumatic
+                  diseases across Africa and the globe through mentorship,
+                  academic leadership, and offering psychosocial support to
+                  their families.
                 </p>
               </div>
               <a
@@ -97,16 +65,26 @@ const WhatWeDo = () => {
                 className="bg-orange-500 hover:bg-orange-600 text-white font-semibold py-3 px-8 rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 inline-flex items-center"
               >
                 Get Started
-                <svg className="w-4 h-4 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                <svg
+                  className="w-4 h-4 ml-2"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M9 5l7 7-7 7"
+                  />
                 </svg>
               </a>
             </div>
             <div className="relative">
               <img
-                src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
+                src={poster}
                 alt="Mountain landscape representing our academy"
-                className="w-full h-80 object-cover rounded-2xl shadow-lg"
+                className="w-full h-100 object-cover rounded-2xl shadow-lg"
               />
             </div>
           </div>
@@ -121,8 +99,9 @@ const WhatWeDo = () => {
             </h3>
             <p className="text-gray-600 mb-6 leading-relaxed">
               We offer comprehensive online boot camps designed for professional
-              healthcare workers. These virtual training sessions focus on the proper
-              diagnosis and treatment of pediatric rheumatological diseases, including:
+              healthcare workers. These virtual training sessions focus on the
+              proper diagnosis and treatment of pediatric rheumatological
+              diseases, including:
             </p>
             <ul className="text-gray-600 mb-8 space-y-2">
               <li className="flex items-start">
@@ -149,8 +128,18 @@ const WhatWeDo = () => {
               className="bg-orange-500 hover:bg-orange-600 text-white font-semibold py-3 px-6 rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl inline-flex items-center"
             >
               Learn More
-              <svg className="w-4 h-4 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              <svg
+                className="w-4 h-4 ml-2"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M9 5l7 7-7 7"
+                />
               </svg>
             </a>
           </div>
@@ -161,15 +150,16 @@ const WhatWeDo = () => {
               Master Classes For Parents/Guardians
             </h3>
             <p className="text-gray-600 mb-6 leading-relaxed">
-              We conduct master classes tailored for parents/caregivers/guardians.
-              These sessions provide essential training on how to care for children living
-              with rheumatic diseases, ensuring they receive the best possible support
-              and management.
+              We conduct master classes tailored for
+              parents/caregivers/guardians. These sessions provide essential
+              training on how to care for children living with rheumatic
+              diseases, ensuring they receive the best possible support and
+              management.
             </p>
             <p className="text-gray-600 mb-8 leading-relaxed">
-              Our classes cover daily care routines, medication management, physical
-              therapy exercises, and emotional support strategies to help families
-              navigate the challenges of childhood arthritis.
+              Our classes cover daily care routines, medication management,
+              physical therapy exercises, and emotional support strategies to
+              help families navigate the challenges of childhood arthritis.
             </p>
             <a
               href="https://app.hopearthritisfoundation.com/"
@@ -178,8 +168,18 @@ const WhatWeDo = () => {
               className="bg-cyan-500 hover:bg-cyan-600 text-white font-semibold py-3 px-6 rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl inline-flex items-center"
             >
               Learn More
-              <svg className="w-4 h-4 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              <svg
+                className="w-4 h-4 ml-2"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M9 5l7 7-7 7"
+                />
               </svg>
             </a>
           </div>
@@ -195,7 +195,8 @@ const WhatWeDo = () => {
               Get Started Today
             </h3>
             <p className="text-gray-600 text-lg max-w-2xl mx-auto mb-8">
-              Take the first step in your journey with us by completing one of our introductory forms or assessment tools
+              Take the first step in your journey with us by completing one of
+              our introductory forms or assessment tools
             </p>
           </div>
 
@@ -219,7 +220,8 @@ const WhatWeDo = () => {
                 Self-Assessment Tools
               </h4>
               <p className="text-gray-600">
-                Evaluate current practices and identify areas for improvement in pediatric rheumatology care
+                Evaluate current practices and identify areas for improvement in
+                pediatric rheumatology care
               </p>
             </div>
 
@@ -249,7 +251,8 @@ const WhatWeDo = () => {
                   Institution Assessment
                 </h5>
                 <p className="text-gray-600 text-sm">
-                  For healthcare institutions to evaluate their pediatric rheumatology services
+                  For healthcare institutions to evaluate their pediatric
+                  rheumatology services
                 </p>
               </a>
 
@@ -278,7 +281,8 @@ const WhatWeDo = () => {
                   Healthcare Worker Assessment
                 </h5>
                 <p className="text-gray-600 text-sm">
-                  For healthcare professionals to assess their knowledge and skills
+                  For healthcare professionals to assess their knowledge and
+                  skills
                 </p>
               </a>
 

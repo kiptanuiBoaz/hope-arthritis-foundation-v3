@@ -96,10 +96,19 @@ const ValueCard = ({
   title: string;
   description: string;
 }) => (
-  <div className="bg-white p-6 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 text-center transform hover:-translate-y-2 border border-gray-100">
-    <div className="inline-flex justify-center items-center mb-4">{icon}</div>
-    <h3 className="text-xl font-bold mb-3">{title}</h3>
-    <p className="text-gray-600">{description}</p>
+  <div className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 text-center border border-gray-100 flex flex-col items-center min-h-[340px]">
+    <div className="flex items-center justify-center mb-6">
+      <span className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-orange-100">
+        {icon}
+      </span>
+    </div>
+    <h3
+      className="text-xl font-bold mb-3 text-gray-900"
+      style={{ fontFamily: "Montserrat, sans-serif" }}
+    >
+      {title}
+    </h3>
+    <p className="text-gray-600 text-base leading-relaxed">{description}</p>
   </div>
 );
 
@@ -144,7 +153,7 @@ const CoreValues = () => {
 
   return (
     <section id="core-values" className="section bg-white">
-      <div className="container mx-auto">
+      <div className=" mx-12">
         <div className="text-center mb-12">
           <h2 className="section-title gradient-title">Core Values</h2>
           <div className="w-24 h-1 bg-orange-500 mx-auto mt-4" />
