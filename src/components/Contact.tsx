@@ -95,7 +95,7 @@ const Contact = () => {
 
               <button
                 type="submit"
-                className="w-full bg-orange-500 hover:bg-orange-600 text-white font-semibold py-3 px-4 rounded-md transition-colors"
+                className="rounded-xl w-full bg-orange-500 hover:bg-orange-600 text-white font-semibold py-3 px-4 rounded-md transition-colors"
               >
                 Send Message
               </button>
@@ -117,7 +117,7 @@ const Contact = () => {
                 <p>Registration Number: OP.218/051/21-382/12509</p>
               </div>
 
-              <h4 className="font-bold mb-2">Contacts:</h4>
+              {/* <h4 className="font-bold mb-2">Contacts:</h4>
               <ul className="space-y-2 mb-6">
                 <li className="flex items-center">
                   <svg
@@ -176,10 +176,10 @@ const Contact = () => {
                   </svg>
                   <span>P.O. Box 76123-00508, Nairobi, KE</span>
                 </li>
-              </ul>
+              </ul> */}
             </div>
 
-            <div className="bg-orange-50 p-8 rounded-lg shadow-sm">
+            <div className="bg-gradient-to-br from-orange-100/80 to-cyan-500/10 p-8 rounded-xl shadow-sm">
               <h3 className="font-bold text-lg mb-4">
                 Support Our Fight Against Childhood Arthritis
               </h3>

@@ -33,7 +33,7 @@ const WhatWeDo = () => {
         </div>
 
         {/* Hero Section - Our Online Academy */}
-        <div className="bg-gradient-to-br from-orange-100/80 to-blue-100/80 rounded-3xl p-8 md:p-12 mb-16 shadow-xl border border-gray-100">
+        <div className="bg-gradient-to-br from-orange-100/80 to-cyan-500/10 rounded-3xl p-8 md:p-12 mb-16 shadow-xl border border-gray-100">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
             <div>
               <h3 className="text-3xl md:text-4xl font-bold text-gray-800 mb-6">
