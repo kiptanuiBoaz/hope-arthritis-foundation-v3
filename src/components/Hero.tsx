@@ -115,18 +115,30 @@ const Hero = () => {
               help ensure every child diagnosed with arthritis thrives.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <a
-                href="#register"
+              <button
+                onClick={() => {
+                  const element = document.getElementById(
+                    "donate-call-to-action"
+                  );
+                  if (element) {
+                    element.scrollIntoView({ behavior: "smooth" });
+                  }
+                }}
                 className="bg-orange-500 hover:bg-orange-600 text-white font-medium px-8 py-4 rounded-xl shadow-lg hover:shadow-xl text-lg flex items-center justify-center transition-all duration-300 transform hover:scale-105"
               >
-                Register Now <span className="ml-2">→</span>
-              </a>
-              <a
-                href="#about"
+                Support Us <span className="ml-2">→</span>
+              </button>
+              <button
+                onClick={() => {
+                  const element = document.getElementById("what-we-do");
+                  if (element) {
+                    element.scrollIntoView({ behavior: "smooth" });
+                  }
+                }}
                 className="border-2 border-orange-500 text-orange-500 hover:bg-orange-50 hover:text-orange-600 font-medium px-8 py-4 rounded-xl text-lg flex items-center justify-center transition-all duration-300 shadow-lg hover:shadow-xl"
               >
                 Learn More
-              </a>
+              </button>
             </div>
           </div>
 

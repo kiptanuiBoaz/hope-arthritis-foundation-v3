@@ -1,29 +1,32 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
 const CallToAction = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [phoneNumber, setPhoneNumber] = useState('');
-  const [amount, setAmount] = useState('');
+  const [phoneNumber, setPhoneNumber] = useState("");
+  const [amount, setAmount] = useState("");
 
   const scrollToIntroForms = () => {
-    const element = document.getElementById('intro-forms');
+    const element = document.getElementById("intro-forms");
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+      element.scrollIntoView({ behavior: "smooth" });
     }
   };
 
   const handleDonateSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     // Handle donation logic here
-    console.log('Donation:', { phoneNumber, amount });
+    console.log("Donation:", { phoneNumber, amount });
     setIsModalOpen(false);
-    setPhoneNumber('');
-    setAmount('');
+    setPhoneNumber("");
+    setAmount("");
   };
 
   return (
     <>
-      <section className="section bg-gradient-to-r from-orange-500 to-cyan-500 relative overflow-hidden">
+      <section
+        id="donate-call-to-action"
+        className="section bg-gradient-to-r from-orange-500 to-cyan-500 relative overflow-hidden"
+      >
         {/* Decorative elements */}
         <div className="absolute top-0 left-0 w-full h-full opacity-10">
           <div className="absolute top-10 left-10 w-32 h-32 bg-white rounded-full"></div>
@@ -37,22 +40,23 @@ const CallToAction = () => {
               Leading The Way in Childhood Arthritis
             </h2>
             <p className="text-xl md:text-2xl mb-12 max-w-4xl mx-auto leading-relaxed opacity-90">
-              Promoting holistic healthcare to children with rheumatic diseases across Africa and the globe through mentorship, academic leadership, and offering psychosocial support to their families.
+              Promoting holistic healthcare to children with rheumatic diseases
+              across Africa and the globe through mentorship, academic
+              leadership, and offering psychosocial support to their families.
             </p>
-            
+
             <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
-              <button
-                onClick={() => setIsModalOpen(true)}
-                className="bg-white text-orange-600 hover:bg-gray-50 font-medium py-4 px-8 rounded-xl text-lg transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105"
-              >
-                Donate Now
-              </button>
-              
               <button
                 onClick={scrollToIntroForms}
                 className="border-2 border-white text-white hover:bg-white hover:text-orange-600 font-medium py-4 px-8 rounded-xl text-lg transition-all duration-300 shadow-lg hover:shadow-xl"
               >
                 Get Started
+              </button>
+              <button
+                onClick={() => setIsModalOpen(true)}
+                className="bg-orange-500 hover:bg-orange-600 text-white font-medium py-4 px-8 rounded-xl text-lg transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105"
+              >
+                Donate Now
               </button>
             </div>
           </div>
@@ -61,21 +65,39 @@ const CallToAction = () => {
 
       {/* Donation Modal */}
       {isModalOpen && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
-          <div className="bg-white rounded-2xl p-8 max-w-md w-full shadow-2xl">
-            <div className="flex justify-between items-center mb-6">
-              <h3 className="text-2xl font-bold text-gray-800">Make a Donation</h3>
-              <button
-                onClick={() => setIsModalOpen(false)}
-                className="text-gray-500 hover:text-gray-700 text-2xl transition-colors"
+        <div className="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50 p-4">
+          <div className="bg-white rounded-2xl p-8 max-w-xl w-full shadow-2xl relative">
+            <button
+              onClick={() => setIsModalOpen(false)}
+              className="absolute top-4 right-4 text-gray-500 hover:text-gray-700 text-2xl transition-colors"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-6 w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
               >
-                ×
-              </button>
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M6 18L18 6M6 6l12 12"
+                />
+              </svg>
+            </button>
+            <div className="flex items-center mb-6">
+              <h3 className="text-2xl font-bold text-gray-800">
+                Make a Donation
+              </h3>
             </div>
-            
+
             <form onSubmit={handleDonateSubmit} className="space-y-6">
               <div>
-                <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-2">
+                <label
+                  htmlFor="phone"
+                  className="block text-sm font-medium text-gray-700 mb-2"
+                >
                   Phone Number
                 </label>
                 <input
@@ -88,9 +110,12 @@ const CallToAction = () => {
                   required
                 />
               </div>
-              
+
               <div>
-                <label htmlFor="amount" className="block text-sm font-medium text-gray-700 mb-2">
+                <label
+                  htmlFor="amount"
+                  className="block text-sm font-medium text-gray-700 mb-2"
+                >
                   Amount (KES)
                 </label>
                 <input
@@ -104,7 +129,7 @@ const CallToAction = () => {
                   required
                 />
               </div>
-              
+
               <div className="flex gap-4">
                 <button
                   type="button"

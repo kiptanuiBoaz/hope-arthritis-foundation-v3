@@ -1,12 +1,14 @@
-import React from "react";
-import poster from "../../public/img/2024bootcamp.webp";
-
-// Service Card component with improved design
+import React, { useState } from "react";
+import poster from "/public/img/health_workers_bootcamp.webp";
+import BootcampRegistrationModal from "./BootcampRegistrationModal";
 
 const WhatWeDo = () => {
   // Add these refs for scrolling
   const whatWeDoRef = React.useRef<HTMLDivElement>(null);
   const getStartedRef = React.useRef<HTMLDivElement>(null);
+
+  // State for the registration modal
+  const [isRegistrationModalOpen, setIsRegistrationModalOpen] = useState(false);
 
   // Helper for smooth scroll to a section by id
   const scrollToSection = (sectionId: string) => {
@@ -37,34 +39,40 @@ const WhatWeDo = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
             <div>
               <h3 className="text-3xl md:text-4xl font-bold text-gray-800 mb-6">
-                Our Online Academy
+                (ABCD-PR) Bootcamp
               </h3>
               <p className="text-gray-600 text-lg mb-6 leading-relaxed">
-                Our online academy offers a wealth of resources for both
-                healthcare professionals and families. Access expert articles,
-                video tutorials, and up-to- date research on pediatric
-                rheumatological diseases. Our academy ensures that everyone
-                involved in the care of children with these conditions has the
-                knowledge and tools they need.
+                A Bedside Clinician's Delight- Paediatric Rheumatology (ABCD-PR)
+                Bootcamp
               </p>
               <div className="mb-8">
                 <h4 className="text-xl font-bold text-gray-800 mb-4">
-                  Leading The Way in Childhood Arthritis
+                  Meet, Interact and Learn
                 </h4>
-                <p className="text-gray-600 leading-relaxed">
-                  Promoting holistic healthcare to children with rheumatic
-                  diseases across Africa and the globe through mentorship,
-                  academic leadership, and offering psychosocial support to
-                  their families.
+
+                <ul className="list-disc list-inside mb-10 text-gray-600 space-y-2">
+                  <li>A 4-day immersive case based learning experience</li>
+                  <li>
+                    Gain practical knowledge from leading experts in pediatric
+                    rheumatology
+                  </li>
+
+                  <li>Network with peers and specialists</li>
+
+                  <li>Earn a certificate of participation</li>
+                </ul>
+                <p className="fold-bold text-gray-600 leading-relaxed">
+                  Dates: October 9th - 12th, 2025
+                </p>
+                <p className="fold-bold text-gray-600 leading-relaxed">
+                  Location: Nairobi, Kenya
                 </p>
               </div>
-              <a
-                href="https://app.hopearthritisfoundation.com/"
-                target="_blank"
-                rel="noopener noreferrer"
+              <button
+                onClick={() => setIsRegistrationModalOpen(true)}
                 className="bg-orange-500 hover:bg-orange-600 text-white font-semibold py-3 px-8 rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 inline-flex items-center"
               >
-                Get Started
+                Register
                 <svg
                   className="w-4 h-4 ml-2"
                   fill="none"
@@ -78,7 +86,7 @@ const WhatWeDo = () => {
                     d="M9 5l7 7-7 7"
                   />
                 </svg>
-              </a>
+              </button>
             </div>
             <div className="relative">
               <img
@@ -439,6 +447,10 @@ const WhatWeDo = () => {
           </div>
         </div>
       </div>
+      <BootcampRegistrationModal
+        isOpen={isRegistrationModalOpen}
+        onClose={() => setIsRegistrationModalOpen(false)}
+      />
     </section>
   );
 };
