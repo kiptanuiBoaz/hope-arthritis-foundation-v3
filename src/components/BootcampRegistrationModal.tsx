@@ -1,4 +1,11 @@
 import React, { useState } from "react";
+import { PaystackButton } from "react-paystack";
+import {
+  sendEmailJSToClient,
+  sendMandrillEmailToMailbox,
+  sendSuccessEmailToMailbox,
+} from "../emails/bootcamp-emails";
+import { subscribeToMailchimp } from "../utils/subscribeEmail";
 
 interface BootcampRegistrationModalProps {
   isOpen: boolean;
@@ -20,23 +27,129 @@ const BootcampRegistrationModal: React.FC<BootcampRegistrationModalProps> = ({
     experience: "",
     institution: "",
   });
+  const [loading, setLoading] = useState(false);
+  const [successOpen, setSuccessOpen] = useState(false);
+  const [failureOpen, setFailureOpen] = useState(false);
+  const [snackbarText, setSnackbarText] = useState("");
+
+  // Validation
+  const isEmailValid = (email: string) => /.+@.+\..+/.test(email);
+  const isFormValid =
+    formData.firstName.trim() !== "" &&
+    formData.lastName.trim() !== "" &&
+    isEmailValid(formData.email) &&
+    formData.phoneNumber.trim() !== "" &&
+    formData.country.trim() !== "" &&
+    formData.cadre.trim() !== "" &&
+    formData.experience.trim() !== "" &&
+    formData.institution.trim() !== "";
+
+  // Prepare data for email functions
+  const getEmailPayload = (paid: boolean) => ({
+    first_name: formData.firstName,
+    last_name: formData.lastName,
+    email: formData.email,
+    phone_number: formData.phoneNumber,
+    country: formData.country,
+    cadre: formData.cadre,
+    experience: formData.experience,
+    institution: formData.institution,
+    amount_view: "KSH 10400 / USD 80",
+    status: paid ? "Payment processed!" : "Not Paid!",
+  });
 
   const handleInputChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
   ) => {
     const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
+    setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleProceedToPayment = (e: React.FormEvent) => {
+  // Registration submit handler
+  const handleProceedToPayment = async (e: React.FormEvent) => {
     e.preventDefault();
-    setStep("payment");
+    if (!isFormValid) return;
+    setLoading(true);
+    try {
+      // Backend call
+      await subscribeToMailchimp({
+        email: formData.email,
+        firstName: formData.firstName,
+        lastName: formData.lastName,
+        phone: formData.phoneNumber,
+        tags: "bootcamp",
+      });
+      // Send pre-payment emails
+      await sendEmailJSToClient(
+        getEmailPayload(false),
+        false,
+        setFailureOpen,
+        setSnackbarText
+      );
+      await sendMandrillEmailToMailbox(
+        getEmailPayload(false),
+        setSuccessOpen,
+        setSnackbarText
+      );
+      setStep("payment");
+    } catch (error) {
+      setFailureOpen(true);
+      setSnackbarText("Something went wrong, please try again later.");
+    } finally {
+      setLoading(false);
+    }
   };
 
-  const handlePaymentProceed = () => {
-    // Here you would typically handle the payment processing or redirect
-    alert("Payment processing would occur here");
-    onClose();
+  // Payment step handler
+  const handlePaymentProceed = async () => {
+    setLoading(true);
+    try {
+      // Send post-payment emails
+      await sendEmailJSToClient(
+        getEmailPayload(true),
+        true,
+        setFailureOpen,
+        setSnackbarText
+      );
+      await sendSuccessEmailToMailbox(
+        getEmailPayload(true),
+        setFailureOpen,
+        setSnackbarText
+      );
+      setSuccessOpen(true);
+      setSnackbarText("Payment completed and emails sent successfully.");
+      onClose();
+    } catch (error) {
+      setFailureOpen(true);
+      setSnackbarText(
+        "Payment completed but failed to send post-payment emails."
+      );
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const publicKey = import.meta.env.VITE_PAYSTACK_PUBLIC_KEY;
+  // Amount in kobo (Paystack expects NGN, so for USD 80 or KSH 10400, you may need to convert to NGN equivalent)
+  // For demo, let's use 8000 NGN (800000 kobo)
+  const paystackAmount = 800000; // 8000 NGN in kobo (adjust as needed)
+  const paystackEmail =
+    formData.email || "bootcamp@hopearthritisfoundation.com";
+  const paystackProps = {
+    email: "bootcamp@hopearthritisfoundation.com",
+    amount: 10800 * 100, // Convert to cents for Paystack
+    currency: "KES",
+    metadata: {
+      name: "A Bedside Clinician's Delight- Paediatric Rheumatology (ABCD-PR) Bootcamp",
+      phone: formData.phoneNumber,
+      custom_fields: {},
+    },
+    publicKey,
+    text: "Proceed to Pay",
+    onSuccess: async (data: any) => {
+      await handlePaymentProceed();
+    },
+    onClose: () => alert("Payment closed!"),
   };
 
   if (!isOpen) return null;
@@ -207,9 +320,10 @@ const BootcampRegistrationModal: React.FC<BootcampRegistrationModalProps> = ({
               <div className="pt-4">
                 <button
                   type="submit"
-                  className=" rounded w-full bg-orange-500 hover:bg-orange-600 text-white font-bold py-3 px-4 rounded-lg transition-colors"
+                  className={`rounded w-full bg-orange-500 hover:bg-orange-600 text-white font-bold py-3 px-4 rounded-lg transition-colors ${!isFormValid || loading ? "opacity-50 cursor-not-allowed" : ""}`}
+                  disabled={!isFormValid || loading}
                 >
-                  REGISTER & PROCEED TO PAYMENT
+                  {loading ? "Processing..." : "REGISTER & PROCEED TO PAYMENT"}
                 </button>
               </div>
             </form>
@@ -217,38 +331,40 @@ const BootcampRegistrationModal: React.FC<BootcampRegistrationModalProps> = ({
         ) : (
           <>
             <h2 className="text-3xl font-bold text-center my-6">
-              Payment Options
+              Pay Online (Paystack)
             </h2>
-            <div className="bg-gray-50 p-6 rounded-xl">
-              <h3 className="text-xl font-bold mb-4">Lipa na Mpesa</h3>
-              <div className="space-y-3">
-                <p className="flex justify-between">
-                  <span className="text-gray-600">Paybill No:</span>
-                  <span className="font-bold">522533</span>
-                </p>
-                <p className="flex justify-between">
-                  <span className="text-gray-600">Account No:</span>
-                  <span className="font-bold ">7657905</span>
-                </p>
-                <p className="flex justify-between">
-                  <span className="text-gray-600">Amount:</span>
-                  <span className="font-bold">Ksh 10400</span>
-                </p>
-              </div>
-
-              <div className="mt-6">
-                <p className="text-gray-700 mb-4">
-                  <span className="font-bold">Note:</span> Once you make the
-                  payment successfully, kindly forward the payment details with
-                  your name to bootcamp@hopearthritisfoundation.com
-                </p>
-                <button
-                  onClick={handlePaymentProceed}
-                  className="rounded w-full bg-orange-500 hover:bg-orange-600 text-white font-bold py-3 px-4 transition-colors"
+            <div className="bg-gray-50 p-6 rounded-xl flex flex-col items-center">
+              <h4 className="text-lg font-sans pb-4 font-bold underline">
+                Lipa na Mpesa
+              </h4>
+              <h6 className="text-md font-sans pb-2">Paybill No: 522533</h6>
+              <h6 className="text-md font-sans pb-2">Account No: 7657905</h6>
+              <h6 className="text-md font-sans pb-4">Amount: Ksh 10400</h6>
+              <h6 className="text-md font-sans mb-2">
+                <span className="underline">Note: </span>
+                Once you make the payment succesfully. Kindly forward the
+                payment details with your name to
+                bootcamp@hopearthritisfoundation.com
+              </h6>
+              <p className="mb-4 text-gray-700">
+                Click below to pay securely online. After payment, you will
+                receive a confirmation email.
+              </p>
+              {/* @ts-ignore */}
+              <PaystackButton
+                {...paystackProps}
+                className="rounded w-full bg-orange-500 hover:bg-orange-600 text-white font-bold py-3 px-4 transition-colors text-lg"
+                disabled={loading}
+              />
+              <p className="text-gray-600 text-sm mt-6">
+                If you have any issues, contact{" "}
+                <a
+                  href="mailto:bootcamp@hopearthritisfoundation.com"
+                  className="underline"
                 >
-                  Proceed to Pay
-                </button>
-              </div>
+                  bootcamp@hopearthritisfoundation.com
+                </a>
+              </p>
             </div>
           </>
         )}

@@ -1,5 +1,9 @@
 import type React from "react";
 import { useState } from "react";
+import axios from "axios";
+import DonationModal from "./DonationModal";
+import { subscribeToMailchimp } from "../utils/subscribeEmail";
+import { generateEmailTemplate } from "../emails/contact-email";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -7,6 +11,10 @@ const Contact = () => {
     email: "",
     message: "",
   });
+  const [isDonationOpen, setIsDonationOpen] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [successOpen, setSuccessOpen] = useState(false);
+  const [failureOpen, setFailureOpen] = useState(false);
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -18,18 +26,39 @@ const Contact = () => {
     }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  // Handle form submission with Mandrill
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // In a real application, you would handle the form submission here
-    console.log("Form submitted:", formData);
-    alert("Thank you for your message! We will get back to you soon.");
+    setLoading(true);
 
-    // Reset form
-    setFormData({
-      name: "",
-      email: "",
-      message: "",
-    });
+    const mandrillApiKey = import.meta.env.VITE_MANDRILL_API_KEY;
+    const message = {
+      subject: "New Feedback Form Submission",
+      from_email: "website-contact@hopearthritisfoundation.com",
+      to: [{ email: "masterclass@hopearthritisfoundation.com", type: "to" }],
+      html: generateEmailTemplate(formData),
+    };
+
+    try {
+      await axios.post("https://mandrillapp.com/api/1.0/messages/send.json", {
+        key: mandrillApiKey,
+        message: message,
+      });
+      await subscribeToMailchimp({
+        email: formData.email,
+        firstName: formData.name,
+        lastName: "",
+        phone: "",
+        tags: "contact_form",
+      });
+      setFormData({ name: "", email: "", message: "" });
+      setSuccessOpen(true);
+    } catch (error) {
+      console.error("There was an error sending the email", error);
+      setFailureOpen(true);
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -55,7 +84,7 @@ const Contact = () => {
                   name="name"
                   value={formData.name}
                   onChange={handleChange}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent"
+                  className="w-full rounded px-4 py-2 border border-gray-300  focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent"
                   placeholder="Enter your name"
                   required
                 />
@@ -71,7 +100,7 @@ const Contact = () => {
                   name="email"
                   value={formData.email}
                   onChange={handleChange}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent"
+                  className="w-full rounded px-4 py-2 border border-gray-300  focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent"
                   placeholder="Enter your email"
                   required
                 />
@@ -87,7 +116,7 @@ const Contact = () => {
                   value={formData.message}
                   onChange={handleChange}
                   rows={5}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent"
+                  className="w-full rounded px-4 py-2 border border-gray-300  focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent"
                   placeholder="Enter your message"
                   required
                 />
@@ -95,10 +124,79 @@ const Contact = () => {
 
               <button
                 type="submit"
-                className="rounded-xl w-full bg-orange-500 hover:bg-orange-600 text-white font-semibold py-3 px-4 rounded-md transition-colors"
+                className="rounded-xl w-full bg-orange-500 hover:bg-orange-600 text-white font-semibold py-3 px-4 rounded-md transition-colors disabled:opacity-50"
+                disabled={loading}
               >
-                Send Message
+                {loading ? "Sending..." : "Send Message"}
               </button>
+              {/* Success and Failure Notifications */}
+              {successOpen && (
+                <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-40">
+                  <div className="bg-white rounded-2xl p-8 shadow-2xl flex flex-col items-center">
+                    <div className="bg-green-100 rounded-full p-4 mb-4">
+                      <svg
+                        className="h-10 w-10 text-green-600"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M5 13l4 4L19 7"
+                        />
+                      </svg>
+                    </div>
+                    <h3 className="text-xl font-bold text-green-700 mb-2">
+                      Thank you for your message!
+                    </h3>
+                    <p className="text-gray-700 text-center mb-4">
+                      We will get back to you soon.
+                    </p>
+                    <button
+                      onClick={() => setSuccessOpen(false)}
+                      className="px-6 py-2 bg-orange-500 text-white rounded-xl hover:bg-orange-600 transition-all duration-300 shadow-lg"
+                    >
+                      Close
+                    </button>
+                  </div>
+                </div>
+              )}
+              {failureOpen && (
+                <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-40">
+                  <div className="bg-white rounded-2xl p-8 shadow-2xl flex flex-col items-center">
+                    <div className="bg-red-100 rounded-full p-4 mb-4">
+                      <svg
+                        className="h-10 w-10 text-red-600"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M6 18L18 6M6 6l12 12"
+                        />
+                      </svg>
+                    </div>
+                    <h3 className="text-xl font-bold text-red-700 mb-2">
+                      Oops! Something went wrong.
+                    </h3>
+                    <p className="text-gray-700 text-center mb-4">
+                      There was an error sending your message. Please try again
+                      later.
+                    </p>
+                    <button
+                      onClick={() => setFailureOpen(false)}
+                      className="px-6 py-2 bg-orange-500 text-white rounded-xl hover:bg-orange-600 transition-all duration-300 shadow-lg"
+                    >
+                      Close
+                    </button>
+                  </div>
+                </div>
+              )}
             </form>
           </div>
 
@@ -187,11 +285,20 @@ const Contact = () => {
                 Help us fund research and provide care for those suffering from
                 arthritis. Your support makes a difference.
               </p>
-              <button className="btn-primary">Donate Now</button>
+              <button
+                className="btn-primary"
+                onClick={() => setIsDonationOpen(true)}
+              >
+                Donate Now
+              </button>
             </div>
           </div>
         </div>
       </div>
+      <DonationModal
+        isOpen={isDonationOpen}
+        onClose={() => setIsDonationOpen(false)}
+      />
     </section>
   );
 };

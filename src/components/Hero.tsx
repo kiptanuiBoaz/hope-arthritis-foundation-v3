@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import BootcampBanner from "./BootcampBanner";
 
 // Carousel data
 const slides = [
@@ -210,6 +211,7 @@ const Hero = () => {
           </div>
         </div>
       </div>
+      <BootcampBanner />
     </section>
   );
 };

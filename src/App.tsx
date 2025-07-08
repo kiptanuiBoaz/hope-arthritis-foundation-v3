@@ -14,12 +14,17 @@ import Footer from "./components/Footer";
 const NewsAndActivities = React.lazy(() => import("./pages/NewsAndActivities"));
 const ActivityDetail = React.lazy(() => import("./pages/ActivityDetail"));
 const TeamDetail = React.lazy(() => import("./pages/TeamDetail"));
-const PatientInformation = React.lazy(() => import("./pages/PatientInformation"));
+const PatientInformation = React.lazy(
+  () => import("./pages/PatientInformation")
+);
 const Home = React.lazy(() => import("./pages/Home"));
 const ContactPage = React.lazy(() => import("./routes/ContactPage"));
 const TeamAll = React.lazy(() => import("./pages/TeamAll"));
 const Founder = React.lazy(() => import("./pages/Founder"));
 const Gallery = React.lazy(() => import("./pages/Gallery"));
+const BootCampRegistration = React.lazy(
+  () => import("./pages/BootCampRegistration")
+);
 
 function App() {
   return (
@@ -42,8 +47,15 @@ function App() {
               <Route path="/team/:id" element={<TeamDetail />} />
               <Route path="/founder" element={<Founder />} />
               <Route path="/gallery" element={<Gallery />} />
-              <Route path="/patient-information" element={<PatientInformation />} />
+              <Route
+                path="/patient-information"
+                element={<PatientInformation />}
+              />
               <Route path="/contact" element={<ContactPage />} />
+              <Route
+                path="/bootcamp-registration"
+                element={<BootCampRegistration />}
+              />
               <Route path="*" element={<Navigate to="/" replace />} />
             </Routes>
           </React.Suspense>
