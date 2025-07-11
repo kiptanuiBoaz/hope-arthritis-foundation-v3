@@ -8,6 +8,11 @@ const Navbar = () => {
   const [isResourcesOpen, setIsResourcesOpen] = useState(false);
   const [isAboutOpen, setIsAboutOpen] = useState(false);
   const [isWhatWeOfferOpen, setIsWhatWeOfferOpen] = useState(false);
+
+  // Mobile menu section states
+  const [mobileAboutOpen, setMobileAboutOpen] = useState(false);
+  const [mobileWhatWeOfferOpen, setMobileWhatWeOfferOpen] = useState(false);
+  const [mobileResourcesOpen, setMobileResourcesOpen] = useState(false);
   const location = useLocation();
   const aboutRef = useRef<HTMLDivElement>(null);
   const resourcesRef = useRef<HTMLDivElement>(null);
@@ -15,6 +20,19 @@ const Navbar = () => {
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
+  };
+
+  // Function to toggle mobile menu sections (only one open at a time)
+  const toggleMobileSection = (
+    section: "about" | "whatWeOffer" | "resources"
+  ) => {
+    setMobileAboutOpen(section === "about" ? !mobileAboutOpen : false);
+    setMobileWhatWeOfferOpen(
+      section === "whatWeOffer" ? !mobileWhatWeOfferOpen : false
+    );
+    setMobileResourcesOpen(
+      section === "resources" ? !mobileResourcesOpen : false
+    );
   };
 
   // Add scroll effect
@@ -39,6 +57,9 @@ const Navbar = () => {
     setIsResourcesOpen(false);
     setIsAboutOpen(false);
     setIsWhatWeOfferOpen(false);
+    setMobileAboutOpen(false);
+    setMobileWhatWeOfferOpen(false);
+    setMobileResourcesOpen(false);
   }, [location.pathname]);
 
   // Click away to close dropdowns
@@ -82,38 +103,22 @@ const Navbar = () => {
 
   const scrollToSelfAssessment = () => {
     if (location.pathname !== "/") {
-      window.location.href = "/#intro-forms";
+      window.location.href = "/#self-assessment-section";
     } else {
-      const element = document.getElementById("intro-forms");
+      const element = document.getElementById("self-assessment-section");
       if (element) {
-        // Scroll to the self-assessment tools section specifically
-        const selfAssessmentSection = element.querySelector(
-          'h4:contains("Self-Assessment Tools")'
-        );
-        if (selfAssessmentSection) {
-          selfAssessmentSection.scrollIntoView({ behavior: "smooth" });
-        } else {
-          element.scrollIntoView({ behavior: "smooth" });
-        }
+        element.scrollIntoView({ behavior: "smooth" });
       }
     }
   };
 
   const scrollToJoinCommunity = () => {
     if (location.pathname !== "/") {
-      window.location.href = "/#intro-forms";
+      window.location.href = "/#join-community-section";
     } else {
-      const element = document.getElementById("intro-forms");
+      const element = document.getElementById("join-community-section");
       if (element) {
-        // Scroll to the join our community section specifically
-        const joinCommunitySection = element.querySelector(
-          'h4:contains("Join Our Community")'
-        );
-        if (joinCommunitySection) {
-          joinCommunitySection.scrollIntoView({ behavior: "smooth" });
-        } else {
-          element.scrollIntoView({ behavior: "smooth" });
-        }
+        element.scrollIntoView({ behavior: "smooth" });
       }
     }
   };
@@ -186,7 +191,7 @@ const Navbar = () => {
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled ? "shadow-lg py-2 bg-white" : "py-4 bg-transparent"
-      }`}
+      } ${isMenuOpen ? "bg-white" : ""}`}
     >
       <div className="container mx-auto px-4 flex justify-between items-center">
         {/* Logo */}
@@ -243,6 +248,7 @@ const Navbar = () => {
               >
                 <Link
                   to="/founder"
+                  onClick={() => window.scrollTo(0, 0)}
                   className="block px-4 py-3 text-gray-700 hover:bg-orange-50 hover:text-orange-500 transition-colors"
                 >
                   <div className="flex items-center">
@@ -298,7 +304,7 @@ const Navbar = () => {
                         strokeLinecap="round"
                         strokeLinejoin="round"
                         strokeWidth={2}
-                        d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
+                        d="M15 12a3 3 0 11-6 0 3 3 0 016 0z M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"
                       />
                     </svg>
                     Vision
@@ -325,8 +331,9 @@ const Navbar = () => {
                     Core Values
                   </div>
                 </button>
-                <button
-                  onClick={() => scrollToSection("team")}
+                <Link
+                  to="/team"
+                  onClick={() => window.scrollTo(0, 0)}
                   className="block w-full text-left px-4 py-3 text-gray-700 hover:bg-orange-50 hover:text-orange-500 transition-colors"
                 >
                   <div className="flex items-center">
@@ -345,7 +352,7 @@ const Navbar = () => {
                     </svg>
                     Our Team
                   </div>
-                </button>
+                </Link>
                 <Link
                   to="/gallery"
                   className="block px-4 py-3 text-gray-700 hover:bg-orange-50 hover:text-orange-500 transition-colors"
@@ -373,6 +380,7 @@ const Navbar = () => {
 
           <Link
             to="/activities"
+            onClick={() => window.scrollTo(0, 0)}
             className={`transition-colors font-medium ${
               location.pathname === "/activities" ||
               location.pathname.startsWith("/activities/")
@@ -609,6 +617,7 @@ const Navbar = () => {
                 </a>
                 <Link
                   to="/patient-information"
+                  onClick={() => window.scrollTo(0, 0)}
                   className="block px-4 py-3 text-gray-700 hover:bg-orange-50 hover:text-orange-500 transition-colors"
                 >
                   <div className="flex items-center">
@@ -638,10 +647,22 @@ const Navbar = () => {
           href="https://app.hopearthritisfoundation.com/"
           target="_blank"
           rel="noopener noreferrer"
-          className="hidden md:block bg-orange-500 hover:bg-orange-600 text-white font-medium py-3 px-6 rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105"
+          className="hidden md:inline-flex items-center bg-orange-500 hover:bg-orange-600 text-white font-medium py-3 px-6 rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105"
         >
-          Our Online Academy
-          <span className="ml-2 font-bold ">→</span>
+          <span>Our Online Academy</span>
+          <svg
+            className="w-4 h-4 ml-2"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M13 7l5 5-5 5M5 12h13"
+            />
+          </svg>
         </a>
 
         {/* Mobile Menu Button */}
@@ -676,9 +697,18 @@ const Navbar = () => {
         </button>
       </div>
 
+      {/* Backdrop overlay when mobile menu is open */}
+      {isMenuOpen && (
+        <div
+          className="fixed inset-0 bg-black bg-opacity-50 z-40 md:hidden"
+          onClick={() => setIsMenuOpen(false)}
+          aria-hidden="true"
+        ></div>
+      )}
+
       {/* Mobile Menu */}
       {isMenuOpen && (
-        <div className="md:hidden bg-white py-4 px-4 shadow-lg border-t border-gray-100">
+        <div className="md:hidden bg-white py-4 px-4 shadow-lg border-t border-gray-100 relative z-50">
           <div className="flex flex-col space-y-4">
             <Link
               to="/"
@@ -691,46 +721,129 @@ const Navbar = () => {
               Home
             </Link>
 
-            {/* Mobile About Us */}
-            <div className="pl-4 border-l-2 border-gray-100">
-              <p className="text-sm font-semibold text-gray-500 mb-2">
-                About Us
-              </p>
-              <Link
-                to="/founder"
-                className="block py-2 text-gray-700 hover:text-orange-500 transition-colors"
-              >
-                Our Founder
-              </Link>
+            {/* Mobile About Us - Collapsible */}
+            <div className="border-b border-gray-100 pb-2">
               <button
-                onClick={() => scrollToSection("about")}
-                className="block py-2 text-gray-700 hover:text-orange-500 transition-colors text-left"
+                onClick={() => toggleMobileSection("about")}
+                className="flex items-center justify-between w-full py-2 text-gray-700 hover:text-orange-500 transition-colors font-medium"
               >
-                Mission & Vision
+                <span>About Us</span>
+                <svg
+                  className={`w-4 h-4 transition-transform ${mobileAboutOpen ? "rotate-180" : ""}`}
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M19 9l-7 7-7-7"
+                  />
+                </svg>
               </button>
-              <button
-                onClick={() => scrollToSection("core-values")}
-                className="block py-2 text-gray-700 hover:text-orange-500 transition-colors text-left"
-              >
-                Core Values
-              </button>
-              <button
-                onClick={() => scrollToSection("team")}
-                className="block py-2 text-gray-700 hover:text-orange-500 transition-colors text-left"
-              >
-                Our Team
-              </button>
-              <Link
-                to="/gallery"
-                className="block py-2 text-gray-700 hover:text-orange-500 transition-colors"
-              >
-                Gallery
-              </Link>
+
+              {mobileAboutOpen && (
+                <div className="pl-4 border-l-2 border-gray-100 mt-2 space-y-1">
+                  <Link
+                    to="/founder"
+                    onClick={() => window.scrollTo(0, 0)}
+                    className="block py-2 text-gray-700 hover:text-orange-500 transition-colors"
+                  >
+                    Our Founder
+                  </Link>
+                  <button
+                    onClick={() => scrollToSection("about")}
+                    className="block w-full py-2 text-gray-700 hover:text-orange-500 transition-colors text-left"
+                  >
+                    Mission & Vision
+                  </button>
+                  <button
+                    onClick={() => scrollToSection("core-values")}
+                    className="block w-full py-2 text-gray-700 hover:text-orange-500 transition-colors text-left"
+                  >
+                    Core Values
+                  </button>
+                  <Link
+                    to="/team"
+                    onClick={() => window.scrollTo(0, 0)}
+                    className="block py-2 text-gray-700 hover:text-orange-500 transition-colors text-left"
+                  >
+                    Our Team
+                  </Link>
+                  <Link
+                    to="/gallery"
+                    className="block py-2 text-gray-700 hover:text-orange-500 transition-colors"
+                  >
+                    Gallery
+                  </Link>
+                </div>
+              )}
             </div>
 
+            {/* Mobile What We Offer - Collapsible */}
+            <div className="border-b border-gray-100 pb-2">
+              <button
+                onClick={() => toggleMobileSection("whatWeOffer")}
+                className="flex items-center justify-between w-full py-2 text-gray-700 hover:text-orange-500 transition-colors font-medium"
+              >
+                <span>What We Offer</span>
+                <svg
+                  className={`w-4 h-4 transition-transform ${mobileWhatWeOfferOpen ? "rotate-180" : ""}`}
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M19 9l-7 7-7-7"
+                  />
+                </svg>
+              </button>
+
+              {mobileWhatWeOfferOpen && (
+                <div className="pl-4 border-l-2 border-gray-100 mt-2 space-y-1">
+                  <button
+                    onClick={scrollToOnlineAcademy}
+                    className="block w-full py-2 text-gray-700 hover:text-orange-500 transition-colors text-left"
+                  >
+                    Our Online Academy
+                  </button>
+                  <button
+                    onClick={scrollToBootCamps}
+                    className="block w-full py-2 text-gray-700 hover:text-orange-500 transition-colors text-left"
+                  >
+                    Boot Camps For Healthcare Workers
+                  </button>
+                  <button
+                    onClick={scrollToMasterClasses}
+                    className="block w-full py-2 text-gray-700 hover:text-orange-500 transition-colors text-left"
+                  >
+                    Master Classes For Parents/Guardians
+                  </button>
+                  <button
+                    onClick={scrollToSelfAssessment}
+                    className="block w-full py-2 text-gray-700 hover:text-orange-500 transition-colors text-left"
+                  >
+                    Self-Assessment Tools
+                  </button>
+                  <button
+                    onClick={scrollToJoinCommunity}
+                    className="block w-full py-2 text-gray-700 hover:text-orange-500 transition-colors text-left"
+                  >
+                    Join Our Community
+                  </button>
+                </div>
+              )}
+            </div>
+
+            {/* News & Activities */}
             <Link
               to="/activities"
-              className={`transition-colors font-medium ${
+              onClick={() => window.scrollTo(0, 0)}
+              className={`transition-colors font-medium py-2 border-b border-gray-100 ${
                 location.pathname === "/activities" ||
                 location.pathname.startsWith("/activities/")
                   ? "text-orange-500"
@@ -740,72 +853,69 @@ const Navbar = () => {
               News & Activities
             </Link>
 
-            {/* Mobile What We Offer */}
-            <div className="pl-4 border-l-2 border-gray-100">
-              <p className="text-sm font-semibold text-gray-500 mb-2">
-                What We Offer
-              </p>
+            {/* Mobile Resources - Collapsible */}
+            <div className="border-b border-gray-100 pb-2">
               <button
-                onClick={scrollToOnlineAcademy}
-                className="block py-2 text-gray-700 hover:text-orange-500 transition-colors text-left"
+                onClick={() => toggleMobileSection("resources")}
+                className="flex items-center justify-between w-full py-2 text-gray-700 hover:text-orange-500 transition-colors font-medium"
               >
-                Our Online Academy
+                <span>Resources</span>
+                <svg
+                  className={`w-4 h-4 transition-transform ${mobileResourcesOpen ? "rotate-180" : ""}`}
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M19 9l-7 7-7-7"
+                  />
+                </svg>
               </button>
-              <button
-                onClick={scrollToBootCamps}
-                className="block py-2 text-gray-700 hover:text-orange-500 transition-colors text-left"
-              >
-                Boot Camps For Healthcare Workers
-              </button>
-              <button
-                onClick={scrollToMasterClasses}
-                className="block py-2 text-gray-700 hover:text-orange-500 transition-colors text-left"
-              >
-                Master Classes For Parents/Guardians
-              </button>
-              <button
-                onClick={scrollToSelfAssessment}
-                className="block py-2 text-gray-700 hover:text-orange-500 transition-colors text-left"
-              >
-                Self-Assessment Tools
-              </button>
-              <button
-                onClick={scrollToJoinCommunity}
-                className="block py-2 text-gray-700 hover:text-orange-500 transition-colors text-left"
-              >
-                Join Our Community
-              </button>
-            </div>
 
-            {/* Mobile Resources */}
-            <div className="pl-4 border-l-2 border-gray-100">
-              <p className="text-sm font-semibold text-gray-500 mb-2">
-                Resources
-              </p>
-              <a
-                href="https://hopearthritisfoundation.com/blog/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="block py-2 text-gray-700 hover:text-orange-500 transition-colors"
-              >
-                Blogs
-              </a>
-              <Link
-                to="/patient-information"
-                className="block py-2 text-gray-700 hover:text-orange-500 transition-colors"
-              >
-                Patient Information
-              </Link>
+              {mobileResourcesOpen && (
+                <div className="pl-4 border-l-2 border-gray-100 mt-2 space-y-1">
+                  <a
+                    href="https://hopearthritisfoundation.com/blog/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block py-2 text-gray-700 hover:text-orange-500 transition-colors"
+                  >
+                    Blogs
+                  </a>
+                  <Link
+                    to="/patient-information"
+                    onClick={() => window.scrollTo(0, 0)}
+                    className="block py-2 text-gray-700 hover:text-orange-500 transition-colors"
+                  >
+                    Patient Information
+                  </Link>
+                </div>
+              )}
             </div>
 
             <a
               href="https://app.hopearthritisfoundation.com/"
               target="_blank"
               rel="noopener noreferrer"
-              className="btn-primary text-center"
+              className="btn-primary inline-flex items-center justify-center"
             >
-              Our Online Academy
-              <span className="ml-2">→</span>
+              <span>Our Online Academy</span>
+              <svg
+                className="w-4 h-4 ml-2"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M13 7l5 5-5 5M5 12h13"
+                />
+              </svg>
             </a>
           </div>
         </div>

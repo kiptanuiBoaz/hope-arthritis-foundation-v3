@@ -24,6 +24,7 @@ const BootcampBanner = () => {
           </p>
           <Link
             to="/bootcamp-registration"
+            onClick={() => window.scrollTo(0, 0)}
             className="block w-fit bg-orange-500 hover:bg-orange-600 text-white font-semibold py-2 px-5 rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl text-sm md:text-base mb-2"
           >
             Learn More & Register

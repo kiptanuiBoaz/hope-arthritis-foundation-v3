@@ -23,9 +23,12 @@ export const TeamMemberCard: React.FC<TeamMemberProps> = ({
       />
     </div>
     <div className="p-6">
-      <h3 className="font-bold text-lg mb-2 text-gray-800 group-hover:text-orange-600 transition-colors">{name}</h3>
+      <h3 className="font-bold text-lg mb-2 text-gray-800 group-hover:text-orange-600 transition-colors">
+        {name}
+      </h3>
       <p className="text-gray-600 text-sm mb-4 line-clamp-3">{title}</p>
       <Link
+        onClick={() => window.scrollTo(0, 0)}
         to={`/team/${id}`}
         className="border-2 border-orange-500 text-orange-500 hover:bg-orange-50 hover:text-orange-600 font-medium py-2 px-4 rounded-xl transition-all duration-300 shadow-md hover:shadow-lg inline-flex items-center w-fit"
       >

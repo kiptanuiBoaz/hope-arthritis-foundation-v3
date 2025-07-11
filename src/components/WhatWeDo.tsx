@@ -52,9 +52,22 @@ const WhatWeDo = () => {
             </p>
             <a
               href="/bootcamp-registration"
-              className="inline-block bg-orange-500 hover:bg-orange-600 text-white font-semibold py-3 px-8 rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105"
+              className="bg-orange-500 hover:bg-orange-600 text-white font-semibold py-3 px-8 rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 inline-flex items-center"
             >
               Read More & Register
+              <svg
+                className="w-4 h-4 ml-2"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M9 5l7 7-7 7"
+                />
+              </svg>
             </a>
           </div>
         </div>
@@ -170,7 +183,7 @@ const WhatWeDo = () => {
           </div>
 
           {/* Self-Assessment Section */}
-          <div className="mb-12">
+          <div id="self-assessment-section" className="mb-12">
             <div className="text-center mb-8">
               <h4 className="text-2xl font-bold text-gray-800 mb-3 flex items-center justify-center">
                 <svg
@@ -294,7 +307,7 @@ const WhatWeDo = () => {
           </div>
 
           {/* Registration Forms Section */}
-          <div>
+          <div id="join-community-section">
             <div className="text-center mb-8">
               <h4 className="text-2xl font-bold text-gray-800 mb-3 flex items-center justify-center">
                 <svg
