@@ -21,7 +21,8 @@ const galleryEvents: GalleryEvent[] = [
       "/img/gallery/medical-camp/campFive.jpeg",
       "/img/gallery/medical-camp/campSix.jpg",
     ],
-    driveLink: "https://drive.google.com/drive/folders/example1",
+    driveLink:
+      "https://drive.google.com/drive/folders/1sUvef94G_OvfaL6AYyL_dOkm5pv3MYF2?usp=drive_link",
   },
   {
     id: "rhpc-conference",
@@ -35,7 +36,8 @@ const galleryEvents: GalleryEvent[] = [
       "/img/gallery/rhpc/rhpc5.jpg",
       "/img/gallery/rhpc/rhpc6.jpg",
     ],
-    driveLink: "https://drive.google.com/drive/folders/example2",
+    driveLink:
+      "https://drive.google.com/drive/folders/1GP0QQf0b2AYKjDZqwov8AjL4_GwUdXHy?usp=drive_link",
   },
   {
     id: "plan-launch",
@@ -49,11 +51,27 @@ const galleryEvents: GalleryEvent[] = [
       "/img/gallery/plan-launch/launch5.jpg",
       "/img/gallery/plan-launch/launch6.jpg",
     ],
-    driveLink: "https://drive.google.com/drive/folders/example3",
+    driveLink:
+      "https://drive.google.com/drive/folders/1pu7Oytw9Q0tbg4X6oE-LsQ5if4BPEAGN?usp=drive_link",
+  },
+  {
+    title: "Catholic Women Association Event",
+    id: "cwa-event",
+    date: "February 15, 2025",
+    images: [
+      "/img/gallery/cwa/cwa1.jpeg",
+      "/img/gallery/cwa/cwa2.jpeg",
+      "/img/gallery/cwa/cwa3.jpeg",
+      "/img/gallery/cwa/cwa4.jpeg",
+      "/img/gallery/cwa/cwa5.jpeg",
+      "/img/gallery/cwa/cwa6.jpeg",
+    ],
+    driveLink:
+      "https://drive.google.com/drive/folders/1ZuEFZ5vSH6lphhyZ6kYqZ82lOZctMFBG?usp=drive_link",
   },
   {
     id: "amsum-workshop",
-    title: "AMSUM Workshop 2024",
+    title: "AMSUM Conference 2024",
     date: "September 5, 2024",
     images: [
       "/img/gallery/amsum/amsum1.jpg",
@@ -63,19 +81,55 @@ const galleryEvents: GalleryEvent[] = [
       "/img/gallery/amsum/amsum5.jpg",
       "/img/gallery/amsum/amsum6.jpg",
     ],
-    driveLink: "https://drive.google.com/drive/folders/example4",
+    driveLink:
+      "https://drive.google.com/drive/folders/1ZuEFZ5vSH6lphhyZ6kYqZ82lOZctMFBG?usp=drive_link",
   },
 ];
 
 const Gallery: React.FC = () => {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
+  const [currentImageIndex, setCurrentImageIndex] = useState<number>(0);
+  const [currentEventImages, setCurrentEventImages] = useState<string[]>([]);
 
-  const openModal = (imageSrc: string) => {
+  const openModal = (imageSrc: string, eventImages: string[]) => {
+    const imageIndex = eventImages.indexOf(imageSrc);
     setSelectedImage(imageSrc);
+    setCurrentImageIndex(imageIndex);
+    setCurrentEventImages(eventImages);
   };
 
   const closeModal = () => {
     setSelectedImage(null);
+    setCurrentImageIndex(0);
+    setCurrentEventImages([]);
+  };
+
+  const goToPrevious = () => {
+    const prevIndex =
+      currentImageIndex > 0
+        ? currentImageIndex - 1
+        : currentEventImages.length - 1;
+    setCurrentImageIndex(prevIndex);
+    setSelectedImage(currentEventImages[prevIndex]);
+  };
+
+  const goToNext = () => {
+    const nextIndex =
+      currentImageIndex < currentEventImages.length - 1
+        ? currentImageIndex + 1
+        : 0;
+    setCurrentImageIndex(nextIndex);
+    setSelectedImage(currentEventImages[nextIndex]);
+  };
+
+  const handleKeyPress = (e: React.KeyboardEvent) => {
+    if (e.key === "ArrowLeft") {
+      goToPrevious();
+    } else if (e.key === "ArrowRight") {
+      goToNext();
+    } else if (e.key === "Escape") {
+      closeModal();
+    }
   };
 
   return (
@@ -153,7 +207,7 @@ const Gallery: React.FC = () => {
                   <div
                     key={index}
                     className="relative group cursor-pointer overflow-hidden rounded-xl shadow-md hover:shadow-lg transition-all duration-300"
-                    onClick={() => openModal(image)}
+                    onClick={() => openModal(image, event.images)}
                   >
                     <img
                       src={image}
@@ -215,14 +269,78 @@ const Gallery: React.FC = () => {
         <div
           className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50 p-4"
           onClick={closeModal}
+          onKeyDown={handleKeyPress}
+          tabIndex={0}
         >
           <div className="relative max-w-4xl max-h-full">
+            {/* Close Button */}
             <button
-              onClick={closeModal}
-              className="absolute top-4 right-4 text-white hover:text-gray-300 text-3xl font-bold z-10 bg-black bg-opacity-50 rounded-full w-12 h-12 flex items-center justify-center"
+              onClick={(e) => {
+                e.stopPropagation();
+                closeModal();
+              }}
+              className="absolute top-4 right-4 text-white hover:text-gray-300 text-3xl font-bold z-10 bg-black bg-opacity-50 rounded-full w-12 h-12 flex items-center justify-center transition-colors duration-200"
             >
               ×
             </button>
+
+            {/* Previous Button */}
+            {currentEventImages.length > 1 && (
+              <button
+                onClick={(e) => {
+                  e.stopPropagation();
+                  goToPrevious();
+                }}
+                className="absolute left-4 top-1/2 transform -translate-y-1/2 text-white hover:text-gray-300 text-2xl font-bold z-10 bg-black bg-opacity-50 rounded-full w-12 h-12 flex items-center justify-center transition-colors duration-200"
+              >
+                <svg
+                  className="w-6 h-6"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M15 19l-7-7 7-7"
+                  />
+                </svg>
+              </button>
+            )}
+
+            {/* Next Button */}
+            {currentEventImages.length > 1 && (
+              <button
+                onClick={(e) => {
+                  e.stopPropagation();
+                  goToNext();
+                }}
+                className="absolute right-4 top-1/2 transform -translate-y-1/2 text-white hover:text-gray-300 text-2xl font-bold z-10 bg-black bg-opacity-50 rounded-full w-12 h-12 flex items-center justify-center transition-colors duration-200"
+              >
+                <svg
+                  className="w-6 h-6"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M9 5l7 7-7 7"
+                  />
+                </svg>
+              </button>
+            )}
+
+            {/* Image Counter */}
+            {currentEventImages.length > 1 && (
+              <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-black bg-opacity-50 text-white px-4 py-2 rounded-full text-sm">
+                {currentImageIndex + 1} of {currentEventImages.length}
+              </div>
+            )}
+
             <img
               src={selectedImage}
               alt="Gallery Image"
