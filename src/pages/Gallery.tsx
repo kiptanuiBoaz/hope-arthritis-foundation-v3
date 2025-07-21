@@ -90,6 +90,19 @@ const Gallery: React.FC = () => {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
   const [currentImageIndex, setCurrentImageIndex] = useState<number>(0);
   const [currentEventImages, setCurrentEventImages] = useState<string[]>([]);
+  const [imageErrors, setImageErrors] = useState<Set<string>>(new Set());
+
+  const handleImageError = (imageSrc: string) => {
+    setImageErrors((prev) => new Set([...prev, imageSrc]));
+  };
+
+  const handleImageLoad = (imageSrc: string) => {
+    setImageErrors((prev) => {
+      const newSet = new Set(prev);
+      newSet.delete(imageSrc);
+      return newSet;
+    });
+  };
 
   const openModal = (imageSrc: string, eventImages: string[]) => {
     const imageIndex = eventImages.indexOf(imageSrc);

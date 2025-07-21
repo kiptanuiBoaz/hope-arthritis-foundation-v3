@@ -4,6 +4,11 @@ import BootcampBanner from "./BootcampBanner";
 // Carousel data
 const slides = [
   {
+    image: "/img/haf_thankyou.jpeg",
+    title: "Thank You",
+    subtitle: "For Your Support",
+  },
+  {
     image: "/img/heroImg0-min.webp",
     title: "Our Online Academy",
     subtitle: "Beat Childhood Arthritis",
@@ -47,6 +52,11 @@ const slides = [
     image: "/img/leveling_up.webp",
     title: "Leveling Up",
     subtitle: "Raising Standards in Care",
+  },
+  {
+    image: "/img/haf_thankyou.jpeg",
+    title: "Thank You",
+    subtitle: "For Your Support",
   },
 ];
 
