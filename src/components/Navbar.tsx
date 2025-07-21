@@ -121,6 +121,7 @@ const Navbar = () => {
         element.scrollIntoView({ behavior: "smooth" });
       }
     }
+    setIsWhatWeOfferOpen(false);
   };
 
   const scrollToOnlineAcademy = () => {
@@ -137,6 +138,8 @@ const Navbar = () => {
         }
       }
     }
+
+    setIsWhatWeOfferOpen(false);
   };
 
   const scrollToBootCamps = () => {
@@ -161,6 +164,8 @@ const Navbar = () => {
         }
       }
     }
+
+    setIsWhatWeOfferOpen(false);
   };
 
   const scrollToMasterClasses = () => {
@@ -185,6 +190,8 @@ const Navbar = () => {
         }
       }
     }
+
+    setIsWhatWeOfferOpen(false);
   };
 
   return (
