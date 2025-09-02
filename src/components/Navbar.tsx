@@ -382,6 +382,29 @@ const Navbar = () => {
                     Gallery
                   </div>
                 </Link>
+                <a
+                  href="/documents/Customer%20Service%20Charter%20draft.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block px-4 py-3 text-gray-700 hover:bg-orange-50 hover:text-orange-500 transition-colors"
+                >
+                  <div className="flex items-center">
+                    <svg
+                      className="h-4 w-4 mr-3"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+                      />
+                    </svg>
+                    Customer Service Charter
+                  </div>
+                </a>
               </div>
             )}
           </div>
@@ -786,6 +809,14 @@ const Navbar = () => {
                   >
                     Gallery
                   </Link>
+                  <a
+                    href="/documents/Customer%20Service%20Charter%20draft.pdf"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block py-2 text-gray-700 hover:text-orange-500 transition-colors"
+                  >
+                    Customer Service Charter
+                  </a>
                 </div>
               )}
             </div>
