@@ -5,6 +5,7 @@ const Hero = React.lazy(() => import("../components/Hero"));
 const About = React.lazy(() => import("../components/About"));
 const CoreValues = React.lazy(() => import("../components/CoreValues"));
 const WhatWeDo = React.lazy(() => import("../components/WhatWeDo"));
+const Partners = React.lazy(() => import("../components/Partners"));
 const CallToAction = React.lazy(() => import("../components/CallToAction"));
 const Testimonials = React.lazy(() => import("../Testimonials"));
 const Contact = React.lazy(() => import("../components/Contact"));
@@ -22,6 +23,7 @@ const Home: React.FC = () => {
       <About />
       <CoreValues />
       <WhatWeDo />
+      <Partners />
       <CallToAction />
       <TeamSction />
       <Testimonials />

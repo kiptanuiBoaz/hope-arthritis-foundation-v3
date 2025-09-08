@@ -1,4 +1,5 @@
 import React from "react";
+import { useLocation } from "react-router-dom";
 import {
   BrowserRouter as Router,
   Routes,
@@ -25,12 +26,16 @@ const Gallery = React.lazy(() => import("./pages/Gallery"));
 const BootCampRegistration = React.lazy(
   () => import("./pages/BootCampRegistration")
 );
+const RheumaFest = React.lazy(() => import("./pages/RheumaFest"));
 
 function App() {
+  const location = window.location.pathname;
+  console.log(location);
+  const hideNavbar = location === "/rheuma-fest";
   return (
-    <Router>
-      <div className="min-h-screen flex flex-col">
-        <Navbar />
+    <div className="min-h-screen flex flex-col">
+      <Router>
+        {!hideNavbar && <Navbar />}
         <main className="flex-grow">
           <React.Suspense
             fallback={
@@ -56,13 +61,14 @@ function App() {
                 path="/bootcamp-registration"
                 element={<BootCampRegistration />}
               />
+              <Route path="/rheuma-fest" element={<RheumaFest />} />
               <Route path="*" element={<Navigate to="/" replace />} />
             </Routes>
           </React.Suspense>
         </main>
         <Footer />
-      </div>
-    </Router>
+      </Router>
+    </div>
   );
 }
 
