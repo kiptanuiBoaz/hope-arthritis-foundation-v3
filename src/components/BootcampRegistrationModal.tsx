@@ -54,7 +54,7 @@ const BootcampRegistrationModal: React.FC<BootcampRegistrationModalProps> = ({
     cadre: formData.cadre,
     experience: formData.experience,
     institution: formData.institution,
-    amount_view: "KSH 13000 / USD 100",
+    amount_view: "KSH 15600 / USD 120",
     status: paid ? "Payment processed!" : "Not Paid!",
   });
 
@@ -134,7 +134,7 @@ const BootcampRegistrationModal: React.FC<BootcampRegistrationModalProps> = ({
   formData.email || "bootcamp@hopearthritisfoundation.com";
   const paystackProps = {
     email: "bootcamp@hopearthritisfoundation.com",
-    amount: 13000 * 100, // 13000 KES in cents (adjust as needed for your Paystack config)
+    amount: 15600 * 100, // 15600 KES in cents (adjust as needed for your Paystack config)
     currency: "KES",
     metadata: {
       name: "A Bedside Clinician's Delight- Paediatric Rheumatology (ABCD-PR) Bootcamp",
@@ -310,7 +310,7 @@ const BootcampRegistrationModal: React.FC<BootcampRegistrationModalProps> = ({
               <div className="pt-2">
                 <p className="text-gray-700 mb-2">Amount</p>
                 <div className="p-3 bg-gray-50 border border-gray-200 rounded-lg">
-                  <p className="font-medium">KSH 13000 / USD 100</p>
+                  <p className="font-medium">KSH 15600 / USD 120</p>
                 </div>
               </div>
 
@@ -336,7 +336,7 @@ const BootcampRegistrationModal: React.FC<BootcampRegistrationModalProps> = ({
               </h4>
               <h6 className="text-md font-sans pb-2">Paybill No: 522533</h6>
               <h6 className="text-md font-sans pb-2">Account No: 7657905</h6>
-              <h6 className="text-md font-sans pb-4">Amount: Ksh 13000</h6>
+              <h6 className="text-md font-sans pb-4">Amount: Ksh 15600</h6>
               <h6 className="text-md font-sans mb-2">
                 <span className="underline">Note: </span>
                 Once you make the payment succesfully. Kindly forward the

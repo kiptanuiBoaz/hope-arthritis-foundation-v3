@@ -5,7 +5,7 @@ interface RheumaFestProps {
 }
 
 const DEFAULT_IFRAME_SRC =
-  "https://public.eventaccumen.devligence.com/?event_id=33422706-77d0-4970-b9e7-d0594f362e80";
+  "https://public.eventaccumen.devligence.com/registration/?event_id=33422706-77d0-4970-b9e7-d0594f362e80";
 
 const RheumaFest: React.FC<RheumaFestProps> = ({ src }) => {
   return (

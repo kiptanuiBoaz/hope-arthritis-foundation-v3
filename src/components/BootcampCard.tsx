@@ -101,25 +101,47 @@ const BootcampCard = () => {
               </div>
             </div>
           </div>
-          <button
-            onClick={() => setIsRegistrationModalOpen(true)}
-            className="bg-orange-500 hover:bg-orange-600 text-white font-semibold py-3 px-8 rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 inline-flex items-center"
-          >
-            Register Now
-            <svg
-              className="w-5 h-5 ml-2"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
+          <div className="flex gap-4 mb-4">
+            <button
+              onClick={() => window.open("/documents/program.pdf", "_blank")}
+              className="border-2 border-cyan-500 text-cyan-600 hover:bg-cyan-50 font-semibold py-3 px-8 rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 inline-flex items-center bg-white"
+              style={{ textDecoration: "none" }}
             >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M13 7l5 5-5 5M5 12h13"
-              />
-            </svg>
-          </button>
+              <svg
+                className="w-5 h-5 mr-2"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M7 10l5 5 5-5M12 15V3"
+                />
+              </svg>
+              Download Program
+            </button>
+            <button
+              onClick={() => setIsRegistrationModalOpen(true)}
+              className="bg-orange-500 hover:bg-orange-600 text-white font-semibold py-3 px-8 rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 inline-flex items-center"
+            >
+              Register Now
+              <svg
+                className="w-5 h-5 ml-2"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M13 7l5 5-5 5M5 12h13"
+                />
+              </svg>
+            </button>
+          </div>
         </div>
         <div className="relative">
           <img
