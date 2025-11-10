@@ -9,6 +9,10 @@ const Partners = React.lazy(() => import("../components/Partners"));
 const CallToAction = React.lazy(() => import("../components/CallToAction"));
 const Testimonials = React.lazy(() => import("../Testimonials"));
 const Contact = React.lazy(() => import("../components/Contact"));
+const FeaturedArticles = React.lazy(
+  () => import("../components/FeaturedArticles")
+);
+const GetStarted = React.lazy(() => import("../components/GetStarted"));
 
 const Home: React.FC = () => {
   return (
@@ -23,9 +27,10 @@ const Home: React.FC = () => {
       <About />
       <CoreValues />
       <WhatWeDo />
-      <Partners />
+      <FeaturedArticles />
+      <GetStarted />
       <CallToAction />
-      <TeamSction />
+      <TeamSction /> <Partners />
       <Testimonials />
       <Contact />
     </React.Suspense>

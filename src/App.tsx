@@ -10,6 +10,7 @@ import {
 // Layout components
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import FeaturedArticles from "./components/FeaturedArticles";
 
 // Pages
 const NewsAndActivities = React.lazy(() => import("./pages/NewsAndActivities"));
@@ -27,6 +28,7 @@ const BootCampRegistration = React.lazy(
   () => import("./pages/BootCampRegistration")
 );
 const RheumaFest = React.lazy(() => import("./pages/RheumaFest"));
+const Articles = React.lazy(() => import("./pages/Articles"));
 
 function App() {
   const location = window.location.pathname;
@@ -52,6 +54,10 @@ function App() {
               <Route path="/team/:id" element={<TeamDetail />} />
               <Route path="/founder" element={<Founder />} />
               <Route path="/gallery" element={<Gallery />} />
+              <Route
+                path="/pediatric-arthritis-recognizing-the-signs-and-taking-action-early"
+                element={<Articles />}
+              />
               <Route
                 path="/patient-information"
                 element={<PatientInformation />}

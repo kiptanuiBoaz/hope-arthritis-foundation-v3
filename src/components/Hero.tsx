@@ -4,6 +4,11 @@ import BootcampBanner from "./BootcampBanner";
 // Carousel data
 const slides = [
   {
+    image: "/img/rheuma_fest_poster.png",
+    title: "Rheuma Fest 2025",
+    subtitle: "A family-friendly gathering focused on activities for children",
+  },
+  {
     image: "/img/haf_thankyou.jpeg",
     title: "Thank You",
     subtitle: "For Your Support",
@@ -96,7 +101,7 @@ const Hero = () => {
 
   return (
     <section
-      className="relative min-h-[600px] md:min-h-[700px] flex flex-col"
+      className="relative min-h-[700px] md:min-h-[900px] flex flex-col"
       style={{
         background:
           "linear-gradient(135deg, rgba(246, 133, 33, 0.15) 0%, rgba(30, 158, 176, 0.15) 100%)",
@@ -104,7 +109,7 @@ const Hero = () => {
     >
       {/* Animation styles */}
       <style>{heartbeatStyle}</style>
-      <div className="container mx-auto flex-1 flex items-center pt-10 md:pt-12 px-2 md:px-4">
+      <div className="container mx-auto flex-1 flex items-center pt-10 md:pt-4 px-2 md:px-4">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center w-full">
           {/* Text content */}
           <div className="space-y-6">
@@ -182,13 +187,13 @@ const Hero = () => {
             </div>
             {/* Carousel */}
             <div className="rounded-2xl overflow-hidden shadow-xl relative bg-white mb-10 md:mb-0">
-              <div className="relative w-full h-[340px] md:h-[400px]">
+              <div className="relative w-full h-[420px] md:h-[600px]">
                 {slides.map((slide, idx) => (
                   <img
                     key={idx}
                     src={slide.image}
                     alt={slide.subtitle}
-                    className={`w-full h-[340px] md:h-[450px] object-cover updown fade${
+                    className={`w-full h-[420px] md:h-[600px] object-cover updown fade${
                       idx === current ? " active" : ""
                     }`}
                   />

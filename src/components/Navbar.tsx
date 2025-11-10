@@ -101,25 +101,29 @@ const Navbar = () => {
     }
   };
 
+  const setTabParam = (tab: "assessment" | "join") => {
+    const url = new URL(window.location.href);
+    url.searchParams.set("tab", tab);
+    window.history.replaceState({}, "", url.toString());
+  };
+
   const scrollToSelfAssessment = () => {
     if (location.pathname !== "/") {
-      window.location.href = "/#self-assessment-section";
+      window.location.href = "/?tab=assessment#self-assessment-section";
     } else {
+      setTabParam("assessment");
       const element = document.getElementById("self-assessment-section");
-      if (element) {
-        element.scrollIntoView({ behavior: "smooth" });
-      }
+      if (element) element.scrollIntoView({ behavior: "smooth" });
     }
   };
 
   const scrollToJoinCommunity = () => {
     if (location.pathname !== "/") {
-      window.location.href = "/#join-community-section";
+      window.location.href = "/?tab=join#join-community-section";
     } else {
+      setTabParam("join");
       const element = document.getElementById("join-community-section");
-      if (element) {
-        element.scrollIntoView({ behavior: "smooth" });
-      }
+      if (element) element.scrollIntoView({ behavior: "smooth" });
     }
     setIsWhatWeOfferOpen(false);
   };
