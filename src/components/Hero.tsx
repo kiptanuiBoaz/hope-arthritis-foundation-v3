@@ -3,11 +3,11 @@ import BootcampBanner from "./BootcampBanner";
 
 // Carousel data
 const slides = [
-  {
-    image: "/img/rheuma_fest_poster.png",
-    title: "Rheuma Fest 2025",
-    subtitle: "A family-friendly gathering focused on activities for children",
-  },
+  // {
+  //   image: "/img/rheuma_fest_poster.png",
+  //   title: "Rheuma Fest 2025",
+  //   subtitle: "A family-friendly gathering focused on activities for children",
+  // },
   {
     image: "/img/haf_thankyou.jpeg",
     title: "Thank You",
@@ -109,7 +109,7 @@ const Hero = () => {
     >
       {/* Animation styles */}
       <style>{heartbeatStyle}</style>
-      <div className="container mx-auto flex-1 flex items-center pt-10 md:pt-4 px-2 md:px-4">
+      <div className="container mx-auto flex-1 flex items-center pt-10 md:pt-4 px-2 md:px-2">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center w-full">
           {/* Text content */}
           <div className="space-y-6">
@@ -226,7 +226,7 @@ const Hero = () => {
           </div>
         </div>
       </div>
-      <BootcampBanner />
+      {/* <BootcampBanner /> */}
     </section>
   );
 };

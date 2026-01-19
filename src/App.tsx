@@ -27,8 +27,8 @@ const Gallery = React.lazy(() => import("./pages/Gallery"));
 const BootCampRegistration = React.lazy(
   () => import("./pages/BootCampRegistration")
 );
-const RheumaFest = React.lazy(() => import("./pages/RheumaFest"));
 const Articles = React.lazy(() => import("./pages/Articles"));
+const Careers = React.lazy(() => import("./pages/Careers"));
 
 function App() {
   const location = window.location.pathname;
@@ -50,6 +50,7 @@ function App() {
               <Route path="/" element={<Home />} />
               <Route path="/activities" element={<NewsAndActivities />} />
               <Route path="/activities/:id" element={<ActivityDetail />} />
+              <Route path="/careers" element={<Careers />} />
               <Route path="/team" element={<TeamAll />} />
               <Route path="/team/:id" element={<TeamDetail />} />
               <Route path="/founder" element={<Founder />} />
@@ -67,7 +68,7 @@ function App() {
                 path="/bootcamp-registration"
                 element={<BootCampRegistration />}
               />
-              <Route path="/rheuma-fest" element={<RheumaFest />} />
+
               <Route path="*" element={<Navigate to="/" replace />} />
             </Routes>
           </React.Suspense>

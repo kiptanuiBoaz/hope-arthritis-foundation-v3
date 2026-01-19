@@ -67,10 +67,10 @@ export const TeamSction: React.FC = () => {
                 volunteering, please get in touch.
               </p>
               <a
-                href="/contact"
+                href="/careers"
                 className="bg-orange-500 hover:bg-orange-600 text-white font-medium py-3 px-6 rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 inline-flex items-center"
               >
-                Contact Us
+                Explore Careers
                 <svg
                   className="w-4 h-4 ml-2"
                   fill="none"

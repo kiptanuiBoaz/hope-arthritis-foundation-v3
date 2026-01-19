@@ -209,8 +209,11 @@ const Contact = () => {
 
               <div className="text-gray-600 mb-6">
                 <p className="mb-2">
-                  Hurlingham Park Building, Office Suite B6, 3rd Floor Off
-                  Argwings Kodhek Road, Hurlingham.
+                  Commodore Office Suites
+                  <br />
+                  Kindaruma Road, Kilimani
+                  <br />
+                  Office Suite 2G
                 </p>
                 <p>Registration Number: OP.218/051/21-382/12509</p>
               </div>

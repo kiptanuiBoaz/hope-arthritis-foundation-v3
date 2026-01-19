@@ -204,7 +204,7 @@ const Navbar = () => {
         isScrolled ? "shadow-lg py-2 bg-white" : "py-4 bg-transparent"
       } ${isMenuOpen ? "bg-white" : ""}`}
     >
-      <div className="container mx-auto px-4 flex justify-between items-center">
+      <div className="container mx-auto px-0 flex justify-between items-center">
         {/* Logo */}
         <Link to="/" className="flex items-center">
           <img src={logo} alt="Hope logo" height={"70px"} width={"200px"} />
@@ -424,6 +424,18 @@ const Navbar = () => {
             }`}
           >
             News & Activities
+          </Link>
+
+          <Link
+            to="/careers"
+            onClick={() => window.scrollTo(0, 0)}
+            className={`transition-colors font-medium ${
+              location.pathname === "/careers"
+                ? "text-orange-500"
+                : "text-gray-700 hover:text-orange-500"
+            }`}
+          >
+            Careers
           </Link>
 
           {/* What We Offer Dropdown */}
@@ -895,6 +907,19 @@ const Navbar = () => {
               }`}
             >
               News & Activities
+            </Link>
+
+            {/* Careers */}
+            <Link
+              to="/careers"
+              onClick={() => window.scrollTo(0, 0)}
+              className={`transition-colors font-medium py-2 border-b border-gray-100 ${
+                location.pathname === "/careers"
+                  ? "text-orange-500"
+                  : "text-gray-700 hover:text-orange-500"
+              }`}
+            >
+              Careers
             </Link>
 
             {/* Mobile Resources - Collapsible */}
