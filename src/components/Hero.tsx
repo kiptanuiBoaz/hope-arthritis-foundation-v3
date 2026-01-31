@@ -9,6 +9,16 @@ const slides = [
   //   subtitle: "A family-friendly gathering focused on activities for children",
   // },
   {
+    image: "/img/mentorship-circle.jpeg",
+    title: "Purpose Path: Hope Arthritis Foundation",
+    subtitle: "Mentorship Circle",
+  },
+  {
+    image: "/img/angela-mentorship.jpeg",
+    title: "Mentorship Circle",
+    subtitle: "Dr. Angela Migowa",
+  },
+  {
     image: "/img/haf_thankyou.jpeg",
     title: "Thank You",
     subtitle: "For Your Support",
@@ -134,7 +144,7 @@ const Hero = () => {
               <button
                 onClick={() => {
                   const element = document.getElementById(
-                    "donate-call-to-action"
+                    "donate-call-to-action",
                   );
                   if (element) {
                     element.scrollIntoView({ behavior: "smooth" });
@@ -226,7 +236,7 @@ const Hero = () => {
           </div>
         </div>
       </div>
-      {/* <BootcampBanner /> */}
+      <BootcampBanner />
     </section>
   );
 };

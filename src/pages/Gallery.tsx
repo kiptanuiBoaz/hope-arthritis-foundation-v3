@@ -10,6 +10,21 @@ interface GalleryEvent {
 
 const galleryEvents: GalleryEvent[] = [
   {
+    id: "rheuma-fest-2025",
+    title: "Rheuma Fest 2025",
+    date: "November 22, 2025",
+    images: [
+      "/img/gallery/rheuma-fest/fest1.png",
+      "/img/gallery/rheuma-fest/fest2.jpg",
+      "/img/gallery/rheuma-fest/fest3.jpg",
+      "/img/gallery/rheuma-fest/fest4.jpg",
+      "/img/gallery/rheuma-fest/fest5.jpg",
+      "/img/gallery/rheuma-fest/fest6.jpg",
+    ],
+    driveLink:
+      "https://drive.google.com/drive/folders/1fbykT32o1QOSXrafx-lH9UfeW_bzbOW7?usp=drive_link",
+  },
+  {
     id: "medical-camp-march-2025",
     title: "March 22, 2025 Medical Camp",
     date: "March 22, 2025",
@@ -166,7 +181,7 @@ const Gallery: React.FC = () => {
           {galleryEvents.map((event) => (
             <div
               key={event.id}
-              className="bg-white rounded-2xl shadow-lg p-8 border border-gray-100"
+              className="bg-white rounded-2xl shadow-lg p-2 md:p-8 border border-gray-100"
             >
               {/* Event Header */}
               <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-8">
@@ -195,7 +210,7 @@ const Gallery: React.FC = () => {
                   href={event.driveLink}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="mt-4 md:mt-0 bg-blue-500 hover:bg-blue-600 text-white font-semibold py-3 px-6 rounded-xl transition-all duration-300 flex items-center shadow-md hover:shadow-lg"
+                  className="mt-4 md:mt-0 bg-cyan-500 hover:bg-cyan-600 text-white font-semibold py-3 px-6 rounded-xl transition-all duration-300 flex items-center shadow-md hover:shadow-lg"
                 >
                   View More
                   <svg
@@ -215,7 +230,7 @@ const Gallery: React.FC = () => {
               </div>
 
               {/* Image Grid */}
-              <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                 {event.images.map((image, index) => (
                   <div
                     key={index}
@@ -225,7 +240,7 @@ const Gallery: React.FC = () => {
                     <img
                       src={image}
                       alt={`${event.title} - Image ${index + 1}`}
-                      className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+                      className="h-full w-100 object-cover group-hover:scale-105 transition-transform duration-300"
                     />
                     <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-30 transition-all duration-300 flex items-center justify-center">
                       <svg

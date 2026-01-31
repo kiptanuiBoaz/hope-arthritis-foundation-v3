@@ -9,27 +9,33 @@ const BootcampBanner = () => {
       <div className="pointer-events-auto bg-gradient-to-r from-orange-100/90 to-cyan-100/90 border border-orange-200 shadow-2xl rounded-t-2xl px-6 py-4 max-w-2xl w-full mx-2 flex items-center gap-4 relative animate-fadeInUp">
         <div className="flex-1">
           <h4 className="text-lg md:text-xl font-bold text-orange-600 mb-1">
-            RHEUMAFEST 2025
+            PURPOSE PATH: MENTORSHIP CIRCLE
           </h4>
           <p className="text-gray-700 text-sm md:text-base mb-1">
-            A family-friendly gathering focused on activities for children,
-            including sports, board games, music, art, and dance, aiming to
-            provide a fun and engaging experience for young attendees.
+            Learning, Growing & Thriving Through Shared Experience. Join us for
+            an enriching mentorship session spearheaded by Prof. Dr. Angela N.
+            Migowa.
           </p>
           <p className="text-gray-600 text-xs md:text-sm mb-1">
-            Date: <span className="font-semibold">November 22nd, 2025</span>
+            Date:{" "}
+            <span className="font-semibold">
+              February 21st, 2026 | 8AM - 12PM
+            </span>
           </p>
           <p className="text-gray-600 text-xs md:text-sm mb-4">
-            Location: <span className="font-semibold">Nairobi, Kenya</span>
+            Location:{" "}
+            <span className="font-semibold">
+              Villa Rosa Kempinski Hotel, Nairobi, Kenya
+            </span>
           </p>
-          <Link
+          <a
+            href="https://app.hopearthritisfoundation.com/academy/courses/course-view/fcce7006-c201-43af-9315-a374306e39c5/"
             target="_blank"
-            to="/rheuma-fest"
-            onClick={() => window.scrollTo(0, 0)}
+            rel="noopener noreferrer"
             className="block w-fit bg-orange-500 hover:bg-orange-600 text-white font-semibold py-2 px-5 rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl text-sm md:text-base mb-2"
           >
             Learn More & Register
-          </Link>
+          </a>
         </div>
         <button
           onClick={() => setVisible(false)}
