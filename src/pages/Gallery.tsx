@@ -10,6 +10,21 @@ interface GalleryEvent {
 
 const galleryEvents: GalleryEvent[] = [
   {
+    id: "rheuma-camp-2025",
+    title: "Paediatric Rheumatology  Bootcamp 2025",
+    date: "October 9-12, 2025",
+    images: [
+      "/img/gallery/rheumatology-bootcamp/rheuma_bc_1.jpeg",
+      "/img/gallery/rheumatology-bootcamp/rheuma_bc_2.jpeg",
+      "/img/gallery/rheumatology-bootcamp/rheuma_bc_3.jpeg",
+      "/img/gallery/rheumatology-bootcamp/rheuma_bc_4.jpeg",
+      "/img/gallery/rheumatology-bootcamp/rheuma_bc_5.jpeg",
+      "/img/gallery/rheumatology-bootcamp/rheuma_bc_6.jpeg",
+    ],
+    driveLink:
+      "https://drive.google.com/drive/folders/1sbUAx_hZNFmvkuKyz8NFMi_hWRPn3zAR?usp=drive_link",
+  },
+  {
     id: "rheuma-fest-2025",
     title: "Rheuma Fest 2025",
     date: "November 22, 2025",
@@ -240,7 +255,7 @@ const Gallery: React.FC = () => {
                     <img
                       src={image}
                       alt={`${event.title} - Image ${index + 1}`}
-                      className="h-full w-100 object-cover group-hover:scale-105 transition-transform duration-300"
+                      className="h-64 w-full object-cover group-hover:scale-105 transition-transform duration-300"
                     />
                     <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-30 transition-all duration-300 flex items-center justify-center">
                       <svg
