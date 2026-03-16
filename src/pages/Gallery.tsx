@@ -10,6 +10,21 @@ interface GalleryEvent {
 
 const galleryEvents: GalleryEvent[] = [
   {
+    title: "World Young Rheumatic Disease Day walk 2026",
+    id: "word-day-2026",
+    date: "March 14, 2026",
+    images: [
+      "/img/gallery/word-day/word1.jpg",
+      "/img/gallery/word-day/word2.jpg",
+      "/img/gallery/word-day/word3.jpg",
+      "/img/gallery/word-day/word4.jpg",
+      "/img/gallery/word-day/word5.jpg",
+      "/img/gallery/word-day/word6.jpg",
+    ],
+    driveLink:
+      "https://drive.google.com/drive/folders/1z3FddT0MNUxJdN8jIOdclYuN-rcNQY9q?usp=drive_link",
+  },
+  {
     id: "rheuma-camp-2025",
     title: "Paediatric Rheumatology  Bootcamp 2025",
     date: "October 9-12, 2025",
@@ -116,11 +131,29 @@ const galleryEvents: GalleryEvent[] = [
   },
 ];
 
+// Extract unique years from events
+const getYearFromDate = (dateStr: string): number => {
+  const match = dateStr.match(/\d{4}/);
+  return match ? parseInt(match[0]) : new Date().getFullYear();
+};
+
+const uniqueYears = [
+  ...new Set(galleryEvents.map((e) => getYearFromDate(e.date))),
+].sort((a, b) => b - a);
+
 const Gallery: React.FC = () => {
+  const [selectedYear, setSelectedYear] = useState<number | "all">("all");
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
   const [currentImageIndex, setCurrentImageIndex] = useState<number>(0);
   const [currentEventImages, setCurrentEventImages] = useState<string[]>([]);
   const [imageErrors, setImageErrors] = useState<Set<string>>(new Set());
+
+  const filteredEvents =
+    selectedYear === "all"
+      ? galleryEvents
+      : galleryEvents.filter(
+          (event) => getYearFromDate(event.date) === selectedYear,
+        );
 
   const handleImageError = (imageSrc: string) => {
     setImageErrors((prev) => new Set([...prev, imageSrc]));
@@ -191,9 +224,36 @@ const Gallery: React.FC = () => {
           </p>
         </div>
 
+        {/* Year Tabs */}
+        <div className="flex flex-wrap justify-center gap-2 mb-10">
+          <button
+            onClick={() => setSelectedYear("all")}
+            className={`px-6 py-2 rounded-full font-semibold transition-all duration-300 ${
+              selectedYear === "all"
+                ? "bg-orange-500 text-white shadow-lg"
+                : "bg-white text-gray-700 hover:bg-orange-100 border border-gray-200"
+            }`}
+          >
+            All
+          </button>
+          {uniqueYears.map((year) => (
+            <button
+              key={year}
+              onClick={() => setSelectedYear(year)}
+              className={`px-6 py-2 rounded-full font-semibold transition-all duration-300 ${
+                selectedYear === year
+                  ? "bg-orange-500 text-white shadow-lg"
+                  : "bg-white text-gray-700 hover:bg-orange-100 border border-gray-200"
+              }`}
+            >
+              {year}
+            </button>
+          ))}
+        </div>
+
         {/* Gallery Events */}
         <div className="space-y-16">
-          {galleryEvents.map((event) => (
+          {filteredEvents.map((event) => (
             <div
               key={event.id}
               className="bg-white rounded-2xl shadow-lg p-2 md:p-8 border border-gray-100"

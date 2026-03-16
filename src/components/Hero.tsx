@@ -236,7 +236,7 @@ const Hero = () => {
           </div>
         </div>
       </div>
-      <BootcampBanner />
+      {/* <BootcampBanner /> */}
     </section>
   );
 };
