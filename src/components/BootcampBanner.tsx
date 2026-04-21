@@ -1,5 +1,4 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { useState } from "react";
 
 const BootcampBanner = () => {
   const [visible, setVisible] = useState(true);
@@ -7,34 +6,51 @@ const BootcampBanner = () => {
   return (
     <div className="fixed left-0 right-0 bottom-0 z-40 flex justify-center pointer-events-none">
       <div className="pointer-events-auto bg-gradient-to-r from-orange-100/90 to-cyan-100/90 border border-orange-200 shadow-2xl rounded-t-2xl px-6 py-4 max-w-2xl w-full mx-2 flex items-center gap-4 relative animate-fadeInUp">
+        <div className="flex-shrink-0 hidden sm:block">
+          <img
+            src="/img/panelists.jpeg"
+            alt="Purpose Path Mentorship Circle Panelists"
+            className="h-36 md:h-44 w-auto rounded-xl object-cover shadow-md"
+          />
+        </div>
         <div className="flex-1">
           <h4 className="text-lg md:text-xl font-bold text-orange-600 mb-1">
             PURPOSE PATH: MENTORSHIP CIRCLE
           </h4>
           <p className="text-gray-700 text-sm md:text-base mb-1">
-            Learning, Growing & Thriving Through Shared Experience. Join us for
-            an enriching mentorship session spearheaded by Prof. Dr. Angela N.
-            Migowa.
+            The Power of the Right People: Building the Team That Enables Your
+            Purpose.
           </p>
           <p className="text-gray-600 text-xs md:text-sm mb-1">
             Date:{" "}
-            <span className="font-semibold">
-              February 21st, 2026 | 8AM - 12PM
-            </span>
+            <span className="font-semibold">May 2nd, 2026 | 8AM - 12 Noon</span>
           </p>
           <p className="text-gray-600 text-xs md:text-sm mb-4">
             Location:{" "}
             <span className="font-semibold">
-              Villa Rosa Kempinski Hotel, Nairobi, Kenya
+              Kempinski Hotel, Nairobi, Kenya
             </span>
           </p>
           <a
-            href="https://app.hopearthritisfoundation.com/academy/courses/course-view/fcce7006-c201-43af-9315-a374306e39c5/"
+            href="https://app.hopearthritisfoundation.com/academy/events/98b45898-f4f6-48d3-91ad-325626421cb8/"
             target="_blank"
             rel="noopener noreferrer"
-            className="block w-fit bg-orange-500 hover:bg-orange-600 text-white font-semibold py-2 px-5 rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl text-sm md:text-base mb-2"
+            className="inline-flex items-center w-fit bg-orange-500 hover:bg-orange-600 text-white font-semibold py-2 px-5 rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl text-sm md:text-base mb-2"
           >
-            Learn More & Register
+            Learn More & Register{" "}
+            <svg
+              className="w-4 h-4 ml-2"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M9 5l7 7-7 7"
+              />
+            </svg>
           </a>
         </div>
         <button

@@ -3,20 +3,15 @@ import BootcampBanner from "./BootcampBanner";
 
 // Carousel data
 const slides = [
-  // {
-  //   image: "/img/rheuma_fest_poster.png",
-  //   title: "Rheuma Fest 2025",
-  //   subtitle: "A family-friendly gathering focused on activities for children",
-  // },
   {
     image: "/img/mentorship-circle.jpeg",
     title: "Purpose Path: Hope Arthritis Foundation",
     subtitle: "Mentorship Circle",
   },
   {
-    image: "/img/angela-mentorship.jpeg",
-    title: "Mentorship Circle",
-    subtitle: "Dr. Angela Migowa",
+    image: "/img/panelists.jpeg",
+    title: "Purpose Path: Mentorship Circle ",
+    subtitle: "Panelists & Speakers",
   },
   {
     image: "/img/haf_thankyou.jpeg",
@@ -218,7 +213,7 @@ const Hero = () => {
                 </div>
               </div>
               {/* Dots */}
-              {/* <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-30">
+              <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-30">
                 {slides.map((_, idx) => (
                   <button
                     key={idx}
@@ -231,12 +226,12 @@ const Hero = () => {
                     aria-label={`Go to slide ${idx + 1}`}
                   />
                 ))}
-              </div> */}
+              </div>
             </div>
           </div>
         </div>
       </div>
-      {/* <BootcampBanner /> */}
+      <BootcampBanner />
     </section>
   );
 };
