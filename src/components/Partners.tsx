@@ -77,7 +77,7 @@ export default function Partners() {
               <img
                 src={partner.image}
                 alt={partner.alt}
-                className="object-contain grayscale hover:grayscale-0 transition-all duration-300"
+                className="object-contain  transition-all duration-300"
                 style={partner.style}
               />
             </div>
