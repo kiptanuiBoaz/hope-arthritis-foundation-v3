@@ -4,15 +4,16 @@ import BootcampBanner from "./BootcampBanner";
 // Carousel data
 const slides = [
   {
-    image: "/img/mentorship-circle.jpeg",
-    title: "Purpose Path: Hope Arthritis Foundation",
-    subtitle: "Mentorship Circle",
+    image: "/img/pedeatric-rheumatology.jpeg",
+    title: "ABC's initial diagnosis in pediatric rheumatology",
+    subtitle:
+      "Learnt the top 3 clinical skills for making a quick and accurate rheumatology diagnosis.",
   },
-  {
-    image: "/img/panelists.jpeg",
-    title: "Purpose Path: Mentorship Circle ",
-    subtitle: "Panelists & Speakers",
-  },
+  // {
+  //   image: "/img/panelists.jpeg",
+  //   title: "Purpose Path: Mentorship Circle ",
+  //   subtitle: "Panelists & Speakers",
+  // },
   {
     image: "/img/haf_thankyou.jpeg",
     title: "Thank You",

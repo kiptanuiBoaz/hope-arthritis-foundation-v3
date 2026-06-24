@@ -8,31 +8,34 @@ const BootcampBanner = () => {
       <div className="pointer-events-auto bg-gradient-to-r from-orange-100/90 to-cyan-100/90 border border-orange-200 shadow-2xl rounded-t-2xl px-6 py-4 max-w-2xl w-full mx-2 flex items-center gap-4 relative animate-fadeInUp">
         <div className="flex-shrink-0 hidden sm:block">
           <img
-            src="/img/panelists.jpeg"
-            alt="Purpose Path Mentorship Circle Panelists"
-            className="h-36 md:h-44 w-auto rounded-xl object-cover shadow-md"
+            src="/img/pedeatric-rheumatology.jpeg"
+            alt="ABC's initial diagnosis in pediatric rheumatology"
+            className="h-36 md:h-64 w-auto rounded-xl object-cover shadow-md"
           />
         </div>
         <div className="flex-1">
           <h4 className="text-lg md:text-xl font-bold text-orange-600 mb-1">
-            PURPOSE PATH: MENTORSHIP CIRCLE
+            ABC's initial diagnosis in pediatric rheumatology
           </h4>
           <p className="text-gray-700 text-sm md:text-base mb-1">
-            The Power of the Right People: Building the Team That Enables Your
-            Purpose.
+            Learnt the top 3 clinical skills for making a quick and accurate
+            rheumatology diagnosis to help these children live a life free of
+            pain and disability.
           </p>
           <p className="text-gray-600 text-xs md:text-sm mb-1">
-            Date:{" "}
-            <span className="font-semibold">May 2nd, 2026 | 8AM - 12 Noon</span>
+            Date: <span className="font-semibold">June 27th, 2026</span>
+          </p>
+          <p className="text-gray-600 text-xs md:text-sm mb-1">
+            Time: <span className="font-semibold">09:00 AM - 10:30 AM EAT</span>
+          </p>
+          <p className="text-gray-600 text-xs md:text-sm mb-1">
+            Price: <span className="font-semibold">KES 1500</span>
           </p>
           <p className="text-gray-600 text-xs md:text-sm mb-4">
-            Location:{" "}
-            <span className="font-semibold">
-              Kempinski Hotel, Nairobi, Kenya
-            </span>
+            <span className="font-semibold">Online Event</span>
           </p>
           <a
-            href="https://app.hopearthritisfoundation.com/academy/events/98b45898-f4f6-48d3-91ad-325626421cb8/"
+            href="https://app.hopearthritisfoundation.com/academy/events/0ebb64c9-7652-4479-99b2-954a2536edf0/"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center w-fit bg-orange-500 hover:bg-orange-600 text-white font-semibold py-2 px-5 rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl text-sm md:text-base mb-2"
