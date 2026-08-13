@@ -8,39 +8,47 @@ const BootcampBanner = () => {
       <div className="pointer-events-auto bg-gradient-to-r from-orange-100/90 to-cyan-100/90 border border-orange-200 shadow-2xl rounded-t-2xl px-6 py-4 max-w-2xl w-full mx-2 flex items-center gap-4 relative animate-fadeInUp">
         <div className="flex-shrink-0 hidden sm:block">
           <img
-            src="/img/pedeatric-rheumatology.jpeg"
-            alt="ABC's initial diagnosis in pediatric rheumatology"
+            src="/img/mentorship_circle.jpeg"
+            alt="Purpose Path Mentorship Circle Edition 3 flyer"
             className="h-36 md:h-64 w-auto rounded-xl object-cover shadow-md"
           />
         </div>
         <div className="flex-1">
           <h4 className="text-lg md:text-xl font-bold text-orange-600 mb-1">
-            ABC's initial diagnosis in pediatric rheumatology
+            Purpose Path Mentorship Circle (Edition 3)
           </h4>
           <p className="text-gray-700 text-sm md:text-base mb-1">
-            Learnt the top 3 clinical skills for making a quick and accurate
-            rheumatology diagnosis to help these children live a life free of
-            pain and disability.
+            Building authentic brands that create multigenerational impact.
           </p>
           <p className="text-gray-600 text-xs md:text-sm mb-1">
-            Date: <span className="font-semibold">June 27th, 2026</span>
+            Moderator: <span className="font-semibold">Karen Kutto</span>
           </p>
           <p className="text-gray-600 text-xs md:text-sm mb-1">
-            Time: <span className="font-semibold">09:00 AM - 10:30 AM EAT</span>
+            Speakers:{" "}
+            <span className="font-semibold">
+              Derek Bbanga, Prof. Dr. Angela Migowa
+            </span>
           </p>
           <p className="text-gray-600 text-xs md:text-sm mb-1">
-            Price: <span className="font-semibold">KES 1500</span>
+            Date: <span className="font-semibold">29/08/2026</span>
+          </p>
+          <p className="text-gray-600 text-xs md:text-sm mb-1">
+            Time: <span className="font-semibold">8:00 AM - 12:00 PM EAT</span>
+          </p>
+          <p className="text-gray-600 text-xs md:text-sm mb-1">
+            Venue:{" "}
+            <span className="font-semibold">Villa Rosa Kempinski Hotel</span>
           </p>
           <p className="text-gray-600 text-xs md:text-sm mb-4">
-            <span className="font-semibold">Online Event</span>
+            <span className="font-semibold">In-Person Event</span>
           </p>
           <a
-            href="https://app.hopearthritisfoundation.com/academy/events/0ebb64c9-7652-4479-99b2-954a2536edf0/"
+            href="https://app.hopearthritisfoundation.com/academy/events/343bfc56-ab88-4613-af7f-4604bf5faece/"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center w-fit bg-orange-500 hover:bg-orange-600 text-white font-semibold py-2 px-5 rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl text-sm md:text-base mb-2"
           >
-            Learn More & Register{" "}
+            Register Now{" "}
             <svg
               className="w-4 h-4 ml-2"
               fill="none"
