@@ -4,11 +4,32 @@ import BootcampBanner from "./BootcampBanner";
 // Carousel data
 const slides = [
   {
-    image: "/img/pedeatric-rheumatology.jpeg",
-    title: "ABC's initial diagnosis in pediatric rheumatology",
-    subtitle:
-      "Learnt the top 3 clinical skills for making a quick and accurate rheumatology diagnosis.",
+    image: "/img/caren.jpeg",
+    title: "Purpose Path Mentorship Circle",
+    subtitle: "Caren Kutto — Marketing & Communications Specialist",
   },
+  {
+    image: "/img/derek.jpeg",
+    title: "Purpose Path Mentorship Circle",
+    subtitle: "Derek Bbanga — Executive Coach, Public Image Africa",
+  },
+  {
+    image: "/img/mokoloo.jpeg",
+    title: "Purpose Path Mentorship Circle",
+    subtitle: "H.E. Amb. Makoloo Maurice — Kenya's High Commissioner to the UK",
+  },
+  {
+    image: "/img/angie.jpeg",
+    title: "Purpose Path Mentorship Circle",
+    subtitle: "Prof. Dr. Angela N. Migowa — Paediatric Rheumatologist",
+  },
+
+  // {
+  //   image: "/img/pedeatric-rheumatology.jpeg",
+  //   title: "ABC's initial diagnosis in pediatric rheumatology",
+  //   subtitle:
+  //     "Learnt the top 3 clinical skills for making a quick and accurate rheumatology diagnosis.",
+  // },
   // {
   //   image: "/img/panelists.jpeg",
   //   title: "Purpose Path: Mentorship Circle ",
@@ -24,21 +45,21 @@ const slides = [
     title: "Our Online Academy",
     subtitle: "Beat Childhood Arthritis",
   },
-  {
-    image: "/img/medical_camp.webp",
-    title: "Medical Camp",
-    subtitle: "Community Outreach & Care",
-  },
-  {
-    image: "/img/x_space_poster.webp",
-    title: "X Space Poster",
-    subtitle: "Awareness & Advocacy",
-  },
-  {
-    image: "/img/health_workers_bootcamp.webp",
-    title: "Dr. Angela Poster",
-    subtitle: "Leadership in Pediatric Rheumatology",
-  },
+  // {
+  //   image: "/img/medical_camp.webp",
+  //   title: "Medical Camp",
+  //   subtitle: "Community Outreach & Care",
+  // },
+  // {
+  //   image: "/img/x_space_poster.webp",
+  //   title: "X Space Poster",
+  //   subtitle: "Awareness & Advocacy",
+  // },
+  // {
+  //   image: "/img/health_workers_bootcamp.webp",
+  //   title: "Dr. Angela Poster",
+  //   subtitle: "Leadership in Pediatric Rheumatology",
+  // },
   {
     image: "/img/heroImg1-min.webp",
     title: "Expert-Led Workshops",
@@ -59,11 +80,11 @@ const slides = [
     title: "Research & Innovation",
     subtitle: "Advancing Pediatric Care",
   },
-  {
-    image: "/img/leveling_up.webp",
-    title: "Leveling Up",
-    subtitle: "Raising Standards in Care",
-  },
+  // {
+  //   image: "/img/leveling_up.webp",
+  //   title: "Leveling Up",
+  //   subtitle: "Raising Standards in Care",
+  // },
   {
     image: "/img/haf_thankyou.jpeg",
     title: "Thank You",
@@ -115,8 +136,8 @@ const Hero = () => {
     >
       {/* Animation styles */}
       <style>{heartbeatStyle}</style>
-      <div className="container mx-auto flex-1 flex items-center pt-10 md:pt-4 px-2 md:px-2">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center w-full">
+      <div className="container mx-auto flex-1 flex items-center pt-10 md:pt-4 px-2 md:px-0">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 items-center w-full">
           {/* Text content */}
           <div className="space-y-6">
             <h1 className="text-4xl md:text-5xl font-extrabold leading-tight text-gray-800 mt-[80px] md:mt-[40px]">
@@ -193,25 +214,27 @@ const Hero = () => {
             </div>
             {/* Carousel */}
             <div className="rounded-2xl overflow-hidden shadow-xl relative bg-white mb-10 md:mb-0">
-              <div className="relative w-full h-[420px] md:h-[600px]">
+              <div className="relative w-full h-[420px] md:h-[580px]">
                 {slides.map((slide, idx) => (
                   <img
                     key={idx}
                     src={slide.image}
                     alt={slide.subtitle}
-                    className={`w-full h-[420px] md:h-[600px] object-cover updown fade${
+                    className={`w-full h-[420px] md:h-[580px] object-cover updown fade${
                       idx === current ? " active" : ""
                     }`}
                   />
                 ))}
-                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-6 z-20">
-                  <h3 className="text-white font-semibold text-xl mb-1">
-                    {slides[current].title}
-                  </h3>
-                  <p className="text-white/80 text-lg font-medium">
-                    {slides[current].subtitle}
-                  </p>
-                </div>
+                {current > 4 && (
+                  <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-black/30 p-6 z-20">
+                    <h3 className="text-white font-semibold text-xl mb-1">
+                      {slides[current].title}
+                    </h3>
+                    <p className="text-white/80 text-lg font-medium">
+                      {slides[current].subtitle}
+                    </p>
+                  </div>
+                )}
               </div>
               {/* Dots */}
               <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-30">
@@ -232,7 +255,7 @@ const Hero = () => {
           </div>
         </div>
       </div>
-      <BootcampBanner />
+      {/* <BootcampBanner /> */}
     </section>
   );
 };
