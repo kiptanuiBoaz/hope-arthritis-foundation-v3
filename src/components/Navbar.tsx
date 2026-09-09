@@ -24,14 +24,14 @@ const Navbar = () => {
 
   // Function to toggle mobile menu sections (only one open at a time)
   const toggleMobileSection = (
-    section: "about" | "whatWeOffer" | "resources"
+    section: "about" | "whatWeOffer" | "resources",
   ) => {
     setMobileAboutOpen(section === "about" ? !mobileAboutOpen : false);
     setMobileWhatWeOfferOpen(
-      section === "whatWeOffer" ? !mobileWhatWeOfferOpen : false
+      section === "whatWeOffer" ? !mobileWhatWeOfferOpen : false,
     );
     setMobileResourcesOpen(
-      section === "resources" ? !mobileResourcesOpen : false
+      section === "resources" ? !mobileResourcesOpen : false,
     );
   };
 
@@ -158,7 +158,7 @@ const Navbar = () => {
           document,
           null,
           XPathResult.FIRST_ORDERED_NODE_TYPE,
-          null
+          null,
         ).singleNodeValue as HTMLElement;
 
         if (bootCampsHeading) {
@@ -184,7 +184,7 @@ const Navbar = () => {
           document,
           null,
           XPathResult.FIRST_ORDERED_NODE_TYPE,
-          null
+          null,
         ).singleNodeValue as HTMLElement;
 
         if (masterClassesHeading) {
@@ -365,6 +365,28 @@ const Navbar = () => {
                   </div>
                 </Link>
                 <Link
+                  to="/careers"
+                  onClick={() => window.scrollTo(0, 0)}
+                  className="block px-4 py-3 text-gray-700 hover:bg-orange-50 hover:text-orange-500 transition-colors"
+                >
+                  <div className="flex items-center">
+                    <svg
+                      className="h-4 w-4 mr-3"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m10 0H4a2 2 0 00-2 2v7a2 2 0 002 2h16a2 2 0 002-2V8a2 2 0 00-2-2z"
+                      />
+                    </svg>
+                    Careers
+                  </div>
+                </Link>
+                <Link
                   onClick={() => window.scrollTo(0, 0)}
                   to="/gallery"
                   className="block px-4 py-3 text-gray-700 hover:bg-orange-50 hover:text-orange-500 transition-colors"
@@ -426,17 +448,14 @@ const Navbar = () => {
             News & Activities
           </Link>
 
-          <Link
-            to="/careers"
-            onClick={() => window.scrollTo(0, 0)}
-            className={`transition-colors font-medium ${
-              location.pathname === "/careers"
-                ? "text-orange-500"
-                : "text-gray-700 hover:text-orange-500"
-            }`}
+          <a
+            href="https://app.hopearthritisfoundation.com/academy/events/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="transition-colors font-medium text-gray-700 hover:text-orange-500"
           >
-            Careers
-          </Link>
+            Events
+          </a>
 
           {/* What We Offer Dropdown */}
           <div className="relative" ref={whatWeOfferRef}>
@@ -467,6 +486,34 @@ const Navbar = () => {
                 id="what-we-offer-dropdown"
                 className="absolute top-full left-0 mt-2 w-80 bg-white rounded-xl shadow-xl border border-gray-100 py-2 z-50"
               >
+                <a
+                  href="https://app.hopearthritisfoundation.com/academy/events/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block w-full text-left px-4 py-3 text-gray-700 hover:bg-orange-50 hover:text-orange-500 transition-colors"
+                >
+                  <div className="flex items-center">
+                    <svg
+                      className="h-4 w-4 mr-3 flex-shrink-0"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+                      />
+                    </svg>
+                    <div>
+                      <div className="font-medium">Events</div>
+                      <p className="text-xs text-gray-500">
+                        Explore upcoming community and learning events
+                      </p>
+                    </div>
+                  </div>
+                </a>
                 <button
                   onClick={scrollToOnlineAcademy}
                   className="block w-full text-left px-4 py-3 text-gray-700 hover:bg-orange-50 hover:text-orange-500 transition-colors"
@@ -861,6 +908,14 @@ const Navbar = () => {
 
               {mobileWhatWeOfferOpen && (
                 <div className="pl-4 border-l-2 border-gray-100 mt-2 space-y-1">
+                  <a
+                    href="https://app.hopearthritisfoundation.com/academy/events/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block w-full py-2 text-gray-700 hover:text-orange-500 transition-colors text-left"
+                  >
+                    Events
+                  </a>
                   <button
                     onClick={scrollToOnlineAcademy}
                     className="block w-full py-2 text-gray-700 hover:text-orange-500 transition-colors text-left"
@@ -909,18 +964,15 @@ const Navbar = () => {
               News & Activities
             </Link>
 
-            {/* Careers */}
-            <Link
-              to="/careers"
-              onClick={() => window.scrollTo(0, 0)}
-              className={`transition-colors font-medium py-2 border-b border-gray-100 ${
-                location.pathname === "/careers"
-                  ? "text-orange-500"
-                  : "text-gray-700 hover:text-orange-500"
-              }`}
+            {/* Events link in mobile top-level area */}
+            <a
+              href="https://app.hopearthritisfoundation.com/academy/events/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="transition-colors font-medium py-2 border-b border-gray-100 text-gray-700 hover:text-orange-500"
             >
-              Careers
-            </Link>
+              Events
+            </a>
 
             {/* Mobile Resources - Collapsible */}
             <div className="border-b border-gray-100 pb-2">
