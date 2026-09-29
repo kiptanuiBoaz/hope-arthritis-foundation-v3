@@ -14,6 +14,12 @@ const partners = [
     style: { height: "96px", maxWidth: "320px" },
   },
   {
+    name: "CareCall",
+    image: "/partners/care_call_logo.jpg",
+    alt: "CareCall",
+    style: { height: "120px", maxWidth: "320px" },
+  },
+  {
     name: "Israel & Associates C.P.A",
     image: "/partners/israel.jpg",
     alt: "Israel & Associates C.P.A",
