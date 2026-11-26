@@ -283,7 +283,7 @@ const Careers: React.FC = () => {
                           <span className="font-semibold">
                             Application Deadline:
                           </span>{" "}
-                          21st August 2026
+                          30<sup>th</sup> November 2026
                         </p>
                         <p className="mt-2">
                           Interested persons should send the application
